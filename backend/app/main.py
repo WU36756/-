@@ -20,7 +20,7 @@ import time
 from urllib.parse import urlparse
 from collections import defaultdict, deque
 
-from . import cabinet, cache, chitchat, conversations, crisis, db, demo_reset, food, language, memory, meds, notify, plan, profile as profile_store, psych, push as push_store, resp_cache, router, sessions
+from . import cabinet, cache, chat_mode, chitchat, conversations, crisis, db, demo_reset, food, language, memory, meds, notify, plan, profile as profile_store, psych, push as push_store, resp_cache, router, sessions
 from .config import settings
 from .llm import LLMClient
 from .meta import describe
@@ -86,6 +86,7 @@ class AnalyzeRequest(BaseModel):
     symptoms: str = Field(min_length=1, max_length=2000)
     answers: dict[str, str] | None = None
     provider: str | None = Field(default=None, pattern="^(mock|deepseek|custom)$")
+    chat_mode: bool = False
 
 
 @app.get("/")
@@ -538,6 +539,135 @@ def _route_and_answer(symptoms: str, provider: str | None, answers: dict | None,
     return result
 
 
+def _chat_result(base: dict | None, reply: str, provider: str,
+                 fallback_reason: str | None = None,
+                 intent: dict | None = None) -> dict:
+    reply = (reply or "").strip() or "我先确认一下：你是身体不舒服、情绪方面，还是饮食营养问题？"
+    if (base and base.get("kind") in ("medical", "psych", "food")
+            and "不替代面诊" not in reply and "信息参考" not in reply):
+        reply += "\n\n信息参考，不替代面诊。"
+    base = base or {}
+    trace = list(base.get("trace") or [])
+    trace.append({
+        "step": "chat",
+        "agent": "健康对话 Agent",
+        "title": "把证据说成人话",
+        "summary": "只处理身体、心理、膳食三类健康问题" if provider != "local"
+                   else "确定性拒答/澄清，不调用模型",
+    })
+    result = {
+        "kind": "chat", "mode": "chat", "chat_reply": reply,
+        "provider": provider, "fallback_reason": fallback_reason,
+        "intent": intent or base.get("intent") or {"intent": "chat"},
+        "sources": base.get("sources") or [],
+        "triage": base.get("triage"),
+        "lifestyle": base.get("lifestyle"),
+        "tcm": base.get("tcm"),
+        "western": base.get("western"),
+        "differentiation": base.get("differentiation"),
+        "topic": base.get("topic"),
+        "report_markdown": base.get("report_markdown"),
+        "followups": base.get("followups"),
+        "trace": trace,
+    }
+    if base.get("memory") is not None:
+        result["memory"] = base.get("memory")
+    if base.get("review") is not None:
+        result["review"] = base.get("review")
+    return result
+
+
+def _guarded_chat(*args, **kwargs) -> dict:
+    if not _ANALYZE_SLOTS.acquire(blocking=False):
+        raise HTTPException(status_code=503, detail="当前问诊人数较多，请稍后再试")
+    try:
+        return _chat_answer(*args, **kwargs)
+    finally:
+        _ANALYZE_SLOTS.release()
+
+
+def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
+                 conversation_id: str | None = None,
+                 force_intent: str | None = None,
+                 api_base: str | None = None,
+                 api_model: str | None = None,
+                 api_key: str | None = None,
+                 api_models: list[str] | None = None,
+                 api_format: str = "openai",
+                 specialist: str | None = None,
+                 fresh_context: bool = False) -> dict:
+    scope = chat_mode.scope(symptoms, force_intent)
+    if scope["action"] == "refuse":
+        return _chat_result(None, chat_mode.refusal_text(), "local",
+                            intent={"intent": "off_topic", "confidence": 0.95,
+                                    "reason": "超出健康话题范围"})
+    if scope["action"] == "clarify":
+        return _chat_result(None, chat_mode.clarify_text(), "local",
+                            intent={"intent": "clarify", "confidence": 0.4,
+                                    "reason": "健康领域内但信息不足"})
+    if scope["action"] == "smalltalk":
+        base = chitchat.respond(symptoms)
+        return _chat_result(base, chat_mode.smalltalk_text(base), "local",
+                            intent={"intent": "chitchat", "confidence": 0.9,
+                                    "reason": "问候/能力询问"})
+
+    # Get the deterministic evidence first.  provider=mock means this is local
+    # and does not spend another model call.
+    base = _route_and_answer(
+        symptoms, provider="mock", answers=answers,
+        conversation_id=conversation_id, force_intent=force_intent,
+        api_base=api_base, api_model=api_model, api_key=api_key,
+        api_models=api_models, api_format=api_format, specialist=specialist,
+        fresh_context=fresh_context,
+    )
+    if base.get("kind") == "clarify":
+        return _chat_result(base, chat_mode.clarify_text(), "local",
+                            intent=base.get("intent"))
+    if base.get("kind") == "psych" and base.get("crisis"):
+        return _chat_result(base, chat_mode.local_reply(base), "local",
+                            intent=base.get("intent"))
+    if (base.get("triage") or {}).get("urgent"):
+        return _chat_result(base, chat_mode.local_reply(base), "local",
+                            intent=base.get("intent"))
+
+    if not provider or provider == "mock":
+        return _chat_result(base, chat_mode.local_reply(base), "mock",
+                            intent=base.get("intent"))
+
+    client = None
+    try:
+        if api_base:
+            _validate_custom_base(api_base)
+        client = LLMClient(provider=provider, api_key=api_key,
+                           base_url=api_base, model=api_model,
+                           models=api_models, api_format=api_format)
+    except HTTPException:
+        raise
+    except Exception:
+        client = None
+
+    if client is None or not client.live:
+        return _chat_result(base, chat_mode.local_reply(base), "mock",
+                            "model client unavailable", intent=base.get("intent"))
+
+    history = [] if fresh_context else (
+        conversations.recent_dialogue(conversation_id, 8) if conversation_id else []
+    )
+    try:
+        reply = client.chat(chat_mode.prompt_messages(
+            symptoms, base, history, profile_store.get(),
+            meds.list_active(), memory.recent_notes(5),
+        ))
+    except Exception as error:
+        return _chat_result(base, chat_mode.local_reply(base), "mock-fallback",
+                            f"model unavailable: {str(error)[:200]}",
+                            intent=base.get("intent"))
+    if not (reply or "").strip():
+        return _chat_result(base, chat_mode.local_reply(base), "mock-fallback",
+                            "model returned empty content", intent=base.get("intent"))
+    return _chat_result(base, reply, provider, intent=base.get("intent"))
+
+
 class MedicationIn(BaseModel):
     name: str = Field(min_length=1, max_length=60)
     dose: str = ""
@@ -871,6 +1001,7 @@ class MessageIn(BaseModel):
     api_format: str = Field(default="openai", pattern="^(openai|anthropic)$")
     specialist: str | None = Field(default=None, pattern="^(medical|psych|food)$")
     fresh_context: bool = False
+    chat_mode: bool = False
 
 
 @app.get("/api/conversations")
@@ -910,7 +1041,16 @@ def delete_conversation(conversation_id: str) -> dict:
 def conversation_message(conversation_id: str, payload: MessageIn) -> dict:
     if conversations.get(conversation_id) is None:
         return JSONResponse(status_code=404, content={"detail": "conversation not found"})
-    result = _guarded_route(payload.symptoms, payload.provider, payload.answers,
+    if payload.chat_mode:
+        result = _guarded_chat(payload.symptoms, payload.provider, payload.answers,
+                               conversation_id=conversation_id,
+                               force_intent=payload.force_intent,
+                               api_base=payload.api_base, api_model=payload.api_model,
+                               api_key=payload.api_key, api_models=payload.api_models,
+                               api_format=payload.api_format, specialist=payload.specialist,
+                               fresh_context=payload.fresh_context)
+    else:
+        result = _guarded_route(payload.symptoms, payload.provider, payload.answers,
                                conversation_id=conversation_id,
                                force_intent=payload.force_intent,
                                api_base=payload.api_base, api_model=payload.api_model,
@@ -965,6 +1105,18 @@ def ablation_data() -> dict:
 @app.post("/api/analyze")
 def analyze_endpoint(request: AnalyzeRequest) -> dict:
     started = time.time()
+    if request.chat_mode:
+        result = _guarded_chat(
+            request.symptoms, request.provider, request.answers,
+            force_intent=request.force_intent,
+            api_base=request.api_base, api_model=request.api_model,
+            api_key=request.api_key, api_models=request.api_models,
+            api_format=request.api_format, specialist=request.specialist,
+            fresh_context=request.fresh_context,
+        )
+        result["cached"] = False
+        result["elapsed_ms"] = int((time.time() - started) * 1000)
+        return result
     observed = memory.observe(request.symptoms)
     memory.sync_profile(profile_store)
     provider = request.provider or ""

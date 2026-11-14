@@ -1,7 +1,7 @@
 
 const $ = s => document.querySelector(s);
 const thread = $('#thread');
-const state = { symptoms: '', answers: {}, busy: false, autoScroll: true, lastTrace: [], conversationId: null, answerLabels: {}, freshContext: false };
+const state = { symptoms: '', answers: {}, busy: false, autoScroll: true, lastTrace: [], conversationId: null, answerLabels: {}, freshContext: false, chatMode: true };
 let provider = 'mock';
 
 function esc(t) {
@@ -261,11 +261,31 @@ function detailsBlock(data) {
   return html;
 }
 
+function chatAnswerHtml(data) {
+  const providerLabel = data.provider === 'deepseek' ? 'DeepSeek 撰写'
+    : data.provider === 'mock-fallback' ? '模型降级 · 内置知识'
+    : data.provider === 'mock' ? '内置演示' : '本地规则';
+  const sources = (data.sources || []).slice(0, 6).map((src, index) =>
+    `<a href="${esc(src.url)}" target="_blank" rel="noopener">[${index + 1}] ${esc(src.title)}</a>`
+  ).join(' · ');
+  const full = data.report_markdown
+    ? `<details><summary>查看完整报告 / 证据</summary><div class="inner" style="white-space:pre-wrap">${esc(data.report_markdown)}</div></details>`
+    : '';
+  const replyHtml = esc(data.chat_reply || '').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.8;font-size:14.5px">${replyHtml}</div>`
+    + `<div class="chat-meta" style="margin-top:10px;font-size:12px;color:#64748b">`
+    + `<span class="tag">${esc(providerLabel)}</span>`
+    + (sources ? `<div style="margin-top:6px;line-height:1.7">${sources}</div>` : '')
+    + `</div>`
+    + '<div class="ai-note">本回答由 AI 生成，内容仅供参考，请仔细甄别</div>'
+    + full;
+}
+
 async function analyze(symptoms, answers) {
   const response = await fetch('/api/analyze', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ symptoms, answers, provider }),
+    body: JSON.stringify({ symptoms, answers, provider, chat_mode: !!state.chatMode }),
   });
   if (!response.ok) throw new Error('HTTP ' + response.status);
   return response.json();
@@ -320,6 +340,7 @@ async function send(text, isAnswer, silentUser) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         symptoms: state.symptoms, answers: state.answers, provider, user_text: text,
+        chat_mode: !!state.chatMode,
         force_intent: state.forceIntent || null,
         fresh_context: !!state.freshContext,
         api_base: custom ? custom.base : null,
@@ -332,6 +353,13 @@ async function send(text, isAnswer, silentUser) {
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const data = (await response.json()).result;
     typing.remove();
+    if (data.kind === 'chat') {
+      addAssistant(chatAnswerHtml(data));
+      state.lastTrace = data.trace || [];
+      updateTraceFab();
+      loadConversations();
+      return;
+    }
     if (data.kind === 'chitchat') {
       addAssistant(chitchatAnswerHtml(data));
       state.lastTrace = data.trace || [];
@@ -981,6 +1009,7 @@ function newChat() {
 }
 
 function historyResultHtml(data) {
+  if (data.kind === 'chat') return chatAnswerHtml(data);
   return runStrip(data) + lead(data) + summary(data)
     + tcmSection(data) + westernSection(data) + lifestyleSection(data) + sourceChip(data)
     + '<div class="ai-note">本回答由 AI 生成，内容仅供参考，请仔细甄别</div>' + detailsBlock(data);
@@ -1000,7 +1029,8 @@ async function openConversation(conversationId) {
     (data.turns || []).forEach(turn => {
       addUser(turn.user_text || '');
       const kind = turn.result && turn.result.kind;
-      addAssistant(kind === 'food' ? foodAnswerHtml(turn.result)
+      addAssistant(kind === 'chat' ? chatAnswerHtml(turn.result)
+        : kind === 'food' ? foodAnswerHtml(turn.result)
         : kind === 'food_guide' ? foodGuideHtml(turn.result)
         : kind === 'psych' ? psychAnswerHtml(turn.result)
         : kind === 'chitchat' ? chitchatAnswerHtml(turn.result)
@@ -1023,6 +1053,13 @@ document.querySelectorAll('.fresh-context').forEach(box => {
   box.onchange = () => {
     state.freshContext = box.checked;
     document.querySelectorAll('.fresh-context').forEach(other => { other.checked = box.checked; });
+  };
+});
+document.querySelectorAll('.chat-mode').forEach(box => {
+  box.checked = state.chatMode;
+  box.onchange = () => {
+    state.chatMode = box.checked;
+    document.querySelectorAll('.chat-mode').forEach(other => { other.checked = box.checked; });
   };
 });
 document.getElementById('newChatBtn').onclick = newChat;

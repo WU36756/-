@@ -121,6 +121,29 @@ def recent_user_texts(conversation_id: str, limit: int = 3) -> list[str]:
     return [row["user_text"] for row in reversed(rows) if row["user_text"]]
 
 
+def recent_dialogue(conversation_id: str, limit: int = 8) -> list[dict[str, str]]:
+    """Return recent user/assistant turns for the conversational layer."""
+    with _connect() as conn:
+        rows = conn.execute(
+            "SELECT user_text, result_json FROM turns WHERE conversation_id = ? ORDER BY id DESC LIMIT ?",
+            (conversation_id, limit),
+        ).fetchall()
+    dialogue: list[dict[str, str]] = []
+    for row in reversed(rows):
+        user_text = (row["user_text"] or "").strip()
+        if user_text:
+            dialogue.append({"role": "user", "content": user_text[:800]})
+        try:
+            result = json.loads(row["result_json"] or "{}")
+        except (TypeError, ValueError):
+            result = {}
+        assistant = (result.get("chat_reply") or result.get("report_markdown")
+                     or result.get("message") or result.get("reply") or "")
+        if assistant:
+            dialogue.append({"role": "assistant", "content": str(assistant)[:1200]})
+    return dialogue[-limit:]
+
+
 def recent_answers(conversation_id: str, limit: int = 3) -> dict[str, str]:
     """Merge follow-up answers from recent medical turns in this conversation."""
     with _connect() as conn:

@@ -130,7 +130,7 @@
     <div class="composer" id="heroComposer">
       <textarea id="inputHero" rows="2" placeholder="描述你的症状，例如：发烧、咽喉痛、怕冷，两天了"></textarea>
       <div class="bar">
-        <div class="left"><select class="modelSel" title="模型"><option value="mock">Mock · 不耗额度</option><option value="deepseek">DeepSeek · 真实模型</option><option value="custom">自定义接口（Kimi 等）</option></select><label class="fresh-toggle" title="本次提问不参考上文，避免旧症状串进来"><input type="checkbox" class="fresh-context" /> 新话题</label></div>
+        <div class="left"><select class="modelSel" title="模型"><option value="mock">Mock · 不耗额度</option><option value="deepseek">DeepSeek · 真实模型</option><option value="custom">自定义接口（Kimi 等）</option></select><label class="fresh-toggle chat-toggle" title="健康对话模式：只聊身体、心理、膳食；关闭则看结构化报告"><input type="checkbox" class="chat-mode" checked /> 健康对话</label><label class="fresh-toggle" title="本次提问不参考上文，避免旧症状串进来"><input type="checkbox" class="fresh-context" /> 新话题</label></div>
         <button class="send" id="sendHero" title="发送">↑</button>
       </div>
     </div>
@@ -150,7 +150,7 @@
     <div class="composer">
       <textarea id="inputDock" rows="1" placeholder="继续描述症状，或选择上面的选项"></textarea>
       <div class="bar">
-        <div class="left"><select class="modelSel" title="模型"><option value="mock">Mock</option><option value="deepseek">DeepSeek</option><option value="custom">自定义接口</option></select><label class="fresh-toggle" title="本次提问不参考上文，避免旧症状串进来"><input type="checkbox" class="fresh-context" /> 新话题</label><span style="font-size:12px;color:#9aa3af">信息参考，不构成诊断或处方</span></div>
+        <div class="left"><select class="modelSel" title="模型"><option value="mock">Mock</option><option value="deepseek">DeepSeek</option><option value="custom">自定义接口</option></select><label class="fresh-toggle chat-toggle" title="健康对话模式：只聊身体、心理、膳食；关闭则看结构化报告"><input type="checkbox" class="chat-mode" checked /> 健康对话</label><label class="fresh-toggle" title="本次提问不参考上文，避免旧症状串进来"><input type="checkbox" class="fresh-context" /> 新话题</label><span style="font-size:12px;color:#9aa3af">信息参考，不构成诊断或处方</span></div>
         <button class="send" id="sendDock" title="发送">↑</button>
       </div>
     </div>
@@ -331,6 +331,6 @@
   </div>
 </div>
 
-<script src="/static/app.js?v=20261114a" defer></script>
+<script src="/static/app.js?v=20261114c" defer></script>
 </body>
 </html>
