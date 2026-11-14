@@ -51,9 +51,9 @@ uv run uvicorn app.main:app --host 0.0.0.0 --port 8100
 APP_LLM_PROVIDER=deepseek
 APP_DEEPSEEK_API_KEY=sk-...
 APP_MODEL=deepseek-flash
-APP_MAX_TOKENS=20000
+APP_MAX_TOKENS=60000
 APP_REASONING_EFFORT=low
-APP_TIMEOUT_SECONDS=180
+APP_TIMEOUT_SECONDS=240
 ```
 
 也可以在页面里选 **自定义接口**，用自己的 OpenAI / Anthropic 兼容供应商；模型名通过“拉取模型”勾选，不需要手填。
@@ -109,7 +109,7 @@ docker-compose.yml
 - 服务器直连 OpenAI 官方可能超时；可使用代理、网关，或改用 DeepSeek / Kimi / 通义 / 智谱等。
 - 自定义接口必须支持 `/models` 才能自动拉取模型；不支持时会出现“手动填一个”的兜底。
 - Web Push 需要 HTTPS、浏览器通知权限和 Service Worker；HTTP 下只能页面内提醒。
-- 同时最多 6 个问诊（`_ANALYZE_SLOTS`，可用 `APP_MAX_CONCURRENT_ANALYSES` 调整），超过会返回 503；每会话每分钟 60 次请求，超过返回 429。
+- 同时最多 6 个问诊（`_ANALYZE_SLOTS`），超过会返回 503；每会话每分钟 60 次请求，超过返回 429。
 
 ## 比赛材料
 
