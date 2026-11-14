@@ -29,6 +29,9 @@ class Settings(BaseSettings):
     demo_reset_enabled: bool = True
     allow_private_custom: bool = False
     rate_limit_per_minute: int = 60
+    # The demo box has 2 vCPU / 1.7 GB; 6 covers a small judging panel while
+    # keeping a bounded queue instead of allowing unbounded thread growth.
+    max_concurrent_analyses: int = 6
     access_code: str = ""
     secret_key: str = ""
     cookie_secure: bool = False

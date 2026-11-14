@@ -17,3 +17,4 @@ backend/data/evidence_cache.json
 dist/
 node_modules/
 .DS_Store
+.git-credentials*

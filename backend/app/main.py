@@ -103,7 +103,7 @@ def demo_reset_endpoint() -> dict:
 
 
 _RATE_LIMIT: dict[str, deque] = defaultdict(deque)
-_ANALYZE_SLOTS = threading.BoundedSemaphore(2)
+_ANALYZE_SLOTS = threading.BoundedSemaphore(max(1, settings.max_concurrent_analyses))
 
 
 def _validate_custom_base(base: str) -> None:
