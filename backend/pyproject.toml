@@ -1,0 +1,26 @@
+[project]
+name = "health-agent-platform"
+version = "0.1.0"
+description = "Evidence-grounded multi-agent health information platform"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.32",
+  "httpx>=0.28",
+  "pydantic>=2.9",
+  "pydantic-settings>=2.6",
+  "numpy>=1.26",
+  "cryptography>=43",
+  "pywebpush>=2.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.3"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+markers = ["e2e: end-to-end tests against a running panel"]
+pythonpath = ["."]
+testpaths = ["tests"]

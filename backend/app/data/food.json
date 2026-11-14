@@ -1,0 +1,5246 @@
+{
+  "sources": {
+    "usda": {
+      "title": "USDA FoodData Central",
+      "url": "https://fdc.nal.usda.gov/",
+      "zh": "美国农业部食物成分数据库，提供能量、蛋白质、脂肪、碳水、纤维、糖、钠等数据。"
+    },
+    "cns": {
+      "title": "中国食物成分表（第6版）",
+      "url": "https://www.chinanutri.cn/",
+      "zh": "中国疾病预防控制中心营养与健康所编著，常见食物营养成分数据。"
+    },
+    "nhs": {
+      "title": "NHS Eatwell 均衡饮食",
+      "url": "https://www.nhs.uk/live-well/eat-well/",
+      "zh": "均衡饮食建议：足量蔬果、全谷物、优质蛋白，限制糖、盐和饱和脂肪。"
+    },
+    "who": {
+      "title": "WHO 健康饮食实况报道",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+      "zh": "限制游离糖、盐和饱和脂肪，多吃蔬果、全谷物和豆类。"
+    }
+  },
+  "foods": [
+    {
+      "id": "broccoli",
+      "name": "西兰花",
+      "aliases": [
+        "绿花菜",
+        "青花菜"
+      ],
+      "english": [
+        "broccoli"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 34,
+        "protein_g": 2.8,
+        "fat_g": 0.4,
+        "carb_g": 6.6,
+        "fiber_g": 2.6,
+        "sugar_g": 1.7,
+        "sodium_mg": 33
+      },
+      "benefits": [
+        "富含维生素 C 与叶酸",
+        "膳食纤维有助于肠道健康",
+        "含萝卜硫素等植物化学物"
+      ],
+      "harms": [],
+      "tips": "焯水或快炒，避免长时间水煮流失维生素 C。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "spinach",
+      "name": "菠菜",
+      "aliases": [
+        "菠菜叶"
+      ],
+      "english": [
+        "spinach"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 23,
+        "protein_g": 2.9,
+        "fat_g": 0.4,
+        "carb_g": 3.6,
+        "fiber_g": 2.2,
+        "sugar_g": 0.4,
+        "sodium_mg": 79
+      },
+      "benefits": [
+        "富含叶酸、铁和维生素 K",
+        "低热量、高纤维",
+        "有助于血压管理（钾）"
+      ],
+      "harms": [],
+      "tips": "草酸较高，焯水后再炒；肾结石患者适量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "cucumber",
+      "name": "黄瓜",
+      "aliases": [
+        "青瓜"
+      ],
+      "english": [
+        "cucumber"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 16,
+        "protein_g": 0.7,
+        "fat_g": 0.1,
+        "carb_g": 3.6,
+        "fiber_g": 0.5,
+        "sugar_g": 1.7,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "含水量高，适合补水",
+        "低热量，适合控制体重",
+        "含少量维生素 K"
+      ],
+      "harms": [],
+      "tips": "凉拌少放盐和油；胃肠敏感者避免冰镇后大量食用。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "tomato",
+      "name": "番茄",
+      "aliases": [
+        "西红柿"
+      ],
+      "english": [
+        "tomato"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 18,
+        "protein_g": 0.9,
+        "fat_g": 0.2,
+        "carb_g": 3.9,
+        "fiber_g": 1.2,
+        "sugar_g": 2.6,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "富含番茄红素和维生素 C",
+        "低热量",
+        "有助于心血管健康"
+      ],
+      "harms": [],
+      "tips": "加热后番茄红素更易吸收；胃食管反流者少量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "carrot",
+      "name": "胡萝卜",
+      "aliases": [
+        "红萝卜"
+      ],
+      "english": [
+        "carrot"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 41,
+        "protein_g": 0.9,
+        "fat_g": 0.2,
+        "carb_g": 9.6,
+        "fiber_g": 2.8,
+        "sugar_g": 4.7,
+        "sodium_mg": 69
+      },
+      "benefits": [
+        "富含 β-胡萝卜素（维生素 A 前体）",
+        "膳食纤维丰富",
+        "有助于视力与免疫"
+      ],
+      "harms": [],
+      "tips": "与少量油脂同食利于吸收；无需大量生榨汁。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "mushroom",
+      "name": "蘑菇",
+      "aliases": [
+        "香菇",
+        "菌菇"
+      ],
+      "english": [
+        "mushroom",
+        "agaric"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 22,
+        "protein_g": 3.1,
+        "fat_g": 0.3,
+        "carb_g": 3.3,
+        "fiber_g": 1.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "低热量、含 B 族维生素",
+        "提供鲜味，可减少用盐",
+        "含多糖类成分"
+      ],
+      "harms": [],
+      "tips": "彻底加热；痛风急性期适量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "bell-pepper",
+      "name": "甜椒",
+      "aliases": [
+        "彩椒",
+        "青椒"
+      ],
+      "english": [
+        "bell pepper"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 31,
+        "protein_g": 1.0,
+        "fat_g": 0.3,
+        "carb_g": 6.0,
+        "fiber_g": 2.1,
+        "sugar_g": 4.2,
+        "sodium_mg": 4
+      },
+      "benefits": [
+        "维生素 C 含量高",
+        "富含类胡萝卜素",
+        "低热量"
+      ],
+      "harms": [],
+      "tips": "快炒或生食，减少维生素 C 损失。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "corn",
+      "name": "玉米",
+      "aliases": [
+        "甜玉米"
+      ],
+      "english": [
+        "corn",
+        "ear"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 86,
+        "protein_g": 3.3,
+        "fat_g": 1.4,
+        "carb_g": 19.0,
+        "fiber_g": 2.7,
+        "sugar_g": 3.2,
+        "sodium_mg": 15
+      },
+      "benefits": [
+        "含膳食纤维和叶黄素",
+        "可替代部分精制主食",
+        "饱腹感较强"
+      ],
+      "harms": [],
+      "tips": "替代部分米饭，而不是额外加餐。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "sweet-potato",
+      "name": "红薯",
+      "aliases": [
+        "地瓜",
+        "番薯"
+      ],
+      "english": [
+        "sweet potato"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 86,
+        "protein_g": 1.6,
+        "fat_g": 0.1,
+        "carb_g": 20.1,
+        "fiber_g": 3.0,
+        "sugar_g": 4.2,
+        "sodium_mg": 55
+      },
+      "benefits": [
+        "富含膳食纤维和 β-胡萝卜素",
+        "升糖较白米饭平缓",
+        "有助于肠道健康"
+      ],
+      "harms": [],
+      "tips": "替代主食；胃酸多者避免空腹大量食用。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "spinach-like",
+      "name": "生菜",
+      "aliases": [
+        "莴苣"
+      ],
+      "english": [
+        "lettuce"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 15,
+        "protein_g": 1.4,
+        "fat_g": 0.2,
+        "carb_g": 2.9,
+        "fiber_g": 1.3,
+        "sugar_g": 0.8,
+        "sodium_mg": 28
+      },
+      "benefits": [
+        "低热量",
+        "含维生素 K 和叶酸",
+        "适合增加餐盘体积"
+      ],
+      "harms": [],
+      "tips": "生食要洗净；沙拉酱控制用量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "banana",
+      "name": "香蕉",
+      "aliases": [],
+      "english": [
+        "banana"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 89,
+        "protein_g": 1.1,
+        "fat_g": 0.3,
+        "carb_g": 22.8,
+        "fiber_g": 2.6,
+        "sugar_g": 12.2,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "富含钾，有助于血压管理",
+        "含膳食纤维",
+        "方便的能量补充"
+      ],
+      "harms": [],
+      "tips": "一次 1 根；糖尿病患者分次少量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "apple",
+      "name": "苹果",
+      "aliases": [],
+      "english": [
+        "apple",
+        "Granny Smith"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 52,
+        "protein_g": 0.3,
+        "fat_g": 0.2,
+        "carb_g": 13.8,
+        "fiber_g": 2.4,
+        "sugar_g": 10.4,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "含可溶性纤维（果胶）",
+        "低热量",
+        "有助于饱腹"
+      ],
+      "harms": [],
+      "tips": "带皮吃纤维更多；果汁不能替代水果。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "orange",
+      "name": "橙子",
+      "aliases": [
+        "柑橘"
+      ],
+      "english": [
+        "orange"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 47,
+        "protein_g": 0.9,
+        "fat_g": 0.1,
+        "carb_g": 11.8,
+        "fiber_g": 2.4,
+        "sugar_g": 9.4,
+        "sodium_mg": 0
+      },
+      "benefits": [
+        "富含维生素 C",
+        "含类黄酮",
+        "低热量"
+      ],
+      "harms": [],
+      "tips": "吃整果比喝橙汁好。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "strawberry",
+      "name": "草莓",
+      "aliases": [],
+      "english": [
+        "strawberry"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 32,
+        "protein_g": 0.7,
+        "fat_g": 0.3,
+        "carb_g": 7.7,
+        "fiber_g": 2.0,
+        "sugar_g": 4.9,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "维生素 C 丰富",
+        "低糖低热量",
+        "含花青素"
+      ],
+      "harms": [],
+      "tips": "清洗后食用，避免加糖炼乳。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "blueberry",
+      "name": "蓝莓",
+      "aliases": [],
+      "english": [
+        "blueberry"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 57,
+        "protein_g": 0.7,
+        "fat_g": 0.3,
+        "carb_g": 14.5,
+        "fiber_g": 2.4,
+        "sugar_g": 10.0,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "富含花青素",
+        "低热量",
+        "有助于抗氧化"
+      ],
+      "harms": [],
+      "tips": "新鲜或冷冻均可；注意总量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "watermelon",
+      "name": "西瓜",
+      "aliases": [],
+      "english": [
+        "watermelon"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 30,
+        "protein_g": 0.6,
+        "fat_g": 0.2,
+        "carb_g": 7.6,
+        "fiber_g": 0.4,
+        "sugar_g": 6.2,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "含水量高",
+        "含番茄红素",
+        "低热量"
+      ],
+      "harms": [],
+      "tips": "一次 1–2 块；糖尿病患者控制份量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "chicken-breast",
+      "name": "鸡胸肉",
+      "aliases": [
+        "鸡胸"
+      ],
+      "english": [
+        "chicken breast"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 165,
+        "protein_g": 31.0,
+        "fat_g": 3.6,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 74
+      },
+      "benefits": [
+        "高蛋白低脂肪",
+        "饱腹感强",
+        "适合增肌和体重管理"
+      ],
+      "harms": [],
+      "tips": "去皮少油烹饪；避免油炸。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "beef",
+      "name": "牛肉",
+      "aliases": [
+        "牛瘦肉"
+      ],
+      "english": [
+        "beef"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 250,
+        "protein_g": 26.0,
+        "fat_g": 15.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 72
+      },
+      "benefits": [
+        "优质蛋白、铁和锌",
+        "维生素 B12",
+        "适量食用有益"
+      ],
+      "harms": [
+        "红肉过量与心血管风险相关"
+      ],
+      "tips": "选瘦肉，每周红肉适量；少加工肉制品。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "salmon",
+      "name": "三文鱼",
+      "aliases": [
+        "鲑鱼"
+      ],
+      "english": [
+        "salmon"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 208,
+        "protein_g": 20.0,
+        "fat_g": 13.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 59
+      },
+      "benefits": [
+        "富含 Omega-3 脂肪酸",
+        "优质蛋白",
+        "有助于心血管健康"
+      ],
+      "harms": [],
+      "tips": "每周 1–2 次；避免高盐腌制。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "egg",
+      "name": "鸡蛋",
+      "aliases": [
+        "水煮蛋"
+      ],
+      "english": [
+        "egg"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 155,
+        "protein_g": 13.0,
+        "fat_g": 11.0,
+        "carb_g": 1.1,
+        "fiber_g": 0.0,
+        "sugar_g": 1.1,
+        "sodium_mg": 124
+      },
+      "benefits": [
+        "优质蛋白",
+        "含胆碱和叶黄素",
+        "方便易得"
+      ],
+      "harms": [],
+      "tips": "每天 1 个左右；水煮或蒸优于油炸。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "tofu",
+      "name": "豆腐",
+      "aliases": [
+        "豆制品"
+      ],
+      "english": [
+        "tofu"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 76,
+        "protein_g": 8.0,
+        "fat_g": 4.8,
+        "carb_g": 1.9,
+        "fiber_g": 0.3,
+        "sugar_g": 0.6,
+        "sodium_mg": 7
+      },
+      "benefits": [
+        "植物蛋白",
+        "含钙（石膏豆腐）",
+        "低饱和脂肪"
+      ],
+      "harms": [],
+      "tips": "痛风患者适量；少油烹饪。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "oats",
+      "name": "燕麦",
+      "aliases": [
+        "燕麦片"
+      ],
+      "english": [
+        "oat",
+        "oatmeal"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 389,
+        "protein_g": 16.9,
+        "fat_g": 6.9,
+        "carb_g": 66.3,
+        "fiber_g": 10.6,
+        "sugar_g": 0.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "β-葡聚糖有助于降低胆固醇",
+        "膳食纤维丰富",
+        "饱腹感强"
+      ],
+      "harms": [],
+      "tips": "选无糖原味燕麦；避免高糖调味麦片。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "brown-rice",
+      "name": "糙米",
+      "aliases": [
+        "全谷物米饭"
+      ],
+      "english": [
+        "brown rice"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 111,
+        "protein_g": 2.6,
+        "fat_g": 0.9,
+        "carb_g": 23.0,
+        "fiber_g": 1.8,
+        "sugar_g": 0.4,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "保留麸皮和胚芽",
+        "膳食纤维高于白米",
+        "升糖较平缓"
+      ],
+      "harms": [],
+      "tips": "可与白米混合，逐步适应口感。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "white-rice",
+      "name": "白米饭",
+      "aliases": [
+        "米饭"
+      ],
+      "english": [
+        "white rice",
+        "rice"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 130,
+        "protein_g": 2.7,
+        "fat_g": 0.3,
+        "carb_g": 28.2,
+        "fiber_g": 0.4,
+        "sugar_g": 0.1,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "提供能量",
+        "易消化",
+        "搭配蔬菜和蛋白质更均衡"
+      ],
+      "harms": [
+        "精制主食过量、单一摄入不利血糖管理"
+      ],
+      "tips": "每餐一拳大小，搭配蔬菜和蛋白质；可用糙米/杂粮替代一部分。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "noodles",
+      "name": "面条",
+      "aliases": [
+        "挂面",
+        "拉面"
+      ],
+      "english": [
+        "noodles",
+        "spaghetti"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 138,
+        "protein_g": 4.5,
+        "fat_g": 0.9,
+        "carb_g": 27.0,
+        "fiber_g": 1.2,
+        "sugar_g": 0.6,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "提供碳水能量",
+        "搭配蔬菜和蛋白质可成均衡一餐"
+      ],
+      "harms": [
+        "精制碳水，汤面盐分常偏高"
+      ],
+      "tips": "少喝汤、加蔬菜和蛋白质；控制份量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "whole-wheat-bread",
+      "name": "全麦面包",
+      "aliases": [
+        "全麦吐司"
+      ],
+      "english": [
+        "whole wheat bread"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 247,
+        "protein_g": 13.0,
+        "fat_g": 4.2,
+        "carb_g": 41.0,
+        "fiber_g": 7.0,
+        "sugar_g": 6.0,
+        "sodium_mg": 400
+      },
+      "benefits": [
+        "膳食纤维较高",
+        "方便搭配蛋白质",
+        "比白面包更耐饿"
+      ],
+      "harms": [
+        "部分产品含糖和钠较高"
+      ],
+      "tips": "看配料表：全麦粉排第一、糖和钠较低。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "milk",
+      "name": "牛奶",
+      "aliases": [
+        "纯牛奶"
+      ],
+      "english": [
+        "milk"
+      ],
+      "category": "dairy",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 61,
+        "protein_g": 3.2,
+        "fat_g": 3.3,
+        "carb_g": 4.8,
+        "fiber_g": 0.0,
+        "sugar_g": 4.8,
+        "sodium_mg": 43
+      },
+      "benefits": [
+        "优质蛋白和钙",
+        "有助于骨骼健康",
+        "方便的营养补充"
+      ],
+      "harms": [
+        "乳糖不耐受者可能腹胀"
+      ],
+      "tips": "每天 300 ml 左右；乳糖不耐受可选无乳糖奶。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "yogurt",
+      "name": "酸奶",
+      "aliases": [
+        "无糖酸奶"
+      ],
+      "english": [
+        "yogurt"
+      ],
+      "category": "dairy",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 59,
+        "protein_g": 10.0,
+        "fat_g": 0.4,
+        "carb_g": 3.6,
+        "fiber_g": 0.0,
+        "sugar_g": 3.2,
+        "sodium_mg": 36
+      },
+      "benefits": [
+        "蛋白质和钙",
+        "含益生菌",
+        "适合早餐或加餐"
+      ],
+      "harms": [
+        "含糖酸奶糖分可能很高"
+      ],
+      "tips": "选无糖或低糖、配料简单的产品。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "cola",
+      "name": "可乐",
+      "aliases": [
+        "碳酸饮料",
+        "汽水"
+      ],
+      "english": [
+        "cola",
+        "Coke"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 42,
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "carb_g": 10.6,
+        "fiber_g": 0.0,
+        "sugar_g": 10.6,
+        "sodium_mg": 4,
+        "unit": "每 100 ml"
+      },
+      "benefits": [],
+      "harms": [
+        "一罐 330 ml 约含 35 g 糖，超过每日建议上限",
+        "增加龋齿、肥胖和 2 型糖尿病风险",
+        "磷酸可能影响钙吸收"
+      ],
+      "tips": "尽量用白水、无糖茶替代；实在想喝选小罐。",
+      "sources": [
+        "who",
+        "nhs"
+      ]
+    },
+    {
+      "id": "chips",
+      "name": "薯片",
+      "aliases": [
+        "膨化食品"
+      ],
+      "english": [
+        "potato chips",
+        "crisps"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 536,
+        "protein_g": 7.0,
+        "fat_g": 34.0,
+        "carb_g": 53.0,
+        "fiber_g": 4.4,
+        "sugar_g": 0.5,
+        "sodium_mg": 525,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "高油高盐高热量",
+        "容易过量进食",
+        "增加肥胖和高血压风险"
+      ],
+      "tips": "换成原味坚果（小把）或水果；看营养成分表选低钠。",
+      "sources": [
+        "usda",
+        "nhs"
+      ]
+    },
+    {
+      "id": "fried-chicken",
+      "name": "炸鸡",
+      "aliases": [
+        "炸鸡块",
+        "鸡米花"
+      ],
+      "english": [
+        "fried chicken"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 320,
+        "protein_g": 20.0,
+        "fat_g": 20.0,
+        "carb_g": 15.0,
+        "fiber_g": 1.0,
+        "sugar_g": 0.5,
+        "sodium_mg": 800,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "油炸带来大量饱和脂肪和热量",
+        "钠含量高",
+        "高温油炸可能产生有害物质"
+      ],
+      "tips": "想吃鸡肉选烤/煮/蒸；去皮更佳。",
+      "sources": [
+        "usda",
+        "nhs"
+      ]
+    },
+    {
+      "id": "hamburger",
+      "name": "汉堡",
+      "aliases": [
+        "牛肉汉堡"
+      ],
+      "english": [
+        "hamburger",
+        "cheeseburger"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 295,
+        "protein_g": 17.0,
+        "fat_g": 12.0,
+        "carb_g": 30.0,
+        "fiber_g": 1.5,
+        "sugar_g": 7.0,
+        "sodium_mg": 500,
+        "unit": "每个"
+      },
+      "benefits": [],
+      "harms": [
+        "热量、钠和饱和脂肪偏高",
+        "常搭配含糖饮料和薯条",
+        "蔬菜纤维少"
+      ],
+      "tips": "偶尔吃可去掉酱料、加蔬菜；不配含糖饮料。",
+      "sources": [
+        "usda",
+        "nhs"
+      ]
+    },
+    {
+      "id": "fries",
+      "name": "薯条",
+      "aliases": [
+        "炸薯条"
+      ],
+      "english": [
+        "french fries"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 312,
+        "protein_g": 3.4,
+        "fat_g": 15.0,
+        "carb_g": 41.0,
+        "fiber_g": 3.8,
+        "sugar_g": 0.3,
+        "sodium_mg": 210,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "油炸高热量",
+        "钠含量高",
+        "常与高糖饮料同食"
+      ],
+      "tips": "换成烤红薯或玉米。",
+      "sources": [
+        "usda",
+        "nhs"
+      ]
+    },
+    {
+      "id": "cake",
+      "name": "蛋糕",
+      "aliases": [
+        "奶油蛋糕",
+        "甜点"
+      ],
+      "english": [
+        "cake",
+        "cheesecake"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 350,
+        "protein_g": 5.0,
+        "fat_g": 15.0,
+        "carb_g": 50.0,
+        "fiber_g": 1.0,
+        "sugar_g": 30.0,
+        "sodium_mg": 300,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "添加糖和饱和脂肪高",
+        "热量密度高",
+        "增加龋齿和体重风险"
+      ],
+      "tips": "偶尔一小块；不搭配含糖饮料。",
+      "sources": [
+        "usda",
+        "who"
+      ]
+    },
+    {
+      "id": "instant-noodles",
+      "name": "方便面",
+      "aliases": [
+        "泡面"
+      ],
+      "english": [
+        "instant noodles"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 470,
+        "protein_g": 9.0,
+        "fat_g": 20.0,
+        "carb_g": 60.0,
+        "fiber_g": 2.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 1900,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "一包钠常超过每日上限",
+        "油盐高、蛋白质和蔬菜少",
+        "长期替代正餐营养不均衡"
+      ],
+      "tips": "少放调料包、加鸡蛋和蔬菜；不喝汤。",
+      "sources": [
+        "cns",
+        "nhs"
+      ]
+    },
+    {
+      "id": "sausage",
+      "name": "香肠",
+      "aliases": [
+        "腊肠",
+        "火腿肠"
+      ],
+      "english": [
+        "sausage"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 300,
+        "protein_g": 13.0,
+        "fat_g": 25.0,
+        "carb_g": 3.0,
+        "fiber_g": 0.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 1000,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "加工肉制品，钠和饱和脂肪高",
+        "世卫组织将加工肉列为 1 类致癌物",
+        "增加结直肠癌风险"
+      ],
+      "tips": "尽量少吃；用新鲜肉类替代。",
+      "sources": [
+        "who",
+        "nhs"
+      ]
+    },
+    {
+      "id": "milk-tea",
+      "name": "奶茶",
+      "aliases": [
+        "珍珠奶茶"
+      ],
+      "english": [
+        "bubble tea",
+        "milk tea"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 70,
+        "protein_g": 1.0,
+        "fat_g": 2.5,
+        "carb_g": 11.0,
+        "fiber_g": 0.0,
+        "sugar_g": 10.0,
+        "sodium_mg": 30,
+        "unit": "每 100 ml"
+      },
+      "benefits": [],
+      "harms": [
+        "一杯全糖奶茶含糖可达 40–60 g",
+        "植脂末可能含反式脂肪",
+        "热量高"
+      ],
+      "tips": "选无糖/微糖、鲜奶基底、不加珍珠。",
+      "sources": [
+        "who",
+        "nhs"
+      ]
+    },
+    {
+      "id": "ice-cream",
+      "name": "冰淇淋",
+      "aliases": [
+        "雪糕"
+      ],
+      "english": [
+        "ice cream"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 207,
+        "protein_g": 3.5,
+        "fat_g": 11.0,
+        "carb_g": 24.0,
+        "fiber_g": 0.7,
+        "sugar_g": 21.0,
+        "sodium_mg": 80,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "糖和饱和脂肪高",
+        "热量密度高",
+        "容易过量"
+      ],
+      "tips": "偶尔小份；选低糖产品。",
+      "sources": [
+        "usda",
+        "who"
+      ]
+    },
+    {
+      "id": "candy",
+      "name": "糖果",
+      "aliases": [
+        "软糖",
+        "硬糖"
+      ],
+      "english": [
+        "candy"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 394,
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "carb_g": 98.0,
+        "fiber_g": 0.0,
+        "sugar_g": 70.0,
+        "sodium_mg": 10,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "几乎全是添加糖",
+        "增加龋齿风险",
+        "热量高但无饱腹感"
+      ],
+      "tips": "用水果替代；吃完漱口。",
+      "sources": [
+        "who",
+        "nhs"
+      ]
+    },
+    {
+      "id": "spicy-gluten",
+      "name": "辣条",
+      "aliases": [
+        "面筋零食"
+      ],
+      "english": [
+        "spicy gluten"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 480,
+        "protein_g": 12.0,
+        "fat_g": 28.0,
+        "carb_g": 45.0,
+        "fiber_g": 1.0,
+        "sugar_g": 5.0,
+        "sodium_mg": 2000,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "高盐高油高辣",
+        "钠含量极高",
+        "刺激胃肠道"
+      ],
+      "tips": "尽量不吃；儿童尤其避免。",
+      "sources": [
+        "cns",
+        "who"
+      ]
+    },
+    {
+      "id": "fried-dough",
+      "name": "油条",
+      "aliases": [
+        "油饼"
+      ],
+      "english": [
+        "fried dough",
+        "youtiao"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 388,
+        "protein_g": 6.9,
+        "fat_g": 17.6,
+        "carb_g": 51.0,
+        "fiber_g": 0.9,
+        "sugar_g": 1.0,
+        "sodium_mg": 585,
+        "unit": "每 100 g"
+      },
+      "benefits": [],
+      "harms": [
+        "油炸高热量",
+        "钠含量高",
+        "高温油炸可能产生有害物质"
+      ],
+      "tips": "偶尔吃；搭配豆浆和蔬菜。",
+      "sources": [
+        "cns",
+        "nhs"
+      ]
+    },
+    {
+      "id": "juice",
+      "name": "果汁",
+      "aliases": [
+        "橙汁",
+        "苹果汁"
+      ],
+      "english": [
+        "juice"
+      ],
+      "category": "drink",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 45,
+        "protein_g": 0.7,
+        "fat_g": 0.2,
+        "carb_g": 10.4,
+        "fiber_g": 0.2,
+        "sugar_g": 8.4,
+        "sodium_mg": 3,
+        "unit": "每 100 ml"
+      },
+      "benefits": [
+        "含部分维生素 C"
+      ],
+      "harms": [
+        "榨汁损失膳食纤维，糖吸收更快",
+        "容易过量摄入糖分"
+      ],
+      "tips": "吃整果优于果汁；果汁每日不超过一小杯。",
+      "sources": [
+        "who",
+        "nhs"
+      ]
+    },
+    {
+      "id": "fried-rice",
+      "name": "蛋炒饭",
+      "aliases": [
+        "炒饭"
+      ],
+      "english": [
+        "fried rice"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 163,
+        "protein_g": 4.5,
+        "fat_g": 5.5,
+        "carb_g": 24.0,
+        "fiber_g": 0.8,
+        "sugar_g": 0.5,
+        "sodium_mg": 400
+      },
+      "benefits": [
+        "提供碳水能量",
+        "加蔬菜和蛋白质可更均衡"
+      ],
+      "harms": [
+        "油和盐常偏多",
+        "蔬菜少时营养不均衡"
+      ],
+      "tips": "选少油版本，加青菜和蛋白质；控制份量。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "dumplings",
+      "name": "饺子",
+      "aliases": [
+        "水饺"
+      ],
+      "english": [
+        "dumplings"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 200,
+        "protein_g": 8.0,
+        "fat_g": 8.0,
+        "carb_g": 24.0,
+        "fiber_g": 1.5,
+        "sugar_g": 1.0,
+        "sodium_mg": 500
+      },
+      "benefits": [
+        "有主食、肉和菜，结构较完整"
+      ],
+      "harms": [
+        "蘸料和馅料可能高盐高油",
+        "一次容易吃过量"
+      ],
+      "tips": "一次 10–15 个，配蔬菜汤；少蘸酱。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "beef-noodles",
+      "name": "牛肉面",
+      "aliases": [
+        "牛肉汤面"
+      ],
+      "english": [
+        "beef noodle soup"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 110,
+        "protein_g": 6.0,
+        "fat_g": 3.0,
+        "carb_g": 16.0,
+        "fiber_g": 0.8,
+        "sugar_g": 1.0,
+        "sodium_mg": 500
+      },
+      "benefits": [
+        "有蛋白质和主食",
+        "热汤易饱"
+      ],
+      "harms": [
+        "汤底盐分高",
+        "蔬菜通常偏少"
+      ],
+      "tips": "少喝汤、加青菜；选清汤。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "hot-pot",
+      "name": "火锅",
+      "aliases": [
+        "麻辣火锅"
+      ],
+      "english": [
+        "hot pot"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 180,
+        "protein_g": 10.0,
+        "fat_g": 12.0,
+        "carb_g": 8.0,
+        "fiber_g": 1.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 800
+      },
+      "benefits": [
+        "食材多样，可选蔬菜和瘦肉"
+      ],
+      "harms": [
+        "锅底和蘸料高油高盐",
+        "容易过量，汤底嘌呤高"
+      ],
+      "tips": "选清汤锅、多蔬菜少丸子，蘸料少放；痛风者少喝汤。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "mapo-tofu",
+      "name": "麻婆豆腐",
+      "aliases": [],
+      "english": [
+        "mapo tofu"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 130,
+        "protein_g": 8.0,
+        "fat_g": 9.0,
+        "carb_g": 5.0,
+        "fiber_g": 0.8,
+        "sugar_g": 1.0,
+        "sodium_mg": 600
+      },
+      "benefits": [
+        "豆腐提供植物蛋白和钙"
+      ],
+      "harms": [
+        "油和盐偏高",
+        "辣味刺激胃肠"
+      ],
+      "tips": "少油版本；胃肠敏感者少辣。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "kung-pao-chicken",
+      "name": "宫保鸡丁",
+      "aliases": [],
+      "english": [
+        "kung pao chicken"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 180,
+        "protein_g": 14.0,
+        "fat_g": 11.0,
+        "carb_g": 7.0,
+        "fiber_g": 0.9,
+        "sugar_g": 3.0,
+        "sodium_mg": 700
+      },
+      "benefits": [
+        "鸡肉提供优质蛋白",
+        "含花生和蔬菜"
+      ],
+      "harms": [
+        "油盐和糖偏高",
+        "花生热量高"
+      ],
+      "tips": "少油少糖版本；控制份量。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "braised-pork",
+      "name": "红烧肉",
+      "aliases": [],
+      "english": [
+        "braised pork"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 400,
+        "protein_g": 10.0,
+        "fat_g": 38.0,
+        "carb_g": 6.0,
+        "fiber_g": 0.0,
+        "sugar_g": 4.0,
+        "sodium_mg": 600
+      },
+      "benefits": [
+        "提供蛋白质和能量"
+      ],
+      "harms": [
+        "饱和脂肪和糖很高",
+        "热量密度大，容易过量"
+      ],
+      "tips": "偶尔少量；搭配蔬菜，少汤汁拌饭。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "congee",
+      "name": "白粥",
+      "aliases": [
+        "大米粥"
+      ],
+      "english": [
+        "congee"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 30,
+        "protein_g": 1.0,
+        "fat_g": 0.1,
+        "carb_g": 6.5,
+        "fiber_g": 0.2,
+        "sugar_g": 0.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "易消化",
+        "适合胃肠不适时"
+      ],
+      "harms": [
+        "营养密度低，升糖较快",
+        "单喝粥蛋白质不足"
+      ],
+      "tips": "搭配鸡蛋、瘦肉和蔬菜；糖尿病患者控制份量。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "baozi",
+      "name": "包子",
+      "aliases": [
+        "肉包"
+      ],
+      "english": [
+        "steamed bun"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 220,
+        "protein_g": 7.0,
+        "fat_g": 6.0,
+        "carb_g": 35.0,
+        "fiber_g": 1.2,
+        "sugar_g": 3.0,
+        "sodium_mg": 400
+      },
+      "benefits": [
+        "主食+馅料，方便"
+      ],
+      "harms": [
+        "精制面粉，蔬菜少",
+        "肉馅可能高油盐"
+      ],
+      "tips": "配豆浆/鸡蛋和蔬菜；选素馅或瘦肉馅。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "spring-rolls",
+      "name": "春卷",
+      "aliases": [
+        "炸春卷"
+      ],
+      "english": [
+        "spring rolls"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 250,
+        "protein_g": 6.0,
+        "fat_g": 14.0,
+        "carb_g": 27.0,
+        "fiber_g": 1.5,
+        "sugar_g": 2.0,
+        "sodium_mg": 500
+      },
+      "benefits": [
+        "含蔬菜馅"
+      ],
+      "harms": [
+        "油炸高油高热量",
+        "钠含量高"
+      ],
+      "tips": "偶尔吃；选烤制或空气炸锅版本。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "tomato-egg",
+      "name": "番茄炒蛋",
+      "aliases": [],
+      "english": [
+        "tomato and egg stir-fry"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 90,
+        "protein_g": 5.0,
+        "fat_g": 6.0,
+        "carb_g": 5.0,
+        "fiber_g": 0.8,
+        "sugar_g": 3.0,
+        "sodium_mg": 400
+      },
+      "benefits": [
+        "蛋白质+蔬菜搭配",
+        "番茄红素"
+      ],
+      "harms": [
+        "油和盐可能偏多"
+      ],
+      "tips": "少油少盐版本，是很好的家常菜。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "stir-fried-greens",
+      "name": "炒青菜",
+      "aliases": [],
+      "english": [
+        "stir-fried vegetables"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 70,
+        "protein_g": 2.0,
+        "fat_g": 5.0,
+        "carb_g": 5.0,
+        "fiber_g": 2.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 300
+      },
+      "benefits": [
+        "蔬菜纤维和维生素",
+        "增加餐盘体积"
+      ],
+      "harms": [
+        "油多时热量上升"
+      ],
+      "tips": "少油快炒；每天蔬菜 300–500 g。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pork-loin",
+      "name": "猪里脊",
+      "aliases": [
+        "猪瘦肉"
+      ],
+      "english": [
+        "pork"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 143,
+        "protein_g": 26.0,
+        "fat_g": 3.5,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 55
+      },
+      "benefits": [
+        "优质蛋白和 B 族维生素",
+        "脂肪低于五花肉"
+      ],
+      "harms": [
+        "红肉过量与心血管风险相关"
+      ],
+      "tips": "选瘦肉，少油炸；每周红肉适量。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "shrimp",
+      "name": "虾",
+      "aliases": [
+        "基围虾"
+      ],
+      "english": [
+        "shrimp"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 99,
+        "protein_g": 24.0,
+        "fat_g": 0.3,
+        "carb_g": 0.2,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 111
+      },
+      "benefits": [
+        "高蛋白低脂肪",
+        "含硒和碘"
+      ],
+      "harms": [
+        "痛风急性期适量"
+      ],
+      "tips": "水煮或清蒸；避免油炸。（营养数据为估算值）",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "chinese-cabbage",
+      "name": "大白菜",
+      "aliases": [
+        "白菜"
+      ],
+      "english": [
+        "chinese cabbage",
+        "napa cabbage"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 16,
+        "protein_g": 1.2,
+        "fat_g": 0.2,
+        "carb_g": 3.2,
+        "fiber_g": 1.2,
+        "sugar_g": 1.2,
+        "sodium_mg": 57
+      },
+      "benefits": [
+        "维生素 C 和膳食纤维",
+        "低热量、饱腹",
+        "适合炖煮和清炒"
+      ],
+      "harms": [],
+      "tips": "少油快炒或炖豆腐；避免长时间水煮。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "cabbage",
+      "name": "卷心菜",
+      "aliases": [
+        "包菜",
+        "圆白菜"
+      ],
+      "english": [
+        "cabbage"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 25,
+        "protein_g": 1.3,
+        "fat_g": 0.1,
+        "carb_g": 5.8,
+        "fiber_g": 2.5,
+        "sugar_g": 3.2,
+        "sodium_mg": 18
+      },
+      "benefits": [
+        "维生素 C 和维生素 K",
+        "膳食纤维",
+        "耐储存、便宜"
+      ],
+      "harms": [],
+      "tips": "手撕快炒，减少营养流失。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "eggplant",
+      "name": "茄子",
+      "aliases": [
+        "紫茄子"
+      ],
+      "english": [
+        "eggplant",
+        "aubergine"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 25,
+        "protein_g": 1.0,
+        "fat_g": 0.2,
+        "carb_g": 6.0,
+        "fiber_g": 3.0,
+        "sugar_g": 3.5,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "膳食纤维和花青素",
+        "低热量"
+      ],
+      "harms": [
+        "吸油厉害，红烧/油炸后热量大增"
+      ],
+      "tips": "清蒸或少油快炒；避免油炸茄子。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "onion",
+      "name": "洋葱",
+      "aliases": [
+        "圆葱"
+      ],
+      "english": [
+        "onion"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 40,
+        "protein_g": 1.1,
+        "fat_g": 0.1,
+        "carb_g": 9.3,
+        "fiber_g": 1.7,
+        "sugar_g": 4.2,
+        "sodium_mg": 4
+      },
+      "benefits": [
+        "含硫化物和槲皮素",
+        "增加风味、可少放盐"
+      ],
+      "harms": [
+        "胃肠敏感者可能胀气"
+      ],
+      "tips": "生吃或快炒；紫皮洋葱抗氧化成分更高。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "celery",
+      "name": "芹菜",
+      "aliases": [
+        "西芹"
+      ],
+      "english": [
+        "celery"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 16,
+        "protein_g": 0.7,
+        "fat_g": 0.2,
+        "carb_g": 3.0,
+        "fiber_g": 1.6,
+        "sugar_g": 1.3,
+        "sodium_mg": 80
+      },
+      "benefits": [
+        "膳食纤维和钾",
+        "低热量",
+        "帮助控制血压（钾）"
+      ],
+      "harms": [
+        "天然钠略高，高血压者少放盐"
+      ],
+      "tips": "清炒或凉拌；芹菜叶也能吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "chives",
+      "name": "韭菜",
+      "aliases": [
+        "韭黄"
+      ],
+      "english": [
+        "chives",
+        "leek"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 26,
+        "protein_g": 2.4,
+        "fat_g": 0.4,
+        "carb_g": 4.6,
+        "fiber_g": 1.4,
+        "sugar_g": 1.5,
+        "sodium_mg": 8
+      },
+      "benefits": [
+        "膳食纤维和维生素 K",
+        "促进食欲"
+      ],
+      "harms": [
+        "胃肠敏感者易胀气"
+      ],
+      "tips": "快炒鸡蛋或做馅；不宜一次吃太多。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "cauliflower",
+      "name": "花菜",
+      "aliases": [
+        "菜花",
+        "花椰菜"
+      ],
+      "english": [
+        "cauliflower"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 25,
+        "protein_g": 1.9,
+        "fat_g": 0.3,
+        "carb_g": 5.0,
+        "fiber_g": 2.0,
+        "sugar_g": 1.9,
+        "sodium_mg": 30
+      },
+      "benefits": [
+        "维生素 C 丰富",
+        "膳食纤维",
+        "低热量"
+      ],
+      "harms": [],
+      "tips": "焯水后快炒；避免长时间水煮。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "zucchini",
+      "name": "西葫芦",
+      "aliases": [],
+      "english": [
+        "zucchini",
+        "courgette"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 17,
+        "protein_g": 1.2,
+        "fat_g": 0.3,
+        "carb_g": 3.1,
+        "fiber_g": 1.0,
+        "sugar_g": 2.5,
+        "sodium_mg": 8
+      },
+      "benefits": [
+        "低热量、含水量高",
+        "含钾"
+      ],
+      "harms": [],
+      "tips": "清炒或做馅；避免高温久炒出水。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "winter-melon",
+      "name": "冬瓜",
+      "aliases": [],
+      "english": [
+        "winter melon"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 13,
+        "protein_g": 0.4,
+        "fat_g": 0.2,
+        "carb_g": 3.0,
+        "fiber_g": 0.7,
+        "sugar_g": 2.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "热量极低",
+        "含水量高",
+        "适合减脂期增加饱腹"
+      ],
+      "harms": [],
+      "tips": "冬瓜汤少放盐；脾胃虚寒者适量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "bitter-melon",
+      "name": "苦瓜",
+      "aliases": [
+        "凉瓜"
+      ],
+      "english": [
+        "bitter melon",
+        "bitter gourd"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 17,
+        "protein_g": 1.0,
+        "fat_g": 0.2,
+        "carb_g": 3.7,
+        "fiber_g": 2.8,
+        "sugar_g": 1.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "维生素 C 高",
+        "膳食纤维",
+        "低热量"
+      ],
+      "harms": [
+        "低血糖或服药者注意血糖波动"
+      ],
+      "tips": "焯水去苦味后快炒；脾胃虚寒者少吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "lotus-root",
+      "name": "莲藕",
+      "aliases": [
+        "藕"
+      ],
+      "english": [
+        "lotus root"
+      ],
+      "category": "vegetable",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 74,
+        "protein_g": 2.6,
+        "fat_g": 0.1,
+        "carb_g": 17.2,
+        "fiber_g": 4.9,
+        "sugar_g": 0.5,
+        "sodium_mg": 40
+      },
+      "benefits": [
+        "膳食纤维和维生素 C",
+        "口感好、易入菜"
+      ],
+      "harms": [
+        "淀粉含量较高，可当部分主食"
+      ],
+      "tips": "清炒或炖汤；吃了藕就少吃点米饭。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "yam",
+      "name": "山药",
+      "aliases": [
+        "淮山"
+      ],
+      "english": [
+        "yam",
+        "chinese yam"
+      ],
+      "category": "vegetable",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 118,
+        "protein_g": 1.9,
+        "fat_g": 0.2,
+        "carb_g": 27.9,
+        "fiber_g": 0.8,
+        "sugar_g": 0.5,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "含黏液蛋白",
+        "易消化",
+        "可替代部分主食"
+      ],
+      "harms": [
+        "淀粉高，血糖高者控制量"
+      ],
+      "tips": "蒸煮为主；代替一部分米饭。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "potato",
+      "name": "土豆",
+      "aliases": [
+        "马铃薯"
+      ],
+      "english": [
+        "potato"
+      ],
+      "category": "vegetable",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 77,
+        "protein_g": 2.0,
+        "fat_g": 0.1,
+        "carb_g": 17.5,
+        "fiber_g": 2.2,
+        "sugar_g": 0.8,
+        "sodium_mg": 6
+      },
+      "benefits": [
+        "钾和维生素 C",
+        "饱腹感强",
+        "可替代部分主食"
+      ],
+      "harms": [
+        "油炸（薯条/薯片）后变成高热量食品"
+      ],
+      "tips": "蒸煮或烤；避免油炸。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pumpkin",
+      "name": "南瓜",
+      "aliases": [],
+      "english": [
+        "pumpkin"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 26,
+        "protein_g": 1.0,
+        "fat_g": 0.1,
+        "carb_g": 6.5,
+        "fiber_g": 0.5,
+        "sugar_g": 2.8,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "β-胡萝卜素",
+        "膳食纤维",
+        "低热量"
+      ],
+      "harms": [
+        "升糖较快，糖尿病患者控制量"
+      ],
+      "tips": "蒸食或煮汤；代替部分主食。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "mung-bean-sprouts",
+      "name": "绿豆芽",
+      "aliases": [],
+      "english": [
+        "mung bean sprouts",
+        "bean sprouts"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 30,
+        "protein_g": 3.0,
+        "fat_g": 0.2,
+        "carb_g": 5.9,
+        "fiber_g": 1.8,
+        "sugar_g": 4.0,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "维生素 C",
+        "低热量",
+        "清脆爽口"
+      ],
+      "harms": [],
+      "tips": "快炒；避免长时间水煮。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "soybean-sprouts",
+      "name": "黄豆芽",
+      "aliases": [],
+      "english": [
+        "soybean sprouts"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 44,
+        "protein_g": 4.5,
+        "fat_g": 1.6,
+        "carb_g": 4.5,
+        "fiber_g": 1.5,
+        "sugar_g": 1.0,
+        "sodium_mg": 7
+      },
+      "benefits": [
+        "植物蛋白和维生素 C",
+        "膳食纤维"
+      ],
+      "harms": [],
+      "tips": "充分加热后食用。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "lettuce-stem",
+      "name": "莴笋",
+      "aliases": [
+        "莴苣茎"
+      ],
+      "english": [
+        "lettuce stem"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 15,
+        "protein_g": 1.0,
+        "fat_g": 0.1,
+        "carb_g": 2.8,
+        "fiber_g": 1.3,
+        "sugar_g": 0.8,
+        "sodium_mg": 36
+      },
+      "benefits": [
+        "低热量",
+        "含钾和膳食纤维"
+      ],
+      "harms": [],
+      "tips": "清炒或凉拌；叶子也能吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "water-spinach",
+      "name": "空心菜",
+      "aliases": [
+        "通菜"
+      ],
+      "english": [
+        "water spinach"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 19,
+        "protein_g": 2.6,
+        "fat_g": 0.3,
+        "carb_g": 3.1,
+        "fiber_g": 2.1,
+        "sugar_g": 0.5,
+        "sodium_mg": 94
+      },
+      "benefits": [
+        "膳食纤维",
+        "维生素 C",
+        "低热量"
+      ],
+      "harms": [
+        "钠略高，少放盐"
+      ],
+      "tips": "蒜蓉快炒；茎叶都可食。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "garland-chrysanthemum",
+      "name": "茼蒿",
+      "aliases": [],
+      "english": [
+        "garland chrysanthemum"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 21,
+        "protein_g": 1.9,
+        "fat_g": 0.3,
+        "carb_g": 3.9,
+        "fiber_g": 1.2,
+        "sugar_g": 0.5,
+        "sodium_mg": 161
+      },
+      "benefits": [
+        "膳食纤维和胡萝卜素",
+        "独特香味"
+      ],
+      "harms": [
+        "天然钠较高，少放盐"
+      ],
+      "tips": "火锅或清炒；高血压者注意。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "garlic-scape",
+      "name": "蒜苔",
+      "aliases": [],
+      "english": [
+        "garlic scape"
+      ],
+      "category": "vegetable",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 61,
+        "protein_g": 2.0,
+        "fat_g": 0.1,
+        "carb_g": 15.4,
+        "fiber_g": 2.5,
+        "sugar_g": 1.0,
+        "sodium_mg": 3
+      },
+      "benefits": [
+        "膳食纤维",
+        "含大蒜素"
+      ],
+      "harms": [
+        "炒肉时容易油多"
+      ],
+      "tips": "少油快炒；控制份量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "soybean",
+      "name": "黄豆",
+      "aliases": [
+        "大豆"
+      ],
+      "english": [
+        "soybean",
+        "soy beans"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 390,
+        "protein_g": 35.0,
+        "fat_g": 16.0,
+        "carb_g": 34.0,
+        "fiber_g": 15.5,
+        "sugar_g": 7.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "优质植物蛋白",
+        "膳食纤维和异黄酮",
+        "便宜"
+      ],
+      "harms": [
+        "易胀气，胃肠弱者少量"
+      ],
+      "tips": "提前浸泡、充分煮熟；豆浆要煮沸。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "black-bean",
+      "name": "黑豆",
+      "aliases": [],
+      "english": [
+        "black bean"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 401,
+        "protein_g": 36.0,
+        "fat_g": 16.0,
+        "carb_g": 33.0,
+        "fiber_g": 10.0,
+        "sugar_g": 7.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "植物蛋白和花青素",
+        "膳食纤维"
+      ],
+      "harms": [
+        "易胀气"
+      ],
+      "tips": "煮粥或打豆浆；充分煮熟。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "red-bean",
+      "name": "红豆",
+      "aliases": [
+        "赤小豆"
+      ],
+      "english": [
+        "red bean",
+        "adzuki bean"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 324,
+        "protein_g": 20.0,
+        "fat_g": 0.6,
+        "carb_g": 63.0,
+        "fiber_g": 7.7,
+        "sugar_g": 2.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "植物蛋白和膳食纤维",
+        "钾",
+        "适合煮粥"
+      ],
+      "harms": [
+        "含淀粉，可替代部分主食"
+      ],
+      "tips": "煮粥少放糖；代替部分米饭。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "mung-bean",
+      "name": "绿豆",
+      "aliases": [],
+      "english": [
+        "mung bean"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 329,
+        "protein_g": 21.6,
+        "fat_g": 0.8,
+        "carb_g": 62.0,
+        "fiber_g": 6.4,
+        "sugar_g": 2.0,
+        "sodium_mg": 3
+      },
+      "benefits": [
+        "植物蛋白",
+        "夏天煮汤补水"
+      ],
+      "harms": [
+        "脾胃虚寒者少吃"
+      ],
+      "tips": "绿豆汤少放糖；不替代正餐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "chickpea",
+      "name": "鹰嘴豆",
+      "aliases": [],
+      "english": [
+        "chickpeas",
+        "chickpea"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 364,
+        "protein_g": 19.0,
+        "fat_g": 6.0,
+        "carb_g": 61.0,
+        "fiber_g": 17.0,
+        "sugar_g": 11.0,
+        "sodium_mg": 24
+      },
+      "benefits": [
+        "高蛋白高纤维",
+        "饱腹感强",
+        "升糖较平缓"
+      ],
+      "harms": [
+        "易胀气"
+      ],
+      "tips": "煮熟做沙拉或咖喱；控制份量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "peas",
+      "name": "豌豆",
+      "aliases": [
+        "青豆"
+      ],
+      "english": [
+        "peas",
+        "green peas"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 81,
+        "protein_g": 5.4,
+        "fat_g": 0.4,
+        "carb_g": 14.0,
+        "fiber_g": 5.0,
+        "sugar_g": 5.0,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "植物蛋白和膳食纤维",
+        "维生素 C"
+      ],
+      "harms": [],
+      "tips": "清炒或煮汤；冷冻豌豆也方便。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "edamame",
+      "name": "毛豆",
+      "aliases": [],
+      "english": [
+        "edamame"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 121,
+        "protein_g": 11.0,
+        "fat_g": 5.0,
+        "carb_g": 9.0,
+        "fiber_g": 5.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 6
+      },
+      "benefits": [
+        "植物蛋白",
+        "膳食纤维",
+        "当零食比薯片好"
+      ],
+      "harms": [
+        "盐煮毛豆钠高，少放盐"
+      ],
+      "tips": "水煮少盐；代替部分零食。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "dried-tofu",
+      "name": "豆干",
+      "aliases": [
+        "香干"
+      ],
+      "english": [
+        "dried tofu",
+        "firm tofu"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 140,
+        "protein_g": 16.0,
+        "fat_g": 7.0,
+        "carb_g": 4.0,
+        "fiber_g": 1.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 300
+      },
+      "benefits": [
+        "植物蛋白和钙",
+        "方便入菜"
+      ],
+      "harms": [
+        "部分产品钠较高"
+      ],
+      "tips": "选低盐款；炒菜少放盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "soy-milk",
+      "name": "豆浆",
+      "aliases": [
+        "无糖豆浆"
+      ],
+      "english": [
+        "soy milk"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 31,
+        "protein_g": 3.0,
+        "fat_g": 1.6,
+        "carb_g": 1.2,
+        "fiber_g": 0.4,
+        "sugar_g": 0.5,
+        "sodium_mg": 3
+      },
+      "benefits": [
+        "植物蛋白",
+        "不含乳糖",
+        "早餐好搭配"
+      ],
+      "harms": [
+        "加糖豆浆糖分高"
+      ],
+      "tips": "选无糖；必须煮沸后饮用。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "tofu-skin",
+      "name": "腐竹",
+      "aliases": [
+        "豆皮"
+      ],
+      "english": [
+        "tofu skin",
+        "yuba"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 461,
+        "protein_g": 45.0,
+        "fat_g": 22.0,
+        "carb_g": 22.0,
+        "fiber_g": 1.0,
+        "sugar_g": 3.0,
+        "sodium_mg": 30
+      },
+      "benefits": [
+        "高蛋白",
+        "耐储存"
+      ],
+      "harms": [
+        "热量和脂肪较高",
+        "泡发后吸油"
+      ],
+      "tips": "泡发后炖菜；控制份量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "millet",
+      "name": "小米",
+      "aliases": [],
+      "english": [
+        "millet"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 361,
+        "protein_g": 9.0,
+        "fat_g": 3.0,
+        "carb_g": 75.0,
+        "fiber_g": 1.6,
+        "sugar_g": 0.5,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "全谷物",
+        "含 B 族维生素",
+        "易消化"
+      ],
+      "harms": [
+        "升糖仍较快，搭配蛋白质"
+      ],
+      "tips": "小米粥搭配鸡蛋和蔬菜。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "black-rice",
+      "name": "黑米",
+      "aliases": [],
+      "english": [
+        "black rice"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 341,
+        "protein_g": 9.0,
+        "fat_g": 2.5,
+        "carb_g": 72.0,
+        "fiber_g": 3.5,
+        "sugar_g": 1.0,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "全谷物和花青素",
+        "膳食纤维"
+      ],
+      "harms": [
+        "口感较硬，需浸泡"
+      ],
+      "tips": "与白米混合煮；提前浸泡。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "glutinous-rice",
+      "name": "糯米",
+      "aliases": [],
+      "english": [
+        "glutinous rice",
+        "sticky rice"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 350,
+        "protein_g": 7.0,
+        "fat_g": 1.0,
+        "carb_g": 78.0,
+        "fiber_g": 0.8,
+        "sugar_g": 0.5,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "提供能量",
+        "口感软糯"
+      ],
+      "harms": [
+        "升糖快",
+        "不易消化，胃肠弱者少吃"
+      ],
+      "tips": "少量搭配；粽子/年糕注意糖油。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "buckwheat",
+      "name": "荞麦",
+      "aliases": [],
+      "english": [
+        "buckwheat"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 343,
+        "protein_g": 13.0,
+        "fat_g": 3.0,
+        "carb_g": 72.0,
+        "fiber_g": 10.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "全谷物",
+        "膳食纤维和芦丁",
+        "升糖较平缓"
+      ],
+      "harms": [],
+      "tips": "荞麦面搭配蔬菜和蛋白质。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "quinoa",
+      "name": "藜麦",
+      "aliases": [],
+      "english": [
+        "quinoa"
+      ],
+      "category": "grain",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 368,
+        "protein_g": 14.0,
+        "fat_g": 6.0,
+        "carb_g": 64.0,
+        "fiber_g": 7.0,
+        "sugar_g": 4.0,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "完全蛋白",
+        "膳食纤维",
+        "适合拌沙拉"
+      ],
+      "harms": [
+        "价格较高"
+      ],
+      "tips": "与米饭混合；淘洗去表面皂苷。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "mantou",
+      "name": "馒头",
+      "aliases": [
+        "白馒头"
+      ],
+      "english": [
+        "steamed bun",
+        "mantou"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 223,
+        "protein_g": 7.0,
+        "fat_g": 1.0,
+        "carb_g": 47.0,
+        "fiber_g": 1.3,
+        "sugar_g": 2.0,
+        "sodium_mg": 150
+      },
+      "benefits": [
+        "方便的主食",
+        "易消化"
+      ],
+      "harms": [
+        "精制面粉，纤维少",
+        "升糖较快"
+      ],
+      "tips": "搭配鸡蛋和蔬菜；选全麦馒头更好。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "chicken-thigh",
+      "name": "鸡腿肉",
+      "aliases": [
+        "鸡腿"
+      ],
+      "english": [
+        "chicken thigh"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 209,
+        "protein_g": 18.0,
+        "fat_g": 13.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 80
+      },
+      "benefits": [
+        "优质蛋白和铁",
+        "去皮后脂肪下降"
+      ],
+      "harms": [
+        "带皮和油炸后脂肪高"
+      ],
+      "tips": "去皮烤或炖；避免油炸。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "duck",
+      "name": "鸭肉",
+      "aliases": [],
+      "english": [
+        "duck"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 240,
+        "protein_g": 19.0,
+        "fat_g": 18.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 70
+      },
+      "benefits": [
+        "蛋白质和 B 族维生素",
+        "含铁"
+      ],
+      "harms": [
+        "皮下脂肪高",
+        "烤鸭配甜面酱糖盐高"
+      ],
+      "tips": "去皮食用；控制份量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "lamb",
+      "name": "羊肉",
+      "aliases": [],
+      "english": [
+        "lamb",
+        "mutton"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 294,
+        "protein_g": 25.0,
+        "fat_g": 21.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 72
+      },
+      "benefits": [
+        "优质蛋白和铁",
+        "含锌"
+      ],
+      "harms": [
+        "饱和脂肪较高"
+      ],
+      "tips": "选瘦肉部位；炖煮优于烧烤。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pork-liver",
+      "name": "猪肝",
+      "aliases": [],
+      "english": [
+        "pork liver",
+        "liver"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 165,
+        "protein_g": 26.0,
+        "fat_g": 4.4,
+        "carb_g": 3.8,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 70
+      },
+      "benefits": [
+        "富含维生素 A 和铁",
+        "补铁效果好"
+      ],
+      "harms": [
+        "维生素 A 和胆固醇高，每周不超过 1 次",
+        "孕妇避免过量"
+      ],
+      "tips": "每周 1 次、每次 50 g 左右；彻底煮熟。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "beef-brisket",
+      "name": "牛腩",
+      "aliases": [],
+      "english": [
+        "beef brisket"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 330,
+        "protein_g": 18.0,
+        "fat_g": 28.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 60
+      },
+      "benefits": [
+        "蛋白质和铁",
+        "炖煮软烂易嚼"
+      ],
+      "harms": [
+        "脂肪含量高",
+        "汤里油脂多"
+      ],
+      "tips": "撇去浮油；搭配萝卜和蔬菜。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "chicken-wing",
+      "name": "鸡翅",
+      "aliases": [],
+      "english": [
+        "chicken wing"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 222,
+        "protein_g": 19.0,
+        "fat_g": 16.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 80
+      },
+      "benefits": [
+        "蛋白质",
+        "方便"
+      ],
+      "harms": [
+        "皮下脂肪高",
+        "烤翅酱料糖盐高"
+      ],
+      "tips": "去皮或少吃皮；避免油炸。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "bacon",
+      "name": "培根",
+      "aliases": [],
+      "english": [
+        "bacon"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 541,
+        "protein_g": 37.0,
+        "fat_g": 42.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 1500
+      },
+      "benefits": [],
+      "harms": [
+        "加工肉制品，钠和饱和脂肪很高",
+        "WHO 将加工肉列为 1 类致癌物",
+        "增加结直肠癌风险"
+      ],
+      "tips": "尽量少吃；用鸡蛋或新鲜肉类替代。",
+      "sources": [
+        "who",
+        "usda"
+      ]
+    },
+    {
+      "id": "ham",
+      "name": "火腿",
+      "aliases": [
+        "火腿片"
+      ],
+      "english": [
+        "ham"
+      ],
+      "category": "junk",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 145,
+        "protein_g": 21.0,
+        "fat_g": 5.0,
+        "carb_g": 2.0,
+        "fiber_g": 0.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 1200
+      },
+      "benefits": [],
+      "harms": [
+        "加工肉制品，钠含量高",
+        "与结直肠癌风险相关"
+      ],
+      "tips": "少量；选低钠款，搭配蔬菜。",
+      "sources": [
+        "who",
+        "usda"
+      ]
+    },
+    {
+      "id": "duck-egg",
+      "name": "鸭蛋",
+      "aliases": [],
+      "english": [
+        "duck egg"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 180,
+        "protein_g": 13.0,
+        "fat_g": 13.0,
+        "carb_g": 1.0,
+        "fiber_g": 0.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 106
+      },
+      "benefits": [
+        "优质蛋白",
+        "含维生素 A 和铁"
+      ],
+      "harms": [
+        "胆固醇较高",
+        "咸鸭蛋钠极高"
+      ],
+      "tips": "每天 1 个以内；咸鸭蛋少吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "quail-egg",
+      "name": "鹌鹑蛋",
+      "aliases": [],
+      "english": [
+        "quail egg"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 158,
+        "protein_g": 13.0,
+        "fat_g": 11.0,
+        "carb_g": 0.4,
+        "fiber_g": 0.0,
+        "sugar_g": 0.4,
+        "sodium_mg": 106
+      },
+      "benefits": [
+        "优质蛋白",
+        "含铁和维生素 B12",
+        "个头小易控制量"
+      ],
+      "harms": [
+        "胆固醇较高，适量"
+      ],
+      "tips": "水煮当加餐；一次 3–5 个。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "sea-bass",
+      "name": "鲈鱼",
+      "aliases": [],
+      "english": [
+        "sea bass"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 105,
+        "protein_g": 18.0,
+        "fat_g": 3.4,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 60
+      },
+      "benefits": [
+        "优质蛋白",
+        "脂肪较低",
+        "清蒸易消化"
+      ],
+      "harms": [
+        "鱼刺注意"
+      ],
+      "tips": "清蒸；少油少盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "hairtail",
+      "name": "带鱼",
+      "aliases": [],
+      "english": [
+        "hairtail",
+        "ribbonfish"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 127,
+        "protein_g": 18.0,
+        "fat_g": 4.9,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 150
+      },
+      "benefits": [
+        "蛋白质和 Omega-3",
+        "含钙"
+      ],
+      "harms": [
+        "油炸后热量高",
+        "钠略高"
+      ],
+      "tips": "清蒸或红烧少油；避免油炸。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "cod",
+      "name": "鳕鱼",
+      "aliases": [],
+      "english": [
+        "cod"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 82,
+        "protein_g": 18.0,
+        "fat_g": 0.7,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 54
+      },
+      "benefits": [
+        "高蛋白低脂肪",
+        "易消化",
+        "适合减脂"
+      ],
+      "harms": [],
+      "tips": "清蒸或煎；注意来源和汞含量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "crab",
+      "name": "蟹",
+      "aliases": [
+        "螃蟹"
+      ],
+      "english": [
+        "crab"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 95,
+        "protein_g": 18.0,
+        "fat_g": 2.0,
+        "carb_g": 1.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 200
+      },
+      "benefits": [
+        "优质蛋白和锌",
+        "低脂肪"
+      ],
+      "harms": [
+        "胆固醇和嘌呤较高",
+        "痛风/高尿酸者少吃"
+      ],
+      "tips": "清蒸；不与大量啤酒同食。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "cheese",
+      "name": "奶酪",
+      "aliases": [
+        "芝士"
+      ],
+      "english": [
+        "cheese"
+      ],
+      "category": "dairy",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 400,
+        "protein_g": 25.0,
+        "fat_g": 33.0,
+        "carb_g": 1.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 600
+      },
+      "benefits": [
+        "蛋白质和钙",
+        "方便补充"
+      ],
+      "harms": [
+        "饱和脂肪和钠高",
+        "再制奶酪添加剂多"
+      ],
+      "tips": "每天一小片；选天然奶酪、低钠款。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "grape",
+      "name": "葡萄",
+      "aliases": [
+        "提子"
+      ],
+      "english": [
+        "grapes",
+        "grape"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 69,
+        "protein_g": 0.7,
+        "fat_g": 0.2,
+        "carb_g": 18.1,
+        "fiber_g": 0.9,
+        "sugar_g": 15.5,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "含多酚类抗氧化物",
+        "含水量高"
+      ],
+      "harms": [
+        "糖分较高，一次一小串"
+      ],
+      "tips": "一次约 15 颗；糖尿病患者分次少量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "kiwi",
+      "name": "猕猴桃",
+      "aliases": [
+        "奇异果"
+      ],
+      "english": [
+        "kiwi",
+        "kiwifruit"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 61,
+        "protein_g": 1.1,
+        "fat_g": 0.5,
+        "carb_g": 14.7,
+        "fiber_g": 3.0,
+        "sugar_g": 9.0,
+        "sodium_mg": 3
+      },
+      "benefits": [
+        "维生素 C 含量很高",
+        "膳食纤维丰富"
+      ],
+      "harms": [
+        "少数人过敏"
+      ],
+      "tips": "每天 1 个；饭后吃减少胃部刺激。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "mango",
+      "name": "芒果",
+      "aliases": [],
+      "english": [
+        "mango"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 60,
+        "protein_g": 0.8,
+        "fat_g": 0.4,
+        "carb_g": 15.0,
+        "fiber_g": 1.6,
+        "sugar_g": 13.7,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "富含维生素 A 和 C",
+        "香甜可口"
+      ],
+      "harms": [
+        "糖分较高",
+        "部分人接触果皮过敏"
+      ],
+      "tips": "一次半个；糖尿病患者控制量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pear",
+      "name": "梨",
+      "aliases": [],
+      "english": [
+        "pear"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 57,
+        "protein_g": 0.4,
+        "fat_g": 0.1,
+        "carb_g": 15.2,
+        "fiber_g": 3.1,
+        "sugar_g": 9.8,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "水分和膳食纤维",
+        "润喉",
+        "适合干燥季节"
+      ],
+      "harms": [
+        "一次不宜过多，易腹泻"
+      ],
+      "tips": "生吃或炖煮；胃肠弱者熟吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "peach",
+      "name": "桃子",
+      "aliases": [],
+      "english": [
+        "peach"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 39,
+        "protein_g": 0.9,
+        "fat_g": 0.3,
+        "carb_g": 9.5,
+        "fiber_g": 1.5,
+        "sugar_g": 8.4,
+        "sodium_mg": 0
+      },
+      "benefits": [
+        "维生素 C 和钾",
+        "低热量"
+      ],
+      "harms": [
+        "桃毛可能引起过敏"
+      ],
+      "tips": "洗净或去皮；一次 1–2 个。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "cherry",
+      "name": "樱桃",
+      "aliases": [
+        "车厘子"
+      ],
+      "english": [
+        "cherry"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 63,
+        "protein_g": 1.1,
+        "fat_g": 0.2,
+        "carb_g": 16.0,
+        "fiber_g": 2.1,
+        "sugar_g": 12.8,
+        "sodium_mg": 0
+      },
+      "benefits": [
+        "花青素和钾",
+        "低脂肪"
+      ],
+      "harms": [
+        "糖分较高，价格较高"
+      ],
+      "tips": "一次一小把；注意清洗。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pomelo",
+      "name": "柚子",
+      "aliases": [],
+      "english": [
+        "pomelo"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 38,
+        "protein_g": 0.8,
+        "fat_g": 0.1,
+        "carb_g": 9.6,
+        "fiber_g": 1.0,
+        "sugar_g": 8.0,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "维生素 C",
+        "低热量"
+      ],
+      "harms": [
+        "与部分药物（如他汀、降压药）相互作用，服药者慎吃"
+      ],
+      "tips": "服药期间避免大量吃柚子。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "dragon-fruit",
+      "name": "火龙果",
+      "aliases": [],
+      "english": [
+        "dragon fruit",
+        "pitaya"
+      ],
+      "category": "fruit",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 60,
+        "protein_g": 1.2,
+        "fat_g": 0.2,
+        "carb_g": 13.0,
+        "fiber_g": 3.0,
+        "sugar_g": 8.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "膳食纤维丰富",
+        "含花青素"
+      ],
+      "harms": [
+        "红心火龙果可能使尿液/粪便变红"
+      ],
+      "tips": "一次半个到一个。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "durian",
+      "name": "榴莲",
+      "aliases": [],
+      "english": [
+        "durian"
+      ],
+      "category": "fruit",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 147,
+        "protein_g": 1.5,
+        "fat_g": 5.3,
+        "carb_g": 27.1,
+        "fiber_g": 3.8,
+        "sugar_g": 15.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "含钾和膳食纤维",
+        "能量补充"
+      ],
+      "harms": [
+        "热量和脂肪水果中偏高",
+        "一次吃多易上火/胀气"
+      ],
+      "tips": "一次 1–2 瓣；控制总热量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "coconut",
+      "name": "椰子",
+      "aliases": [
+        "椰肉"
+      ],
+      "english": [
+        "coconut"
+      ],
+      "category": "fruit",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 354,
+        "protein_g": 3.3,
+        "fat_g": 33.5,
+        "carb_g": 15.2,
+        "fiber_g": 9.0,
+        "sugar_g": 6.2,
+        "sodium_mg": 20
+      },
+      "benefits": [
+        "膳食纤维",
+        "椰子水补钾"
+      ],
+      "harms": [
+        "椰肉饱和脂肪高",
+        "椰子水含糖"
+      ],
+      "tips": "椰肉少量；选无糖椰子水。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "shiitake",
+      "name": "香菇",
+      "aliases": [
+        "冬菇"
+      ],
+      "english": [
+        "shiitake",
+        "shiitake mushroom"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 34,
+        "protein_g": 2.2,
+        "fat_g": 0.5,
+        "carb_g": 6.8,
+        "fiber_g": 2.5,
+        "sugar_g": 2.4,
+        "sodium_mg": 9
+      },
+      "benefits": [
+        "含香菇多糖和 B 族维生素",
+        "鲜味可减少用盐",
+        "低热量"
+      ],
+      "harms": [
+        "痛风急性期适量"
+      ],
+      "tips": "干香菇需泡发；痛风者控制量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "enoki",
+      "name": "金针菇",
+      "aliases": [],
+      "english": [
+        "enoki",
+        "enoki mushroom"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 32,
+        "protein_g": 2.4,
+        "fat_g": 0.3,
+        "carb_g": 6.0,
+        "fiber_g": 2.7,
+        "sugar_g": 1.0,
+        "sodium_mg": 3
+      },
+      "benefits": [
+        "膳食纤维",
+        "低热量",
+        "适合火锅和凉拌"
+      ],
+      "harms": [
+        "需彻底煮熟",
+        "胃肠弱者适量"
+      ],
+      "tips": "充分煮熟；避免生食。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "king-oyster",
+      "name": "杏鲍菇",
+      "aliases": [],
+      "english": [
+        "king oyster mushroom"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 35,
+        "protein_g": 1.5,
+        "fat_g": 0.2,
+        "carb_g": 8.0,
+        "fiber_g": 2.1,
+        "sugar_g": 1.0,
+        "sodium_mg": 3
+      },
+      "benefits": [
+        "口感像肉，可替代部分肉类",
+        "低热量"
+      ],
+      "harms": [],
+      "tips": "切片煎烤或炒；少油。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "oyster-mushroom",
+      "name": "平菇",
+      "aliases": [],
+      "english": [
+        "oyster mushroom"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 33,
+        "protein_g": 3.3,
+        "fat_g": 0.4,
+        "carb_g": 6.1,
+        "fiber_g": 2.3,
+        "sugar_g": 1.0,
+        "sodium_mg": 4
+      },
+      "benefits": [
+        "植物蛋白和膳食纤维",
+        "低热量"
+      ],
+      "harms": [],
+      "tips": "炒蛋或做汤；彻底加热。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "button-mushroom",
+      "name": "口蘑",
+      "aliases": [
+        "白蘑菇"
+      ],
+      "english": [
+        "button mushroom",
+        "white mushroom"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 22,
+        "protein_g": 3.1,
+        "fat_g": 0.3,
+        "carb_g": 3.3,
+        "fiber_g": 1.0,
+        "sugar_g": 1.7,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "低热量",
+        "含 B 族维生素和硒"
+      ],
+      "harms": [],
+      "tips": "煎烤或做汤；少油少盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "wood-ear",
+      "name": "黑木耳",
+      "aliases": [
+        "木耳"
+      ],
+      "english": [
+        "wood ear",
+        "black fungus"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 265,
+        "protein_g": 12.0,
+        "fat_g": 1.5,
+        "carb_g": 65.0,
+        "fiber_g": 30.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 48
+      },
+      "benefits": [
+        "膳食纤维极高",
+        "含铁",
+        "泡发后体积大、饱腹"
+      ],
+      "harms": [
+        "泡发时间过长易滋生细菌",
+        "出血倾向或服抗凝药者适量"
+      ],
+      "tips": "冷水短时泡发；彻底煮熟。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "white-fungus",
+      "name": "银耳",
+      "aliases": [
+        "白木耳"
+      ],
+      "english": [
+        "white fungus",
+        "snow fungus"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 261,
+        "protein_g": 10.0,
+        "fat_g": 1.4,
+        "carb_g": 67.0,
+        "fiber_g": 30.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 82
+      },
+      "benefits": [
+        "膳食纤维",
+        "银耳多糖",
+        "煮羹饱腹"
+      ],
+      "harms": [
+        "银耳羹常加糖"
+      ],
+      "tips": "少糖炖煮；糖尿病者控制。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "tea-tree-mushroom",
+      "name": "茶树菇",
+      "aliases": [],
+      "english": [
+        "tea tree mushroom"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 280,
+        "protein_g": 23.0,
+        "fat_g": 2.6,
+        "carb_g": 45.0,
+        "fiber_g": 15.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 20
+      },
+      "benefits": [
+        "植物蛋白和膳食纤维",
+        "干菇香气浓"
+      ],
+      "harms": [
+        "干制品需泡发煮熟"
+      ],
+      "tips": "泡发后炖汤或炒；彻底加热。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "peanut",
+      "name": "花生",
+      "aliases": [
+        "长生果"
+      ],
+      "english": [
+        "peanut"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 567,
+        "protein_g": 26.0,
+        "fat_g": 49.0,
+        "carb_g": 16.0,
+        "fiber_g": 8.5,
+        "sugar_g": 4.0,
+        "sodium_mg": 18
+      },
+      "benefits": [
+        "植物蛋白和单不饱和脂肪",
+        "饱腹感强"
+      ],
+      "harms": [
+        "热量很高，每天一小把",
+        "霉变花生有黄曲霉毒素风险"
+      ],
+      "tips": "每天约 10 粒；不吃霉变花生。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "walnut",
+      "name": "核桃",
+      "aliases": [],
+      "english": [
+        "walnut"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 654,
+        "protein_g": 15.0,
+        "fat_g": 65.0,
+        "carb_g": 14.0,
+        "fiber_g": 6.7,
+        "sugar_g": 2.6,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "富含 Omega-3（α-亚麻酸）",
+        "蛋白质和纤维"
+      ],
+      "harms": [
+        "热量高",
+        "易氧化变质"
+      ],
+      "tips": "每天 2–3 个；密封避光保存。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "almond",
+      "name": "杏仁",
+      "aliases": [
+        "巴旦木"
+      ],
+      "english": [
+        "almond"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 579,
+        "protein_g": 21.0,
+        "fat_g": 50.0,
+        "carb_g": 22.0,
+        "fiber_g": 12.5,
+        "sugar_g": 4.4,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "维生素 E 和镁",
+        "单不饱和脂肪"
+      ],
+      "harms": [
+        "热量高",
+        "苦杏仁有毒不可食用"
+      ],
+      "tips": "每天一小把（约 15 粒）。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "cashew",
+      "name": "腰果",
+      "aliases": [],
+      "english": [
+        "cashew"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 553,
+        "protein_g": 18.0,
+        "fat_g": 44.0,
+        "carb_g": 30.0,
+        "fiber_g": 3.3,
+        "sugar_g": 5.9,
+        "sodium_mg": 12
+      },
+      "benefits": [
+        "蛋白质和镁",
+        "口感好"
+      ],
+      "harms": [
+        "热量高",
+        "盐焗腰果钠高"
+      ],
+      "tips": "每天一小把；选原味。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pistachio",
+      "name": "开心果",
+      "aliases": [],
+      "english": [
+        "pistachio"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 560,
+        "protein_g": 20.0,
+        "fat_g": 45.0,
+        "carb_g": 28.0,
+        "fiber_g": 10.0,
+        "sugar_g": 7.7,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "蛋白质和纤维",
+        "含叶黄素"
+      ],
+      "harms": [
+        "热量高",
+        "盐焗款钠高"
+      ],
+      "tips": "原味、每天一小把。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "hazelnut",
+      "name": "榛子",
+      "aliases": [],
+      "english": [
+        "hazelnut"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 628,
+        "protein_g": 15.0,
+        "fat_g": 61.0,
+        "carb_g": 17.0,
+        "fiber_g": 9.7,
+        "sugar_g": 4.3,
+        "sodium_mg": 0
+      },
+      "benefits": [
+        "维生素 E 和单不饱和脂肪",
+        "香味浓"
+      ],
+      "harms": [
+        "热量高"
+      ],
+      "tips": "每天一小把；避免糖衣款。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "sunflower-seed",
+      "name": "葵花籽",
+      "aliases": [
+        "瓜子"
+      ],
+      "english": [
+        "sunflower seed"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 584,
+        "protein_g": 21.0,
+        "fat_g": 51.0,
+        "carb_g": 20.0,
+        "fiber_g": 8.6,
+        "sugar_g": 2.6,
+        "sodium_mg": 9
+      },
+      "benefits": [
+        "维生素 E 和镁",
+        "蛋白质"
+      ],
+      "harms": [
+        "热量高",
+        "嗑瓜子易过量、盐分高"
+      ],
+      "tips": "每天一小把原味。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "sesame",
+      "name": "芝麻",
+      "aliases": [
+        "黑芝麻"
+      ],
+      "english": [
+        "sesame",
+        "sesame seed"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 573,
+        "protein_g": 17.0,
+        "fat_g": 50.0,
+        "carb_g": 23.0,
+        "fiber_g": 11.8,
+        "sugar_g": 0.3,
+        "sodium_mg": 11
+      },
+      "benefits": [
+        "钙、铁和健康脂肪",
+        "少量提香"
+      ],
+      "harms": [
+        "热量高",
+        "芝麻糊常加糖"
+      ],
+      "tips": "每天 1 小勺；选无糖。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "crucian-carp",
+      "name": "鲫鱼",
+      "aliases": [],
+      "english": [
+        "crucian carp"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 108,
+        "protein_g": 17.0,
+        "fat_g": 2.7,
+        "carb_g": 3.8,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 41
+      },
+      "benefits": [
+        "优质蛋白",
+        "脂肪较低",
+        "炖汤易消化"
+      ],
+      "harms": [
+        "鱼刺较多，儿童小心"
+      ],
+      "tips": "清蒸或炖汤；少油少盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "grass-carp",
+      "name": "草鱼",
+      "aliases": [],
+      "english": [
+        "grass carp"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 113,
+        "protein_g": 17.0,
+        "fat_g": 4.3,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 46
+      },
+      "benefits": [
+        "蛋白质",
+        "含不饱和脂肪"
+      ],
+      "harms": [
+        "鱼刺注意"
+      ],
+      "tips": "清蒸或红烧少油。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "yellow-croaker",
+      "name": "黄花鱼",
+      "aliases": [
+        "黄鱼"
+      ],
+      "english": [
+        "yellow croaker"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 97,
+        "protein_g": 18.0,
+        "fat_g": 2.5,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 120
+      },
+      "benefits": [
+        "蛋白质",
+        "蒜瓣肉易消化"
+      ],
+      "harms": [
+        "钠略高",
+        "鱼刺注意"
+      ],
+      "tips": "清蒸；少放盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "scallop",
+      "name": "扇贝",
+      "aliases": [],
+      "english": [
+        "scallop"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 88,
+        "protein_g": 17.0,
+        "fat_g": 0.9,
+        "carb_g": 3.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 190
+      },
+      "benefits": [
+        "高蛋白低脂肪",
+        "含锌"
+      ],
+      "harms": [
+        "嘌呤较高，痛风者适量",
+        "必须彻底煮熟"
+      ],
+      "tips": "蒜蓉蒸或煮汤；痛风者少吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "clam",
+      "name": "蛤蜊",
+      "aliases": [
+        "花甲"
+      ],
+      "english": [
+        "clam"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 62,
+        "protein_g": 11.0,
+        "fat_g": 1.0,
+        "carb_g": 2.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 400
+      },
+      "benefits": [
+        "蛋白质和铁",
+        "低脂肪"
+      ],
+      "harms": [
+        "钠和嘌呤较高",
+        "需吐沙、彻底煮熟"
+      ],
+      "tips": "煮汤或爆炒；痛风者适量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "oyster",
+      "name": "牡蛎",
+      "aliases": [
+        "生蚝"
+      ],
+      "english": [
+        "oyster"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 81,
+        "protein_g": 9.0,
+        "fat_g": 2.0,
+        "carb_g": 5.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 300
+      },
+      "benefits": [
+        "富含锌",
+        "蛋白质",
+        "低脂肪"
+      ],
+      "harms": [
+        "生食有寄生虫/细菌风险",
+        "嘌呤较高"
+      ],
+      "tips": "彻底煮熟；痛风者少吃。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "squid",
+      "name": "鱿鱼",
+      "aliases": [],
+      "english": [
+        "squid"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 92,
+        "protein_g": 16.0,
+        "fat_g": 1.4,
+        "carb_g": 3.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 110
+      },
+      "benefits": [
+        "高蛋白低脂肪",
+        "含硒"
+      ],
+      "harms": [
+        "胆固醇较高",
+        "铁板鱿鱼油盐高"
+      ],
+      "tips": "水煮或清炒；避免重油重盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "kelp",
+      "name": "海带",
+      "aliases": [
+        "昆布"
+      ],
+      "english": [
+        "kelp",
+        "seaweed"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 13,
+        "protein_g": 1.1,
+        "fat_g": 0.1,
+        "carb_g": 2.1,
+        "fiber_g": 0.5,
+        "sugar_g": 0.0,
+        "sodium_mg": 233
+      },
+      "benefits": [
+        "碘和膳食纤维",
+        "低热量"
+      ],
+      "harms": [
+        "碘过高影响甲状腺，甲亢者少吃",
+        "钠较高"
+      ],
+      "tips": "每周 1–2 次；甲状腺疾病者咨询医生。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "nori",
+      "name": "紫菜",
+      "aliases": [],
+      "english": [
+        "nori",
+        "laver"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 250,
+        "protein_g": 26.0,
+        "fat_g": 1.0,
+        "carb_g": 44.0,
+        "fiber_g": 22.0,
+        "sugar_g": 2.0,
+        "sodium_mg": 710
+      },
+      "benefits": [
+        "蛋白质和碘",
+        "膳食纤维"
+      ],
+      "harms": [
+        "钠较高",
+        "即食海苔常加油盐"
+      ],
+      "tips": "做汤少量；选低盐款。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "wakame",
+      "name": "裙带菜",
+      "aliases": [],
+      "english": [
+        "wakame"
+      ],
+      "category": "vegetable",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 45,
+        "protein_g": 3.0,
+        "fat_g": 0.6,
+        "carb_g": 8.0,
+        "fiber_g": 1.0,
+        "sugar_g": 0.5,
+        "sodium_mg": 872
+      },
+      "benefits": [
+        "碘和钙",
+        "低热量"
+      ],
+      "harms": [
+        "钠含量高",
+        "甲状腺疾病者慎食"
+      ],
+      "tips": "凉拌或做汤；少放盐。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "dried-shrimp",
+      "name": "虾皮",
+      "aliases": [],
+      "english": [
+        "dried shrimp"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 153,
+        "protein_g": 30.0,
+        "fat_g": 2.0,
+        "carb_g": 3.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 5000
+      },
+      "benefits": [
+        "钙和蛋白质",
+        "提鲜"
+      ],
+      "harms": [
+        "钠极高，一小把就够",
+        "嘌呤高"
+      ],
+      "tips": "做汤放一小撮；高血压者少用。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "tofu-pudding",
+      "name": "豆腐脑",
+      "aliases": [
+        "豆花"
+      ],
+      "english": [
+        "tofu pudding"
+      ],
+      "category": "protein",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 45,
+        "protein_g": 4.0,
+        "fat_g": 2.0,
+        "carb_g": 2.5,
+        "fiber_g": 0.3,
+        "sugar_g": 1.0,
+        "sodium_mg": 20
+      },
+      "benefits": [
+        "植物蛋白",
+        "易消化",
+        "早餐好选择"
+      ],
+      "harms": [
+        "卤汁/糖水可能高盐高糖"
+      ],
+      "tips": "选少盐卤汁或原味。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "fried-tofu",
+      "name": "油豆腐",
+      "aliases": [
+        "豆泡"
+      ],
+      "english": [
+        "fried tofu"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 245,
+        "protein_g": 17.0,
+        "fat_g": 17.0,
+        "carb_g": 6.0,
+        "fiber_g": 1.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 20
+      },
+      "benefits": [
+        "植物蛋白和钙"
+      ],
+      "harms": [
+        "油炸，脂肪和热量较高",
+        "吸汤汁后钠高"
+      ],
+      "tips": "炖菜少量；避免油炸再烧。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "veggie-chicken",
+      "name": "素鸡",
+      "aliases": [
+        "豆制素鸡"
+      ],
+      "english": [
+        "veggie chicken",
+        "tofu roll"
+      ],
+      "category": "protein",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 190,
+        "protein_g": 17.0,
+        "fat_g": 10.0,
+        "carb_g": 8.0,
+        "fiber_g": 1.0,
+        "sugar_g": 1.0,
+        "sodium_mg": 300
+      },
+      "benefits": [
+        "植物蛋白",
+        "口感有嚼劲"
+      ],
+      "harms": [
+        "部分产品钠和油较高"
+      ],
+      "tips": "选低盐款；搭配蔬菜。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "soy-sauce",
+      "name": "酱油",
+      "aliases": [],
+      "english": [
+        "soy sauce"
+      ],
+      "category": "seasoning",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 53,
+        "protein_g": 8.0,
+        "fat_g": 0.1,
+        "carb_g": 4.0,
+        "fiber_g": 0.8,
+        "sugar_g": 1.0,
+        "sodium_mg": 6000
+      },
+      "benefits": [
+        "提鲜、帮助少放盐"
+      ],
+      "harms": [
+        "钠含量极高，一勺约 1 g 盐"
+      ],
+      "tips": "用限盐勺；选低钠酱油。",
+      "sources": [
+        "cns",
+        "who"
+      ]
+    },
+    {
+      "id": "vinegar",
+      "name": "醋",
+      "aliases": [],
+      "english": [
+        "vinegar"
+      ],
+      "category": "seasoning",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 18,
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "carb_g": 0.9,
+        "fiber_g": 0.0,
+        "sugar_g": 0.5,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "几乎不含热量",
+        "提味、减少用盐"
+      ],
+      "harms": [
+        "胃食管反流者少用"
+      ],
+      "tips": "凉拌或蘸食；胃病者适量。",
+      "sources": [
+        "cns"
+      ]
+    },
+    {
+      "id": "salt",
+      "name": "盐",
+      "aliases": [],
+      "english": [
+        "salt"
+      ],
+      "category": "seasoning",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 0,
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 39000
+      },
+      "benefits": [
+        "必需但需限量"
+      ],
+      "harms": [
+        "过量增加高血压、脑卒中风险",
+        "成人每日不超过 5 g"
+      ],
+      "tips": "用限盐勺；少吃腌制食品。",
+      "sources": [
+        "who",
+        "cns"
+      ]
+    },
+    {
+      "id": "sugar",
+      "name": "白糖",
+      "aliases": [
+        "白砂糖"
+      ],
+      "english": [
+        "sugar",
+        "white sugar"
+      ],
+      "category": "seasoning",
+      "rating": "limit",
+      "nutrition": {
+        "energy_kcal": 387,
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "carb_g": 100.0,
+        "fiber_g": 0.0,
+        "sugar_g": 100.0,
+        "sodium_mg": 0
+      },
+      "benefits": [
+        "提供甜味"
+      ],
+      "harms": [
+        "游离糖每日建议低于总能量 10%，最好 5%",
+        "增加龋齿和肥胖风险"
+      ],
+      "tips": "少喝含糖饮料、少加糖。",
+      "sources": [
+        "who",
+        "nhs"
+      ]
+    },
+    {
+      "id": "olive-oil",
+      "name": "橄榄油",
+      "aliases": [],
+      "english": [
+        "olive oil"
+      ],
+      "category": "seasoning",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 884,
+        "protein_g": 0.0,
+        "fat_g": 100.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 2
+      },
+      "benefits": [
+        "单不饱和脂肪",
+        "凉拌和低温烹饪好"
+      ],
+      "harms": [
+        "仍是纯脂肪，热量很高",
+        "每日 25–30 g 油"
+      ],
+      "tips": "凉拌或低温炒；控制总量。",
+      "sources": [
+        "cns",
+        "who"
+      ]
+    },
+    {
+      "id": "soybean-oil",
+      "name": "大豆油",
+      "aliases": [],
+      "english": [
+        "soybean oil",
+        "vegetable oil"
+      ],
+      "category": "seasoning",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 884,
+        "protein_g": 0.0,
+        "fat_g": 100.0,
+        "carb_g": 0.0,
+        "fiber_g": 0.0,
+        "sugar_g": 0.0,
+        "sodium_mg": 0
+      },
+      "benefits": [
+        "含亚油酸",
+        "适合一般炒菜"
+      ],
+      "harms": [
+        "高温反复使用会产生有害物质",
+        "热量高"
+      ],
+      "tips": "少油烹饪；不反复煎炸。",
+      "sources": [
+        "cns"
+      ]
+    },
+    {
+      "id": "oyster-sauce",
+      "name": "蚝油",
+      "aliases": [],
+      "english": [
+        "oyster sauce"
+      ],
+      "category": "seasoning",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 114,
+        "protein_g": 3.0,
+        "fat_g": 0.2,
+        "carb_g": 25.0,
+        "fiber_g": 0.2,
+        "sugar_g": 18.0,
+        "sodium_mg": 3500
+      },
+      "benefits": [
+        "提鲜"
+      ],
+      "harms": [
+        "钠和糖较高"
+      ],
+      "tips": "少量使用；少放盐。",
+      "sources": [
+        "cns"
+      ]
+    },
+    {
+      "id": "ketchup",
+      "name": "番茄酱",
+      "aliases": [
+        "番茄沙司"
+      ],
+      "english": [
+        "ketchup",
+        "tomato sauce"
+      ],
+      "category": "seasoning",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 110,
+        "protein_g": 1.5,
+        "fat_g": 0.2,
+        "carb_g": 26.0,
+        "fiber_g": 0.5,
+        "sugar_g": 22.0,
+        "sodium_mg": 900
+      },
+      "benefits": [
+        "含番茄红素"
+      ],
+      "harms": [
+        "糖和钠较高"
+      ],
+      "tips": "少量蘸食；选低糖款。",
+      "sources": [
+        "cns"
+      ]
+    },
+    {
+      "id": "rice-noodles",
+      "name": "米粉",
+      "aliases": [
+        "河粉"
+      ],
+      "english": [
+        "rice noodles"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 110,
+        "protein_g": 2.0,
+        "fat_g": 0.2,
+        "carb_g": 24.0,
+        "fiber_g": 0.5,
+        "sugar_g": 0.2,
+        "sodium_mg": 5
+      },
+      "benefits": [
+        "提供碳水能量",
+        "易消化"
+      ],
+      "harms": [
+        "精制主食，汤粉盐分高"
+      ],
+      "tips": "加蔬菜和蛋白质；少喝汤。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "pasta",
+      "name": "意大利面",
+      "aliases": [],
+      "english": [
+        "pasta",
+        "spaghetti"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 158,
+        "protein_g": 5.8,
+        "fat_g": 0.9,
+        "carb_g": 31.0,
+        "fiber_g": 1.8,
+        "sugar_g": 0.6,
+        "sodium_mg": 1
+      },
+      "benefits": [
+        "碳水能量",
+        "搭配蔬菜和蛋白质可均衡"
+      ],
+      "harms": [
+        "酱料常高油高盐"
+      ],
+      "tips": "选番茄基底酱；控制份量。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "rice-cake",
+      "name": "年糕",
+      "aliases": [],
+      "english": [
+        "rice cake"
+      ],
+      "category": "grain",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 154,
+        "protein_g": 3.0,
+        "fat_g": 0.5,
+        "carb_g": 34.0,
+        "fiber_g": 0.5,
+        "sugar_g": 1.0,
+        "sodium_mg": 20
+      },
+      "benefits": [
+        "提供能量",
+        "口感软糯"
+      ],
+      "harms": [
+        "升糖快",
+        "炒年糕油盐高"
+      ],
+      "tips": "少量；搭配蔬菜和蛋白质。",
+      "sources": [
+        "cns",
+        "usda"
+      ]
+    },
+    {
+      "id": "avocado",
+      "name": "牛油果",
+      "aliases": [
+        "鳄梨"
+      ],
+      "english": [
+        "avocado"
+      ],
+      "category": "fruit",
+      "rating": "moderate",
+      "nutrition": {
+        "energy_kcal": 160,
+        "protein_g": 2.0,
+        "fat_g": 14.7,
+        "carb_g": 8.5,
+        "fiber_g": 6.7,
+        "sugar_g": 0.7,
+        "sodium_mg": 7
+      },
+      "benefits": [
+        "单不饱和脂肪较多",
+        "膳食纤维和钾丰富"
+      ],
+      "harms": [
+        "热量和脂肪较高，一次半个左右即可"
+      ],
+      "tips": "适合代替部分沙拉酱；减脂期控制份量。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    },
+    {
+      "id": "purple_sweet_potato",
+      "name": "紫薯",
+      "aliases": [
+        "紫心红薯"
+      ],
+      "english": [
+        "purple sweet potato"
+      ],
+      "category": "staple",
+      "rating": "recommend",
+      "nutrition": {
+        "energy_kcal": 82,
+        "protein_g": 1.6,
+        "fat_g": 0.2,
+        "carb_g": 17.6,
+        "fiber_g": 1.8,
+        "sugar_g": 4.2,
+        "sodium_mg": 20
+      },
+      "benefits": [
+        "含花青素",
+        "膳食纤维比白米多"
+      ],
+      "harms": [],
+      "tips": "蒸煮优先，代替部分主食。",
+      "sources": [
+        "usda",
+        "cns"
+      ]
+    }
+  ]
+}

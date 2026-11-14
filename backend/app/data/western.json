@@ -1,0 +1,530 @@
+[
+  {
+    "id": "acetaminophen",
+    "name": "对乙酰氨基酚",
+    "name_en": "acetaminophen / paracetamol",
+    "matched_terms": [
+      "fever",
+      "headache",
+      "sore throat"
+    ],
+    "indications": [
+      "发热",
+      "头痛",
+      "咽痛",
+      "轻中度疼痛"
+    ],
+    "dosage": "成人一次 500 mg，每 4–6 小时一次，24 小时不超过 4 次（总量不超过 2–4 g，以说明书为准）",
+    "contraindications": "严重肝肾功能不全者禁用；服药期间避免饮酒",
+    "cautions": "不要与其他含对乙酰氨基酚的复方感冒药同服，避免过量",
+    "price_range": "约 5–15 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "ibuprofen",
+    "name": "布洛芬",
+    "name_en": "ibuprofen",
+    "matched_terms": [
+      "headache",
+      "fever",
+      "dysmenorrhea",
+      "joint pain",
+      "muscle pain"
+    ],
+    "indications": [
+      "发热",
+      "头痛",
+      "痛经",
+      "关节/肌肉疼痛"
+    ],
+    "dosage": "成人一次 200–400 mg，每 6–8 小时一次，24 小时不超过 1200 mg（非处方用量，以说明书为准）",
+    "contraindications": "活动性消化道溃疡、严重心肾功能不全者禁用；孕晚期禁用",
+    "cautions": "饭后服用以减少胃部不适；避免与其他非甾体抗炎药同用",
+    "price_range": "约 8–20 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "dextromethorphan",
+    "name": "右美沙芬",
+    "name_en": "dextromethorphan",
+    "matched_terms": [
+      "cough"
+    ],
+    "indications": [
+      "干咳"
+    ],
+    "dosage": "成人一次 10–20 mg，每 4–6 小时一次，24 小时不超过 120 mg",
+    "contraindications": "痰多、哮喘急性发作者慎用",
+    "cautions": "仅用于干咳；咳嗽超过 2 周或咯血应就医",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "guaifenesin",
+    "name": "愈创甘油醚",
+    "name_en": "guaifenesin",
+    "matched_terms": [
+      "cough"
+    ],
+    "indications": [
+      "痰多、咳痰困难"
+    ],
+    "dosage": "成人一次 200–400 mg，每 4 小时一次，24 小时不超过 2400 mg",
+    "contraindications": "胃溃疡患者慎用",
+    "cautions": "服药期间多饮水；痰量突然增多或发热应就医",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "pseudoephedrine",
+    "name": "伪麻黄碱",
+    "name_en": "pseudoephedrine",
+    "matched_terms": [
+      "nasal congestion",
+      "runny nose"
+    ],
+    "indications": [
+      "鼻塞"
+    ],
+    "dosage": "成人一次 60 mg，每 4–6 小时一次，24 小时不超过 240 mg",
+    "contraindications": "高血压、甲亢、闭角型青光眼、前列腺增生者慎用或禁用",
+    "cautions": "可能引起失眠、心悸；避免睡前服用",
+    "price_range": "约 8–20 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "loratadine",
+    "name": "氯雷他定",
+    "name_en": "loratadine",
+    "matched_terms": [
+      "allergy",
+      "runny nose",
+      "itching",
+      "rash",
+      "hives"
+    ],
+    "indications": [
+      "过敏性鼻炎",
+      "荨麻疹",
+      "皮肤瘙痒"
+    ],
+    "dosage": "成人一次 10 mg，每日 1 次",
+    "contraindications": "严重肝功能不全者慎用",
+    "cautions": "少数人可能出现嗜睡；症状持续应就医",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "loperamide",
+    "name": "洛哌丁胺",
+    "name_en": "loperamide",
+    "matched_terms": [
+      "diarrhea"
+    ],
+    "indications": [
+      "急性腹泻"
+    ],
+    "dosage": "成人首剂 4 mg，随后每次 2 mg，24 小时不超过 8 mg（非处方不超过 2 天）",
+    "contraindications": "血便、高热、炎症性肠病者禁用",
+    "cautions": "腹泻伴脱水应补液；症状不缓解应就医",
+    "price_range": "约 10–20 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "omeprazole",
+    "name": "奥美拉唑",
+    "name_en": "omeprazole",
+    "matched_terms": [
+      "heartburn"
+    ],
+    "indications": [
+      "反酸",
+      "烧心"
+    ],
+    "dosage": "成人一次 20 mg，每日 1 次，短期使用不超过 14 天",
+    "contraindications": "与氯吡格雷等药物存在相互作用；长期使用需医生评估",
+    "cautions": "症状反复或吞咽困难、体重下降应就医",
+    "price_range": "约 10–30 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "simethicone",
+    "name": "西甲硅油",
+    "name_en": "simethicone",
+    "matched_terms": [
+      "bloating"
+    ],
+    "indications": [
+      "腹胀",
+      "胃肠胀气"
+    ],
+    "dosage": "成人一次 40–80 mg，餐后及睡前服用",
+    "contraindications": "肠梗阻患者禁用",
+    "cautions": "持续腹胀伴腹痛、呕吐或停止排便排气应就医",
+    "price_range": "约 15–35 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "diosmectite",
+    "name": "蒙脱石散",
+    "name_en": "diosmectite",
+    "matched_terms": [
+      "diarrhea"
+    ],
+    "indications": [
+      "急慢性腹泻"
+    ],
+    "dosage": "成人一次 1 袋（3 g），每日 3 次，温水冲服",
+    "contraindications": "便秘者慎用",
+    "cautions": "与其他药物间隔 1–2 小时服用；腹泻严重应补液就医",
+    "price_range": "约 15–30 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "cetirizine",
+    "name": "西替利嗪",
+    "name_en": "cetirizine",
+    "matched_terms": [
+      "allergic rhinitis",
+      "runny nose",
+      "itching",
+      "rash",
+      "allergy",
+      "hives"
+    ],
+    "indications": [
+      "过敏性鼻炎",
+      "荨麻疹",
+      "皮肤瘙痒"
+    ],
+    "dosage": "成人一次 10 mg，每日 1 次",
+    "contraindications": "严重肾功能不全者慎用",
+    "cautions": "可能轻度嗜睡；服药期间避免饮酒",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "ambroxol",
+    "name": "氨溴索",
+    "name_en": "ambroxol",
+    "matched_terms": [
+      "cough"
+    ],
+    "indications": [
+      "痰多、咳痰困难"
+    ],
+    "dosage": "成人一次 30 mg，每日 3 次",
+    "contraindications": "胃溃疡患者慎用",
+    "cautions": "服药期间多饮水；痰量增多伴发热应就医",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "lactulose",
+    "name": "乳果糖",
+    "name_en": "lactulose",
+    "matched_terms": [
+      "constipation"
+    ],
+    "indications": [
+      "便秘"
+    ],
+    "dosage": "成人一次 15–30 ml，每日 1 次，早餐时服用",
+    "contraindications": "肠梗阻者禁用；糖尿病患者注意含糖量",
+    "cautions": "起效需 1–2 天；长期使用需医生评估",
+    "price_range": "约 20–40 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "glycerin",
+    "name": "开塞露",
+    "name_en": "glycerin enema",
+    "matched_terms": [
+      "constipation"
+    ],
+    "indications": [
+      "便秘（外用）"
+    ],
+    "dosage": "外用，一次 1 支，挤入肛门",
+    "contraindications": "肛门破损或出血者慎用",
+    "cautions": "仅临时使用，不宜长期依赖",
+    "price_range": "约 3–10 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "hydrotalcite",
+    "name": "铝碳酸镁",
+    "name_en": "hydrotalcite",
+    "matched_terms": [
+      "heartburn"
+    ],
+    "indications": [
+      "反酸",
+      "烧心"
+    ],
+    "dosage": "成人一次 0.5–1 g，每日 3 次，餐后 1–2 小时嚼服",
+    "contraindications": "严重肾功能不全者禁用",
+    "cautions": "与其他药物间隔 1–2 小时服用；症状持续应就医",
+    "price_range": "约 15–30 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "domperidone",
+    "name": "多潘立酮",
+    "name_en": "domperidone",
+    "matched_terms": [
+      "bloating",
+      "nausea"
+    ],
+    "indications": [
+      "胃胀",
+      "恶心",
+      "嗳气"
+    ],
+    "dosage": "成人一次 10 mg，每日 3 次，餐前 15–30 分钟服用",
+    "contraindications": "心脏病患者、QT 间期延长者禁用；不宜长期使用",
+    "cautions": "可能出现心律失常风险，遵医嘱使用",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "dimenhydrinate",
+    "name": "茶苯海明",
+    "name_en": "dimenhydrinate",
+    "matched_terms": [
+      "motion sickness",
+      "nausea"
+    ],
+    "indications": [
+      "晕车",
+      "恶心",
+      "呕吐"
+    ],
+    "dosage": "成人一次 50 mg，乘车前 30 分钟服用",
+    "contraindications": "青光眼、前列腺增生者慎用",
+    "cautions": "服药后可能嗜睡，避免驾驶",
+    "price_range": "约 5–15 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "ors",
+    "name": "口服补液盐",
+    "name_en": "oral rehydration salts",
+    "matched_terms": [
+      "diarrhea"
+    ],
+    "indications": [
+      "腹泻脱水",
+      "呕吐脱水"
+    ],
+    "dosage": "按说明书冲服，少量多次饮用",
+    "contraindications": "严重肾功能不全、无尿者慎用",
+    "cautions": "腹泻严重或不能进食应就医",
+    "price_range": "约 5–15 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "calamine",
+    "name": "炉甘石洗剂",
+    "name_en": "calamine lotion",
+    "matched_terms": [
+      "itching",
+      "rash",
+      "eczema"
+    ],
+    "indications": [
+      "皮肤瘙痒",
+      "湿疹（外用）"
+    ],
+    "dosage": "外用，摇匀后涂于患处，每日 2–3 次",
+    "contraindications": "皮肤破损、渗出明显处慎用",
+    "cautions": "避免接触眼睛；皮疹扩散或发热应就医",
+    "price_range": "约 5–15 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "hydrocortisone",
+    "name": "氢化可的松乳膏",
+    "name_en": "hydrocortisone cream",
+    "matched_terms": [
+      "eczema",
+      "itching",
+      "rash"
+    ],
+    "indications": [
+      "湿疹",
+      "皮肤瘙痒（外用）"
+    ],
+    "dosage": "外用，薄涂患处，每日 1–2 次，短期使用不超过 1 周",
+    "contraindications": "皮肤感染、破损处禁用；面部及儿童慎用",
+    "cautions": "长期大面积使用可致皮肤萎缩；无效应就医",
+    "price_range": "约 10–25 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "benzoyl-peroxide",
+    "name": "过氧化苯甲酰",
+    "name_en": "benzoyl peroxide",
+    "matched_terms": [
+      "acne"
+    ],
+    "indications": [
+      "痤疮（外用）"
+    ],
+    "dosage": "外用，每日 1–2 次，薄涂患处",
+    "contraindications": "皮肤破损处禁用；避免接触眼睛和黏膜",
+    "cautions": "可能引起干燥、脱皮；孕妇慎用；无改善应就诊皮肤科",
+    "price_range": "约 15–35 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "minoxidil",
+    "name": "米诺地尔酊",
+    "name_en": "minoxidil",
+    "matched_terms": [
+      "hair loss"
+    ],
+    "indications": [
+      "脱发（外用）"
+    ],
+    "dosage": "外用，每日 2 次，涂于脱发区域头皮",
+    "contraindications": "孕妇、哺乳期禁用；头皮破损者慎用",
+    "cautions": "需持续使用数月；停药可能复脱；无效应就诊皮肤科",
+    "price_range": "约 60–120 元/瓶",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "diclofenac",
+    "name": "双氯芬酸二乙胺乳胶剂",
+    "name_en": "diclofenac gel",
+    "matched_terms": [
+      "muscle pain",
+      "joint pain",
+      "neck pain",
+      "back pain"
+    ],
+    "indications": [
+      "肌肉酸痛",
+      "关节痛",
+      "颈肩痛（外用）"
+    ],
+    "dosage": "外用，涂于疼痛部位，每日 3–4 次",
+    "contraindications": "皮肤破损处禁用；孕妇慎用",
+    "cautions": "避免接触眼睛；症状持续应就医",
+    "price_range": "约 15–35 元/支",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "chlorhexidine",
+    "name": "氯己定含漱液",
+    "name_en": "chlorhexidine",
+    "matched_terms": [
+      "bad breath",
+      "gum disease"
+    ],
+    "indications": [
+      "口腔异味",
+      "牙龈出血（含漱）"
+    ],
+    "dosage": "含漱，一次 10–15 ml，每日 2 次",
+    "contraindications": "口腔手术后慎用；不宜长期使用",
+    "cautions": "可能使牙齿染色；持续出血应看牙医",
+    "price_range": "约 10–25 元/瓶",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "oryzanol",
+    "name": "谷维素",
+    "name_en": "oryzanol",
+    "matched_terms": [
+      "menopause"
+    ],
+    "indications": [
+      "更年期植物神经紊乱",
+      "失眠"
+    ],
+    "dosage": "口服，一次 10–20 mg，每日 3 次",
+    "contraindications": "胃溃疡患者慎用",
+    "cautions": "症状持续应就医",
+    "price_range": "约 10–20 元/盒",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "terbinafine",
+    "name": "特比萘芬乳膏",
+    "name_en": "terbinafine",
+    "matched_terms": [
+      "athlete's foot"
+    ],
+    "indications": [
+      "脚气（外用）"
+    ],
+    "dosage": "外用，每日 1–2 次，涂于患处",
+    "contraindications": "皮肤破损处禁用；孕妇慎用",
+    "cautions": "足癣需坚持用药 1–2 周；趾间糜烂应就医",
+    "price_range": "约 15–30 元/支",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "hyaluronate",
+    "name": "玻璃酸钠滴眼液",
+    "name_en": "sodium hyaluronate",
+    "matched_terms": [
+      "dry eyes"
+    ],
+    "indications": [
+      "眼干（外用）"
+    ],
+    "dosage": "滴眼，一次 1 滴，每日 3–4 次",
+    "contraindications": "对本品过敏者禁用",
+    "cautions": "开封后使用不超过 1 个月；持续眼干应就诊眼科",
+    "price_range": "约 20–50 元/支",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "camphor",
+    "name": "樟脑软膏",
+    "name_en": "camphor ointment",
+    "matched_terms": [
+      "chilblains",
+      "itching"
+    ],
+    "indications": [
+      "冻疮（外用）",
+      "瘙痒"
+    ],
+    "dosage": "外用，涂于患处，每日 1–2 次",
+    "contraindications": "皮肤破损处禁用；孕妇慎用",
+    "cautions": "避免接触眼睛；冻疮破溃应就医",
+    "price_range": "约 5–15 元/支",
+    "source": "FDA 药品标签 / 国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  }
+]

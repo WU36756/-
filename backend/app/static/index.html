@@ -1,0 +1,333 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>健康助手 · 多 Agent</title>
+<link rel="stylesheet" href="/static/styles.css?v=20261113u" />
+</head>
+<body>
+<div class="hint">信息参考，不构成诊断或处方</div>
+
+<aside id="sidebar">
+  <button class="side-brand side-custom" id="customEntry" type="button" title="配置 Kimi / WorkBuddy 等自有接口">⚙ 自定义接口</button>
+  <button class="side-item" data-nav="profile">👤 个人资料</button>
+  <button class="side-item active" data-nav="chat">💬 对话</button>
+  <button class="side-item" data-nav="meds">💊 我的药品 <span class="side-badge" id="medBadge" hidden>0</span></button>
+  <button class="side-item" data-nav="plan">🌱 康复计划</button>
+  <div class="side-section">对话</div>
+  <button class="side-item" id="newChatBtn">＋ 新会话</button>
+  <input id="convSearch" placeholder="搜索会话…" />
+  <div id="convList"></div>
+  <div class="side-foot">信息参考，不构成诊断或处方</div>
+</aside>
+
+<div class="med-overlay" id="medOverlay">
+  <div class="med-panel">
+    <div class="med-head"><h3>💊 我的药品</h3><button id="closeMeds" type="button">×</button></div>
+    <p class="med-tip">一个药同时管三件事：<b>什么时候吃</b>（提醒）、<b>吃了几次</b>（疗程龙珠）、<b>还剩多少</b>（库存）。</p>
+    <div class="med-form">
+      <label class="med-field"><span>药名</span>
+        <input id="medName" placeholder="例如 对乙酰氨基酚" /></label>
+      <div class="med-row">
+        <label class="med-field"><span>每次吃多少（剂量）</span>
+          <input id="medDose" placeholder="例如 500 mg / 1 片" /></label>
+        <label class="med-field"><span>怎么吃（用法）</span>
+          <input id="medMethod" placeholder="例如 口服 / 温水冲服" /></label>
+      </div>
+      <div class="med-row">
+        <label class="med-field"><span>隔几小时吃一次</span>
+          <input id="medInterval" type="number" min="0.5" max="24" step="0.5" placeholder="例如 8" /></label>
+        <label class="med-field"><span>每天吃几次</span>
+          <input id="medDoses" type="number" min="1" max="12" step="1" placeholder="例如 3" /></label>
+      </div>
+      <div class="med-row">
+        <label class="med-field"><span>第一次吃的时间</span>
+          <input id="medStart" type="time" value="08:00" /></label>
+        <label class="med-field"><span>备注（可选）</span>
+          <input id="medNote" placeholder="例如 饭后" /></label>
+      </div>
+      <div class="med-row">
+        <label class="med-field"><span>这个疗程一共吃几次</span>
+          <input id="medTotal" type="number" min="1" max="999" placeholder="例如 12" /></label>
+        <label class="med-field"><span>现在还剩几次</span>
+          <input id="medStock" type="number" min="0" step="1" placeholder="例如 24" /></label>
+      </div>
+      <div class="med-row">
+        <button class="primary" id="addMed" type="button" style="flex:1">添加提醒并开启桌面通知</button>
+      </div>
+      <p id="medNotifyHint" style="font-size:12px;color:#94a3b8;margin:6px 0 0">
+        添加后会自动请求桌面通知权限；HTTP 访问下浏览器会拦截，改用 HTTPS 后生效。</p>
+    </div>
+    <div id="medList"></div>
+  </div>
+</div>
+<div class="modal" id="customModal">
+  <div class="sheet" style="max-width:600px">
+    <div class="sheet-head"><h2>自定义模型接口</h2>
+      <button class="close-x" id="closeCustom" type="button" aria-label="关闭">×</button></div>
+    <p class="sub">配置一个 OpenAI / Anthropic 兼容的供应商，测试通过后激活。</p>
+    <p class="cus-hint" style="margin:2px 0 10px">没有 API Key？直接关掉这个窗口，模型选 <b>Mock</b> 就能体验。填好 Key 后<b>必须点“测试连接并激活”</b>才会保存生效。</p>
+
+    <label class="cus-label">供应商名称
+      <input id="cusName" placeholder="例如 Kimi、WorkBuddy、My API Provider" /></label>
+
+    <label class="cus-label">API 地址（Base URL）
+      <input id="cusBase" placeholder="例如 https://api.example.com/v1" /></label>
+    <p class="cus-hint">从服务商接入文档复制 Base URL，填到 /v1 为止。</p>
+
+    <label class="cus-label">API 密钥
+      <input id="cusKey" type="password" placeholder="输入 API 密钥" /></label>
+    <button class="cus-add" id="addCusKey" type="button">＋ 添加 API 密钥</button>
+    <div id="cusKeys" class="cus-list"></div>
+
+    <div class="cus-label">API 格式</div>
+    <div class="cus-seg" id="cusFormat">
+      <button type="button" data-fmt="openai" class="active">OpenAI 格式</button>
+      <button type="button" data-fmt="anthropic">Anthropic 格式</button>
+    </div>
+
+    <label class="cus-toggle">
+      <input type="checkbox" id="cusResponses" disabled />
+      <span>使用 Responses API</span>
+    </label>
+    <p class="cus-hint">暂未支持 /responses，保持关闭；供应商只支持 chat/completions。</p>
+
+    <div class="cus-label">模型优先级（从服务商拉取后勾选，不需要手填）</div>
+    <button class="cus-add" id="fetchModels" type="button">⟳ 拉取模型并选择</button>
+    <details id="manualModelFallback" class="manual-model">
+      <summary>服务商不支持模型列表？点这里手动填一个</summary>
+      <div class="cus-row" style="margin-top:8px">
+        <input id="cusManualModel" placeholder="例如 model-name" />
+        <button id="addManualModel" class="cus-add" type="button">加入</button>
+      </div>
+    </details>
+    <div id="cusModels" class="cus-list"></div>
+    <div id="cusFetch" class="cus-list"></div>
+
+    <button class="primary" id="testActivate" type="button" style="width:100%;margin-top:12px">测试连接并激活</button>
+    <div id="cusStatus" class="cus-hint" style="min-height:20px"></div>
+
+    <div class="cus-row" style="margin-top:6px">
+      <button id="clearCustom" type="button" class="cus-add" style="width:100%">清除配置</button>
+    </div>
+    <p class="cus-hint" style="margin-top:10px">密钥只存在本机浏览器会话，不上传、不入库；平台会把症状文本发到该接口生成建议。</p>
+  </div>
+</div>
+
+<div id="toasts"></div>
+
+<div id="app">
+  <nav class="topnav">
+    <button class="topnav-item" type="button" data-top="team">🧭 团队流程</button>
+    <button class="topnav-item" type="button" data-top="exp">📊 对比实验</button>
+    <button class="topnav-item" type="button" data-top="abl">🧪 消融实验</button>
+  </nav>
+  <section id="hero">
+    <h1 id="greet">你好</h1>
+    <p id="heroSub">有任何不舒服都可以告诉我，比如发烧、咽喉痛、咳嗽、胃胀。<br>
+       我会先判断是否需要紧急就医，再从权威来源检索资料，优先给你常见、便宜的中药建议，并说清依据。</p>
+    <div class="composer" id="heroComposer">
+      <textarea id="inputHero" rows="2" placeholder="描述你的症状，例如：发烧、咽喉痛、怕冷，两天了"></textarea>
+      <div class="bar">
+        <div class="left"><select class="modelSel" title="模型"><option value="mock">Mock · 不耗额度</option><option value="deepseek">DeepSeek · 真实模型</option><option value="custom">自定义接口（Kimi 等）</option></select><label class="fresh-toggle" title="本次提问不参考上文，避免旧症状串进来"><input type="checkbox" class="fresh-context" /> 新话题</label></div>
+        <button class="send" id="sendHero" title="发送">↑</button>
+      </div>
+    </div>
+    <div class="chips" id="heroChips">
+      <span class="chip" data-ex="发烧，咽喉痛，有点怕冷">发烧咽痛</span>
+      <span class="chip" data-ex="咳嗽三天，有黄痰">咳嗽有痰</span>
+      <span class="chip" data-ex="高烧39度，头痛">高烧头痛</span>
+      <span class="chip" data-ex="胃胀，反酸，吃不下饭">胃胀反酸</span>
+      <span class="chip" data-ex="失眠，多梦，白天乏力">失眠</span>
+      <span class="chip" data-ex="痛经，有血块">痛经</span>
+    </div>
+  </section>
+
+  <section id="thread"></section>
+
+  <div id="dock">
+    <div class="composer">
+      <textarea id="inputDock" rows="1" placeholder="继续描述症状，或选择上面的选项"></textarea>
+      <div class="bar">
+        <div class="left"><select class="modelSel" title="模型"><option value="mock">Mock</option><option value="deepseek">DeepSeek</option><option value="custom">自定义接口</option></select><label class="fresh-toggle" title="本次提问不参考上文，避免旧症状串进来"><input type="checkbox" class="fresh-context" /> 新话题</label><span style="font-size:12px;color:#9aa3af">信息参考，不构成诊断或处方</span></div>
+        <button class="send" id="sendDock" title="发送">↑</button>
+      </div>
+    </div>
+    <div class="foot">如出现胸痛、呼吸困难、意识改变，请立即拨打急救电话</div>
+  </div>
+</div>
+
+<div class="modal" id="modelImportModal">
+  <div class="sheet" style="max-width:520px">
+    <div class="sheet-head"><h2>导入模型</h2>
+      <button class="close-x" id="closeModelImport" type="button" aria-label="关闭">×</button></div>
+    <p class="sub" id="modelImportHint">从服务商拉取到模型后，勾选一个或多个加入优先级。</p>
+    <input id="modelSearch" class="model-search" placeholder="搜索模型 ID" />
+    <div class="model-list" id="modelImportList"></div>
+    <div class="model-toolbar">
+      <button id="modelSelectAll" type="button">全选</button>
+      <button class="primary" id="modelImportUpdate" type="button">更新列表（0/20）</button>
+    </div>
+  </div>
+</div>
+<div class="modal" id="teamModal">
+  <div class="sheet">
+    <div class="sheet-head"><h2>Agent 团队与工作流</h2><button class="close-x" id="closeTeam" type="button" aria-label="关闭">×</button></div>
+    <p class="sub">6 个 Agent 协作完成一次咨询；流程与角色如下（只读演示）。</p>
+    <div class="flow" id="flowBox"></div>
+    <div id="teamBox"></div>
+  </div>
+</div>
+
+<div class="cab-overlay" id="cabOverlay">
+  <div class="cab-panel">
+    <div class="cab-head"><h3>🐉 药品柜</h3><button id="closeCab" type="button">×</button></div>
+    <p class="cab-sub">设几颗龙珠就打卡几次；每打卡一次点亮一颗，集齐全部，神龙出现。</p>
+    <div class="cab-form">
+      <input id="cabName" placeholder="药名，例如 阿莫西林" style="flex:1" />
+      <input id="cabTotal" type="number" min="1" max="999" value="7" title="总次数" />
+      <button class="primary" id="cabAdd" type="button">添加</button>
+    </div>
+    <div id="cabList"></div>
+  </div>
+</div>
+<div class="plan-overlay" id="planOverlay">
+  <div class="plan-panel">
+    <div class="plan-head"><h3>🌱 一周康复计划</h3><button id="closePlan" type="button">×</button></div>
+    <p class="plan-sub">从最近一次建议自动生成；每天打卡，第 3 天给你打气，第 7 天提醒你复诊。</p>
+    <div id="planBody"></div>
+  </div>
+</div>
+<div class="modal" id="profileModal">
+  <div class="sheet" style="max-width:620px">
+    <div class="sheet-head"><h2>个人资料</h2>
+      <button class="close-x" id="closeProfile" type="button" aria-label="关闭">×</button></div>
+    <p class="sub">填一次，之后每次分析都会自动考虑（只存在本机）。</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <label style="font-size:13px;color:#64748b">年龄
+        <input id="pfAge" type="number" min="0" max="120" placeholder="例如 30"
+          style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px" />
+      </label>
+      <label style="font-size:13px;color:#64748b">性别
+        <select id="pfSex" style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px">
+          <option value="">未填写</option>
+          <option value="female">女</option>
+          <option value="male">男</option>
+        </select>
+      </label>
+    </div>
+    <label style="font-size:13px;color:#64748b;display:flex;gap:8px;align-items:center;margin-bottom:10px">
+      <input id="pfPregnant" type="checkbox" /> 目前孕期（仅女性）
+    </label>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <label style="font-size:13px;color:#64748b">饮食偏好
+        <select id="pfDietPref" style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px">
+          <option value="">无特殊</option><option value="清淡">清淡</option><option value="素食">素食</option>
+          <option value="高蛋白">高蛋白</option><option value="控糖">控糖</option><option value="低盐">低盐</option>
+        </select></label>
+      <label style="font-size:13px;color:#64748b">日常吃饭
+        <select id="pfMealStyle" style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px">
+          <option value="">未填写</option><option value="食堂">食堂</option><option value="外卖">外卖</option><option value="自己做">自己做</option>
+        </select></label>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <label style="font-size:13px;color:#64748b">活动量
+        <select id="pfActivity" style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px">
+          <option value="">未填写</option><option value="久坐">久坐</option><option value="偶尔运动">每周 1–2 次</option><option value="规律运动">每周 3 次以上</option>
+        </select></label>
+      <label style="font-size:13px;color:#64748b">忌口 / 不吃
+        <input id="pfAvoidFoods" placeholder="例如 香菜,牛奶"
+          style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px" /></label>
+    </div>
+    <label style="font-size:13px;color:#64748b">过敏史（逗号分隔，例如 青霉素,布洛芬）
+      <input id="pfAllergies" placeholder="青霉素,布洛芬"
+        style="width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;margin-top:4px;margin-bottom:10px" />
+    </label>
+    <div style="font-size:13px;color:#64748b;margin-bottom:6px">慢性病 / 特殊情况</div>
+    <div id="pfConditions" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+      <label class="pf-chip"><input type="checkbox" value="高血压" /> 高血压</label>
+      <label class="pf-chip"><input type="checkbox" value="糖尿病" /> 糖尿病</label>
+      <label class="pf-chip"><input type="checkbox" value="胃溃疡" /> 胃溃疡</label>
+      <label class="pf-chip"><input type="checkbox" value="心脏病" /> 心脏病</label>
+      <label class="pf-chip"><input type="checkbox" value="肝病" /> 肝病</label>
+      <label class="pf-chip"><input type="checkbox" value="肾病" /> 肾病</label>
+      <label class="pf-chip"><input type="checkbox" value="哮喘" /> 哮喘</label>
+      <label class="pf-chip"><input type="checkbox" value="痛风" /> 痛风</label>
+      <label class="pf-chip"><input type="checkbox" value="甲状腺疾病" /> 甲状腺疾病</label>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;margin:4px 0">
+      <span style="font-size:13px;color:#64748b">已记住的信息（点 × 可删除）</span>
+      <button id="clearNotes" type="button" style="border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 10px;font-size:12px;color:#b91c1c;cursor:pointer">清空上次记录</button>
+    </div>
+    <div id="memList" style="margin-bottom:12px"></div>
+    <div style="font-size:13px;color:#64748b;margin:4px 0 4px">跨设备提醒（Web Push）</div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
+      <button id="enablePush" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer">开启后台推送</button>
+      <button id="testPush" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer">发送测试推送</button>
+      <span id="pushStatus" style="font-size:12.5px;color:#0f766e"></span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px">
+      <button id="demoReset" type="button" style="border:1px solid #fecaca;background:#fff;border-radius:9px;padding:7px 12px;font-size:13px;color:#b91c1c;cursor:pointer">重置演示数据</button>
+      <span style="font-size:12px;color:#94a3b8">清空对话/用药/记忆，恢复干净演示</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button class="primary" id="saveProfile" type="button">保存</button>
+      <span id="pfStatus" style="font-size:13px;color:#0f766e"></span>
+    </div>
+  </div>
+</div>
+<div class="modal" id="ablModal">
+  <div class="sheet">
+    <div class="sheet-head"><h2>消融实验：每个 Agent 值多少</h2>
+      <button class="close-x" id="closeAbl" type="button" aria-label="关闭">×</button></div>
+    <p class="sub" id="ablSub">加载中…</p>
+    <div id="ablBody"></div>
+  </div>
+</div>
+<div class="modal" id="expModal">
+  <div class="sheet">
+    <div class="sheet-head"><h2>单 Agent vs 多 Agent</h2><button class="close-x" id="closeExp" type="button" aria-label="关闭">×</button></div>
+    <p class="sub" id="expSub">加载中…</p>
+    <div id="expTable"></div>
+  </div>
+</div>
+
+<button id="traceFab" class="trace-fab" type="button">⏱ 轨迹</button>
+<div id="traceBackdrop"></div>
+<aside id="traceDrawer">
+  <div class="drawer-head"><div><h3>多 Agent 轨迹</h3><div style="font-size:11.5px;color:#94a3b8;margin-top:2px">分诊 → 辨证 → 选药 → 查资料 → 写报告 → 审查，6 个 Agent 接力完成</div></div><button id="closeTrace" type="button">×</button></div>
+  <div class="drawer-body"><div id="traceBody"></div></div>
+</aside>
+
+<div class="auth-overlay" id="authOverlay">
+  <div class="auth-card">
+    <h2>健康助手</h2>
+    <p>本机账号，数据只存在这台机器；不同账号互不可见。</p>
+    <input id="authUser" placeholder="用户名" autocomplete="username" />
+    <input id="authPass" type="password" placeholder="密码（至少 4 位）" autocomplete="current-password" />
+    <button class="primary" id="authLogin" type="button">登录</button>
+    <button class="ghost" id="authRegister" type="button">注册新账号</button>
+    <div class="auth-msg" id="authMsg"></div>
+    <p style="font-size:12px;color:#94a3b8;margin-top:14px">登录后可选择：同意把症状发送给 DeepSeek，或只用本地 Mock（不发任何数据）。</p>
+  </div>
+</div>
+
+<div class="modal" id="consentModal">
+  <div class="modal-card" style="max-width:460px">
+    <div class="modal-head"><h3>📋 数据使用说明</h3><button class="modal-close" id="closeConsent" type="button">×</button></div>
+    <div style="font-size:14px;line-height:1.85;color:#334155">
+      <p>如果你选择 <b>DeepSeek 模型</b>，症状描述会发送到 DeepSeek 的接口用于生成建议；平台不会上传历史对话和用药记录。</p>
+      <p>选择 <b>本地 Mock</b> 时，所有内容只在本机计算，不产生任何外部请求（知识库检索仍会访问公开网站）。</p>
+      <p>你可以随时在「个人资料」里改回 Mock，或退出账号清除本机会话。</p>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:18px">
+      <button class="primary" id="consentAgree" type="button">同意，继续使用 DeepSeek</button>
+      <button class="ghost" id="consentLocal" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 14px;cursor:pointer">先用本地 Mock</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/app.js?v=20261113u" defer></script>
+</body>
+</html>

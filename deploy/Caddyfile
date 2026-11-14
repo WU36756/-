@@ -1,0 +1,28 @@
+# /etc/caddy/Caddyfile
+# 应用自己带访问码登录页，这里只负责 HTTPS 和反向代理。
+# 把 your-domain.example.com 换成你的域名。
+
+your-domain.example.com {
+    encode zstd gzip
+
+    reverse_proxy 127.0.0.1:8100 {
+        transport http {
+            read_timeout 300s
+            write_timeout 300s
+        }
+    }
+
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Referrer-Policy no-referrer
+        -Server
+    }
+
+    log {
+        output file /var/log/caddy/health-panel.log {
+            roll_size 20MiB
+            roll_keep 7
+        }
+    }
+}

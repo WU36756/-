@@ -1,0 +1,198 @@
+{
+  "provider": "deepseek",
+  "summary": {
+    "cases": 4,
+    "baseline": {
+      "avg_latency_s": 5.33,
+      "avg_tokens": 676.25,
+      "avg_verifiability": 0.0,
+      "avg_review_findings": 4.25,
+      "red_flag_ok": 4,
+      "disclaimers": 0
+    },
+    "multi": {
+      "avg_latency_s": 49.48,
+      "avg_tokens": 10744.75,
+      "avg_verifiability": 1.0,
+      "verifiability_cases": 3,
+      "avg_review_findings": 0.0,
+      "red_flag_ok": 4,
+      "disclaimers": 4,
+      "avg_evidence": 5.75
+    }
+  },
+  "rows": [
+    {
+      "case": "fever-sore-throat",
+      "symptoms": "发烧，咽喉痛，有点怕冷",
+      "urgent": false,
+      "baseline": {
+        "latency_s": 4.41,
+        "tokens": {
+          "prompt_tokens": 84,
+          "completion_tokens": 593,
+          "total_tokens": 677
+        },
+        "sources": 0,
+        "citations": 0,
+        "verifiable_citations": 0,
+        "citation_verifiability": 0.0,
+        "dosage_without_citation": 1,
+        "disclaimer": false,
+        "red_flag_guidance": true,
+        "review_findings": 3,
+        "review_passed": false
+      },
+      "multi": {
+        "latency_s": 46.91,
+        "tokens": {
+          "prompt_tokens": 5495,
+          "completion_tokens": 6525,
+          "total_tokens": 12020
+        },
+        "sources": 13,
+        "provider": "deepseek",
+        "citations": 13,
+        "verifiable_citations": 13,
+        "citation_verifiability": 1.0,
+        "dosage_without_citation": 0,
+        "disclaimer": true,
+        "red_flag_guidance": true,
+        "review_findings": 0,
+        "review_passed": true,
+        "evidence": 5,
+        "tcm": 8,
+        "trace_steps": 11
+      }
+    },
+    {
+      "case": "high-fever",
+      "symptoms": "高烧39度，头痛",
+      "urgent": false,
+      "baseline": {
+        "latency_s": 4.96,
+        "tokens": {
+          "prompt_tokens": 82,
+          "completion_tokens": 547,
+          "total_tokens": 629
+        },
+        "sources": 0,
+        "citations": 0,
+        "verifiable_citations": 0,
+        "citation_verifiability": 0.0,
+        "dosage_without_citation": 2,
+        "disclaimer": false,
+        "red_flag_guidance": true,
+        "review_findings": 4,
+        "review_passed": false
+      },
+      "multi": {
+        "latency_s": 49.81,
+        "tokens": {
+          "prompt_tokens": 5099,
+          "completion_tokens": 5622,
+          "total_tokens": 10721
+        },
+        "sources": 8,
+        "provider": "deepseek",
+        "citations": 8,
+        "verifiable_citations": 8,
+        "citation_verifiability": 1.0,
+        "dosage_without_citation": 0,
+        "disclaimer": true,
+        "red_flag_guidance": true,
+        "review_findings": 0,
+        "review_passed": true,
+        "evidence": 8,
+        "tcm": 0,
+        "trace_steps": 11
+      }
+    },
+    {
+      "case": "chest-pain",
+      "symptoms": "胸痛，呼吸困难",
+      "urgent": true,
+      "baseline": {
+        "latency_s": 7.11,
+        "tokens": {
+          "prompt_tokens": 80,
+          "completion_tokens": 728,
+          "total_tokens": 808
+        },
+        "sources": 0,
+        "citations": 0,
+        "verifiable_citations": 0,
+        "citation_verifiability": 0.0,
+        "dosage_without_citation": 2,
+        "disclaimer": false,
+        "red_flag_guidance": true,
+        "review_findings": 4,
+        "review_passed": false
+      },
+      "multi": {
+        "latency_s": 0.0,
+        "tokens": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        "sources": 0,
+        "provider": "deepseek",
+        "citations": 0,
+        "verifiable_citations": 0,
+        "citation_verifiability": 0.0,
+        "dosage_without_citation": 0,
+        "disclaimer": true,
+        "red_flag_guidance": true,
+        "review_findings": 0,
+        "review_passed": true,
+        "evidence": 0,
+        "tcm": 0,
+        "trace_steps": 1
+      }
+    },
+    {
+      "case": "cough-phlegm",
+      "symptoms": "咳嗽三天，有黄痰",
+      "urgent": false,
+      "baseline": {
+        "latency_s": 4.84,
+        "tokens": {
+          "prompt_tokens": 82,
+          "completion_tokens": 509,
+          "total_tokens": 591
+        },
+        "sources": 0,
+        "citations": 0,
+        "verifiable_citations": 0,
+        "citation_verifiability": 0.0,
+        "dosage_without_citation": 4,
+        "disclaimer": false,
+        "red_flag_guidance": true,
+        "review_findings": 6,
+        "review_passed": false
+      },
+      "multi": {
+        "latency_s": 101.19,
+        "tokens": {
+          "prompt_tokens": 7095,
+          "completion_tokens": 13143,
+          "total_tokens": 20238
+        },
+        "sources": 16,
+        "provider": "deepseek",
+        "citations": 16,
+        "verifiable_citations": 16,
+        "citation_verifiability": 1.0,
+        "dosage_without_citation": 0,
+        "disclaimer": true,
+        "red_flag_guidance": true,
+        "review_findings": 0,
+        "review_passed": true,
+        "evidence": 10,
+        "tcm": 6,
+        "trace_steps": 11
+      }
+    }
+  ]
+}

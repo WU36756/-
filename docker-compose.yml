@@ -1,0 +1,12 @@
+services:
+  health-agent:
+    build: .
+    container_name: health-agent
+    ports:
+      - "8100:8100"
+    environment:
+      # 断网演示改为 "1"（走证据缓存 + Mock）
+      DEMO_OFFLINE: "0"
+    volumes:
+      - ./backend/data:/app/data
+    restart: unless-stopped

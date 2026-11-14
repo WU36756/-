@@ -1,0 +1,592 @@
+{
+  "sources": {
+    "who_diet": {
+      "title": "WHO 健康饮食实况报道",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/healthy-diet",
+      "zh": "多吃蔬菜水果、全谷物和豆类，限制游离糖、盐和饱和脂肪。"
+    },
+    "who_pa": {
+      "title": "WHO 身体活动指南",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/physical-activity",
+      "zh": "成人每周至少 150–300 分钟中等强度有氧运动，每周 2 次力量练习。"
+    },
+    "cns_diet": {
+      "title": "中国居民膳食指南（2022）",
+      "url": "http://dg.cnsoc.org/",
+      "zh": "食物多样、谷类为主，多吃蔬果、奶类、大豆，适量鱼禽蛋瘦肉，少盐少油。"
+    },
+    "nhs_eatwell": {
+      "title": "NHS Eatwell 均衡饮食",
+      "url": "https://www.nhs.uk/live-well/eat-well/",
+      "zh": "均衡饮食应包含足量蔬果、全谷物、优质蛋白和适量乳制品。"
+    },
+    "nhs_exercise": {
+      "title": "NHS 运动建议",
+      "url": "https://www.nhs.uk/live-well/exercise/",
+      "zh": "成人每周 150 分钟中等强度运动，久坐者从少量开始逐步增加。"
+    }
+  },
+  "plans": {
+    "general": {
+      "diet": [
+        "每餐按“1 拳主食 + 1 掌蛋白 + 2 拳蔬菜”搭配；主食一半换成全谷物或薯类",
+        "早餐在起床后 1–2 小时内吃，包含蛋白质（鸡蛋/牛奶/无糖豆浆）和主食",
+        "每天饮水 1500–2000 ml，分次喝；含糖饮料换成白水、茶或无糖咖啡",
+        "零食选无糖酸奶、水果 1 份或坚果一小把（约 10 粒）"
+      ],
+      "exercise": [
+        "每周至少 150 分钟中等强度有氧（快走、骑车），每次 20–30 分钟",
+        "每周 2 次力量练习（深蹲、俯卧撑、弹力带），每次 15 分钟",
+        "久坐每小时起身活动 2–3 分钟"
+      ],
+      "avoid": [
+        "油炸食品、含糖饮料、过量饮酒",
+        "长期不吃早餐或深夜加餐"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "fever": {
+      "diet": [
+        "少量多次补水，出汗多用口服补液盐；每天至少 1500–2000 ml",
+        "主食选米粥、面汤、软面条；每餐加一份易消化蛋白（蒸蛋、豆腐、鱼肉）",
+        "水果选香蕉、苹果泥等温和水果，避免冰镇",
+        "食欲差时少量多餐，每 2–3 小时吃几口"
+      ],
+      "exercise": [
+        "发热期间暂停运动，以休息为主",
+        "退热 24 小时且精神恢复后，从 10 分钟散步开始"
+      ],
+      "avoid": [
+        "发热时运动",
+        "酒精、浓茶咖啡、油腻辛辣"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "cough": {
+      "diet": [
+        "温水少量多次；1 岁以上可用 5 ml 蜂蜜温水缓解咽部刺激",
+        "梨、百合、银耳可做汤羹，但别加大量糖",
+        "每餐保证蛋白质：鸡蛋、豆腐、鱼、瘦肉",
+        "避免辛辣、过甜、冰冷饮料和烟酒"
+      ],
+      "exercise": [
+        "症状轻微可散步 10–15 分钟",
+        "缩唇呼吸：吸气 2 秒、呼气 4 秒，每天 3 组"
+      ],
+      "avoid": [
+        "吸烟与二手烟",
+        "冰冷饮料和冷空气下剧烈运动"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "cold_recovery": {
+      "diet": [
+        "温热半流质为主：粥、面汤、蒸蛋，少量多餐",
+        "每天 1–2 份富含维生素 C 的蔬果（橙子、猕猴桃、青椒）",
+        "每餐加一掌心蛋白质，帮助恢复",
+        "避免生冷、油腻和酒精"
+      ],
+      "exercise": [
+        "恢复期散步 10–20 分钟，以不疲劳为度",
+        "症状完全缓解后再恢复原来的运动量"
+      ],
+      "avoid": [
+        "过早剧烈运动",
+        "熬夜"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "sleep": {
+      "diet": [
+        "晚餐在睡前 3 小时完成，七分饱，少油少辣",
+        "下午 2 点后不喝咖啡、浓茶和可乐；睡前不饮酒",
+        "睡前可温牛奶 200 ml 或小米粥一小碗",
+        "晚餐有蛋白质和适量主食，别用水果代替正餐"
+      ],
+      "exercise": [
+        "白天快走 20–30 分钟，睡前 3 小时避免剧烈运动",
+        "睡前做 5 分钟拉伸或 4-7-8 呼吸"
+      ],
+      "avoid": [
+        "睡前刷手机超过 30 分钟",
+        "深夜咖啡和酒精",
+        "白天长时间补觉"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "gi_upset": {
+      "diet": [
+        "少量多餐，每餐七分饱；主食选软饭、面条、馒头",
+        "蛋白质选蒸蛋、豆腐、鱼肉，少油烹调",
+        "腹胀明显时暂时少吃豆类、洋葱、碳酸饮料",
+        "避免辛辣、咖啡、酒精和油炸"
+      ],
+      "exercise": [
+        "饭后散步 10–15 分钟，促进胃排空",
+        "避免饭后立即剧烈运动或平躺"
+      ],
+      "avoid": [
+        "暴饮暴食",
+        "饭后立即躺下",
+        "空腹喝咖啡"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "constipation": {
+      "diet": [
+        "每天膳食纤维 25–30 g：全谷物、蔬菜、豆类、奇亚籽",
+        "晨起一杯温水，全天饮水 1500–2000 ml",
+        "每天 1–2 个猕猴桃或 3–5 颗西梅，配合足量水",
+        "适量无糖酸奶或益生菌"
+      ],
+      "exercise": [
+        "每天快走 20–30 分钟",
+        "腹部顺时针按摩 5 分钟"
+      ],
+      "avoid": [
+        "长期依赖泻药",
+        "久坐不动",
+        "只吃精细主食"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "diarrhea": {
+      "diet": [
+        "首选口服补液盐，少量多次；不要只喝白水",
+        "清淡主食：米汤、面条、香蕉、烤面包",
+        "暂时减少乳制品、油腻和高纤维食物",
+        "症状缓解后逐步恢复正常饮食"
+      ],
+      "exercise": [
+        "症状期以休息为主",
+        "恢复后从散步开始"
+      ],
+      "avoid": [
+        "脱水",
+        "酒精、咖啡和含糖饮料"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "pain": {
+      "diet": [
+        "每餐一掌心蛋白质，每天保证奶或豆制品",
+        "每周 2 次深海鱼，适量坚果补充抗炎脂肪酸",
+        "保证钙和维生素 D：奶、豆腐、绿叶菜",
+        "少糖少油，控制体重减轻关节负担"
+      ],
+      "exercise": [
+        "疼痛缓解期做温和拉伸，每个动作 20 秒",
+        "低强度有氧 15–20 分钟，疼痛加重时停止"
+      ],
+      "avoid": [
+        "忍痛硬练",
+        "突然加大运动强度"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "skin": {
+      "diet": [
+        "主食一半换全谷物，少高糖零食和含糖饮料",
+        "每天 1–2 份深色蔬菜和 1 份水果",
+        "每周 2 次鱼，适量坚果补充 omega-3",
+        "记录并避开明确会加重皮疹的食物"
+      ],
+      "exercise": [
+        "规律有氧 20–30 分钟，出汗后及时清洁",
+        "避免长时间闷热环境"
+      ],
+      "avoid": [
+        "抓挠患处",
+        "热水烫洗",
+        "盲目忌口导致营养不足"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "high_fever": {
+      "diet": [
+        "以口服补液盐和易消化流质为主",
+        "每 2–3 小时少量进食米汤、面汤、蒸蛋"
+      ],
+      "exercise": [
+        "暂停一切运动，退热稳定后再逐步恢复",
+        "恢复初期以散步为主"
+      ],
+      "avoid": [
+        "运动",
+        "酒精",
+        "只喝白水不补电解质"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "sore_throat": {
+      "diet": [
+        "温凉流质或半流质：粥、蒸蛋、酸奶、果泥",
+        "1 岁以上可含服 5 ml 蜂蜜或温蜂蜜水",
+        "每天足量温水，少量多次",
+        "避免辛辣、过烫、过硬和烟酒"
+      ],
+      "exercise": [
+        "症状期减少剧烈运动",
+        "可做温和散步和颈部放松"
+      ],
+      "avoid": [
+        "大声喊叫",
+        "辛辣油炸",
+        "烟酒"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "hypertension": {
+      "diet": [
+        "每天食盐不超过 5 g，少酱油、咸菜、加工肉",
+        "每天 500 g 蔬菜、200 g 水果，主食加入全谷物",
+        "适量低脂奶、豆制品、鱼禽，少吃肥肉",
+        "用醋、柠檬、香辛料代替一部分盐"
+      ],
+      "exercise": [
+        "每周 5 天快走 30 分钟",
+        "每周 2 次轻力量训练，避免憋气用力"
+      ],
+      "avoid": [
+        "高盐腌制品",
+        "过量饮酒",
+        "自行停降压药"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "diabetes": {
+      "diet": [
+        "按“半盘蔬菜 + 四分之一蛋白 + 四分之一主食”装盘",
+        "主食选糙米、燕麦、荞麦、豆类，每餐约 1 拳",
+        "吃饭顺序：蔬菜 → 蛋白质 → 主食",
+        "水果放在两餐之间，一次 1 小份"
+      ],
+      "exercise": [
+        "餐后 30 分钟散步 15–20 分钟",
+        "每周 2 次力量训练"
+      ],
+      "avoid": [
+        "果汁和含糖饮料",
+        "单独大量喝粥",
+        "自行调整降糖药"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "gout": {
+      "diet": [
+        "每天饮水约 2000 ml，分次喝",
+        "限制动物内脏、浓肉汤、海鲜和啤酒",
+        "少喝含果糖饮料和果汁",
+        "适量低脂奶、鸡蛋、蔬菜"
+      ],
+      "exercise": [
+        "缓解期快走、游泳等低冲击运动",
+        "急性发作期休息并抬高患肢"
+      ],
+      "avoid": [
+        "啤酒和烈酒",
+        "暴饮暴食",
+        "突然剧烈运动"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "weight_loss": {
+      "diet": [
+        "每天制造约 300–500 kcal 温和缺口，不极端节食",
+        "每餐一掌心蛋白质，主食约 1 拳，蔬菜 2 拳",
+        "优先完整水果而不是果汁，零食选无糖酸奶或坚果",
+        "每周提前准备 2–3 顿便当，减少外卖"
+      ],
+      "exercise": [
+        "每周 150–250 分钟有氧，从快走开始",
+        "每周 2 次力量训练，保留肌肉"
+      ],
+      "avoid": [
+        "代餐代替所有正餐",
+        "只做有氧不做力量",
+        "熬夜"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "muscle_gain": {
+      "diet": [
+        "蛋白质每天约 1.2–1.6 g/kg，分 3–4 餐",
+        "每餐一掌心蛋白：鸡蛋、奶、鱼、鸡胸肉、牛肉、豆腐",
+        "训练前后各有一次碳水：米饭、燕麦、红薯",
+        "总热量略高于消耗，每周增重 0.25–0.5 kg"
+      ],
+      "exercise": [
+        "每周 3 次力量训练，覆盖推、拉、腿",
+        "同一肌群间隔 48 小时"
+      ],
+      "avoid": [
+        "只喝蛋白粉不吃饭",
+        "每天练同一肌群",
+        "熬夜"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "anemia": {
+      "diet": [
+        "每天一掌心红肉或动物肝脏（每周 1–2 次），搭配深色蔬菜",
+        "铁剂或富铁食物与维生素 C 同吃，避免同时喝茶咖啡",
+        "保证蛋白质：鸡蛋、奶、鱼、豆制品",
+        "长期素食者需在医生指导下补充铁和 B12"
+      ],
+      "exercise": [
+        "轻度贫血可散步，避免突然高强度",
+        "头晕心慌时停止运动"
+      ],
+      "avoid": [
+        "浓茶咖啡配铁剂",
+        "自行长期补铁不复查"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "menstrual": {
+      "diet": [
+        "经期保证蛋白质和铁：瘦肉、鸡蛋、菠菜、豆制品",
+        "温热饮食，少冰饮和过量咖啡",
+        "适量坚果、香蕉补充镁",
+        "经前减少高盐食物，减轻水肿"
+      ],
+      "exercise": [
+        "经期可散步、拉伸，避免高强度",
+        "痛经明显时休息和热敷"
+      ],
+      "avoid": [
+        "经期大量冰饮",
+        "自行加大止痛药剂量"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "anxiety": {
+      "diet": [
+        "三餐规律，主食选全谷物，避免长时间空腹",
+        "下午后减少咖啡、浓茶和能量饮料",
+        "每周 2 次鱼，适量坚果，保证蛋白质",
+        "少量多次喝水，避免用酒精助眠"
+      ],
+      "exercise": [
+        "每天快走 20–30 分钟",
+        "4-7-8 呼吸或渐进式肌肉放松"
+      ],
+      "avoid": [
+        "靠酒精或大量咖啡因缓解情绪",
+        "长时间不吃饭"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "injury": {
+      "diet": [
+        "每餐一掌心蛋白质，帮助组织修复",
+        "保证钙和维生素 D：奶、豆腐、绿叶菜",
+        "每天 1–2 份富含维生素 C 的蔬果",
+        "控制酒精，避免影响恢复"
+      ],
+      "exercise": [
+        "急性期休息、抬高患肢；24 小时内冷敷",
+        "恢复期在医生/康复师指导下逐步活动"
+      ],
+      "avoid": [
+        "受伤后立即热敷或用力揉搓",
+        "带伤继续高强度运动"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    },
+    "menstrual_irregular": {
+      "diet": [
+        "先排除怀孕和甲状腺/内分泌问题，饮食不能替代检查",
+        "三餐规律，保证蛋白质和铁：瘦肉、鸡蛋、豆制品",
+        "少极端节食和过量运动，体重过低会影响月经",
+        "少冰饮和过量咖啡，适量坚果、香蕉补充镁"
+      ],
+      "exercise": [
+        "保持每周 2–3 次中等强度运动，不要突然加量",
+        "体重过低或经期紊乱时避免长时间高强度有氧"
+      ],
+      "avoid": [
+        "用极端节食减肥",
+        "自行吃激素类药物",
+        "长期熬夜"
+      ],
+      "diet_sources": [
+        "cns_diet",
+        "nhs_eatwell",
+        "who_diet"
+      ],
+      "exercise_sources": [
+        "who_pa",
+        "nhs_exercise"
+      ]
+    }
+  }
+}
