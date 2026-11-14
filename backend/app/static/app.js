@@ -1185,6 +1185,10 @@ async function openProfile(refreshOnly) {
   });
   document.getElementById('pfStatus').textContent = profile.updated_at
     ? `上次保存：${profile.updated_at.replace('T', ' ')}` : '还没保存';
+  const pushTools = document.getElementById('pushTools');
+  const pushNote = document.getElementById('pushHttpNote');
+  if (pushTools) pushTools.style.display = window.isSecureContext ? '' : 'none';
+  if (pushNote) pushNote.style.display = window.isSecureContext ? 'none' : 'block';
   await loadMemoryList();
 }
 

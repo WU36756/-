@@ -54,10 +54,10 @@
           <input id="medStock" type="number" min="0" step="1" placeholder="例如 24" /></label>
       </div>
       <div class="med-row">
-        <button class="primary" id="addMed" type="button" style="flex:1">添加提醒并开启桌面通知</button>
+        <button class="primary" id="addMed" type="button" style="flex:1">添加提醒</button>
       </div>
       <p id="medNotifyHint" style="font-size:12px;color:#94a3b8;margin:6px 0 0">
-        添加后会自动请求桌面通知权限；HTTP 访问下浏览器会拦截，改用 HTTPS 后生效。</p>
+        页面内到点提醒；HTTPS 下可申请桌面通知。</p>
     </div>
     <div id="medList"></div>
   </div>
@@ -261,12 +261,15 @@
       <button id="clearNotes" type="button" style="border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 10px;font-size:12px;color:#b91c1c;cursor:pointer">清空上次记录</button>
     </div>
     <div id="memList" style="margin-bottom:12px"></div>
-    <div style="font-size:13px;color:#64748b;margin:4px 0 4px">跨设备提醒（Web Push）</div>
-    <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
-      <button id="enablePush" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer">开启后台推送</button>
-      <button id="testPush" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer">发送测试推送</button>
-      <span id="pushStatus" style="font-size:12.5px;color:#0f766e"></span>
+    <div id="pushTools">
+      <div style="font-size:13px;color:#64748b;margin:4px 0 4px">跨设备提醒（Web Push）</div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:12px">
+        <button id="enablePush" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer">开启后台推送</button>
+        <button id="testPush" type="button" style="border:1px solid var(--line);background:#fff;border-radius:9px;padding:6px 12px;font-size:13px;cursor:pointer">发送测试推送</button>
+        <span id="pushStatus" style="font-size:12.5px;color:#0f766e"></span>
+      </div>
     </div>
+    <div id="pushHttpNote" style="display:none;font-size:12px;color:#b45309;margin:2px 0 12px">当前 HTTP 环境：仅页面内到点提醒；本次演示不启用桌面通知。</div>
     <div style="display:flex;gap:10px;align-items:center;margin-bottom:14px">
       <button id="demoReset" type="button" style="border:1px solid #fecaca;background:#fff;border-radius:9px;padding:7px 12px;font-size:13px;color:#b91c1c;cursor:pointer">重置演示数据</button>
       <span style="font-size:12px;color:#94a3b8">清空对话/用药/记忆，恢复干净演示</span>
@@ -328,6 +331,6 @@
   </div>
 </div>
 
-<script src="/static/app.js?v=20261113u" defer></script>
+<script src="/static/app.js?v=20261114a" defer></script>
 </body>
 </html>
