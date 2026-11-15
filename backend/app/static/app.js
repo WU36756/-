@@ -78,7 +78,8 @@ function runStrip(data) {
 
 function summary(data) {
   const modelLabel = data.provider === 'mock-fallback' ? '内置演示（备用）'
-    : (data.provider === 'mock' ? '内置演示' : data.provider);
+    : (data.provider === 'mock' ? '内置演示'
+      : (data.provider === 'custom' ? '自定义模型' : data.provider));
   const used = `<div style="font-size:12px;color:#94a3b8;margin-bottom:6px">模型：${esc(modelLabel)}</div>`;
   const t = data.triage || {}, d = data.differentiation || {};
   const bits = [];
@@ -291,7 +292,12 @@ function chatDrugList(data) {
 }
 
 function chatAnswerHtml(data) {
+  const customName = (() => {
+    try { return (customConfig() || {}).name || '自定义模型'; }
+    catch (error) { return '自定义模型'; }
+  })();
   const providerLabel = data.provider === 'deepseek' ? 'DeepSeek 撰写'
+    : data.provider === 'custom' ? `${customName} 撰写`
     : data.provider === 'mock-fallback' ? '模型降级 · 内置知识'
     : data.provider === 'mock' ? '内置演示' : '本地规则（未调用模型）';
   const sources = (data.sources || []).slice(0, 6).map((src, index) =>
