@@ -121,6 +121,27 @@ def recent_user_texts(conversation_id: str, limit: int = 3) -> list[str]:
     return [row["user_text"] for row in reversed(rows) if row["user_text"]]
 
 
+def last_symptom_confirm(conversation_id: str) -> dict[str, str] | None:
+    """Return the pending symptom-confirmation payload, if the last turn asked one."""
+    with _connect() as conn:
+        row = conn.execute(
+            "SELECT result_json FROM turns WHERE conversation_id = ? ORDER BY id DESC LIMIT 1",
+            (conversation_id,),
+        ).fetchone()
+    if row is None:
+        return None
+    try:
+        result = json.loads(row["result_json"] or "{}")
+    except (TypeError, ValueError):
+        return None
+    if result.get("kind") != "symptom_confirm":
+        return None
+    info = result.get("symptom_confirm") or {}
+    if not isinstance(info, dict) or not info.get("previous") or not info.get("current"):
+        return None
+    return {"previous": str(info["previous"]), "current": str(info["current"])}
+
+
 def recent_dialogue(conversation_id: str, limit: int = 8) -> list[dict[str, str]]:
     """Return recent user/assistant turns for the conversational layer."""
     with _connect() as conn:

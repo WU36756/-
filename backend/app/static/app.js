@@ -291,6 +291,36 @@ function chatDrugList(data) {
   </div>`;
 }
 
+function symptomConfirmHtml(data) {
+  const info = data.symptom_confirm || {};
+  return `<div style="border:1px solid #fde68a;background:#fffbeb;border-radius:12px;padding:13px 14px">
+    <div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:7px">症状切换确认</div>
+    <div style="font-size:14px;line-height:1.8;color:#0b1f4b;white-space:pre-wrap">${esc(data.chat_reply || '')}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:11px">
+      <button type="button" class="opt-submit" data-symptom-choice="still" style="width:auto">还在，两个一起看</button>
+      <button type="button" class="opt" data-symptom-choice="resolved" style="width:auto">已经好了，只看新症状</button>
+    </div>
+    <div style="font-size:11px;color:#a16207;margin-top:7px">选“已经好了”后，如果以后还要看旧症状，建议新开会话。</div>
+  </div>`;
+}
+
+function bindSymptomConfirm(el, data) {
+  const info = data.symptom_confirm || {};
+  el.querySelectorAll('button[data-symptom-choice]').forEach(button => {
+    button.onclick = () => {
+      if (state.busy) return;
+      const choice = button.dataset.symptomChoice;
+      const label = choice === 'still' ? '还在，两个一起看' : '已经好了，只看新症状';
+      addUser(label);
+      send(info.current || state.symptoms, true, true, {
+        symptom_choice: choice,
+        previous_symptoms: info.previous || '',
+        current_symptoms: info.current || '',
+      });
+    };
+  });
+}
+
 function chatAnswerHtml(data) {
   const customName = (() => {
     try { return (customConfig() || {}).name || '自定义模型'; }
@@ -307,7 +337,11 @@ function chatAnswerHtml(data) {
     ? `<details><summary>查看完整报告 / 证据</summary><div class="inner" style="white-space:pre-wrap">${esc(data.report_markdown)}</div></details>`
     : '';
   const replyHtml = esc(data.chat_reply || '').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  const resolutionNote = data.resolution_note
+    ? `<div style="margin-top:9px;padding:8px 10px;border-radius:8px;background:#f1f5f9;color:#475569;font-size:12.5px">${esc(data.resolution_note)}</div>`
+    : '';
   return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.9;font-size:16.5px">${replyHtml}</div>`
+    + resolutionNote
     + chatDrugList(data)
     + `<div class="chat-meta" style="margin-top:10px;font-size:12px;color:#64748b">`
     + `<span class="tag" title="本次是否调用大模型：DeepSeek 撰写 / 内置降级 / 本地安全规则">${esc(providerLabel)}</span>`
@@ -327,7 +361,7 @@ async function analyze(symptoms, answers) {
   return response.json();
 }
 
-async function send(text, isAnswer, silentUser) {
+async function send(text, isAnswer, silentUser, extra) {
   if (state.busy || !text) return;
   let custom = null;
   if (provider === 'custom') {
@@ -384,11 +418,20 @@ async function send(text, isAnswer, silentUser) {
         api_models: custom ? custom.models : null,
         api_format: custom ? custom.format : 'openai',
         api_key: custom ? custom.keys[0] : null,
+        ...(extra || {}),
       }),
     });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const data = (await response.json()).result;
     typing.remove();
+    if (data.kind === 'symptom_confirm') {
+      const el = addAssistant(symptomConfirmHtml(data));
+      bindSymptomConfirm(el, data);
+      state.lastTrace = data.trace || [];
+      updateTraceFab();
+      loadConversations();
+      return;
+    }
     if (data.kind === 'chat') {
       addAssistant(chatAnswerHtml(data));
       state.lastTrace = data.trace || [];
@@ -1045,6 +1088,7 @@ function newChat() {
 }
 
 function historyResultHtml(data) {
+  if (data.kind === 'symptom_confirm') return symptomConfirmHtml(data);
   if (data.kind === 'chat') return chatAnswerHtml(data);
   return runStrip(data) + lead(data) + summary(data)
     + tcmSection(data) + westernSection(data) + lifestyleSection(data) + sourceChip(data)
@@ -1065,7 +1109,8 @@ async function openConversation(conversationId) {
     (data.turns || []).forEach(turn => {
       addUser(turn.user_text || '');
       const kind = turn.result && turn.result.kind;
-      addAssistant(kind === 'chat' ? chatAnswerHtml(turn.result)
+      addAssistant(kind === 'symptom_confirm' ? symptomConfirmHtml(turn.result)
+        : kind === 'chat' ? chatAnswerHtml(turn.result)
         : kind === 'food' ? foodAnswerHtml(turn.result)
         : kind === 'food_guide' ? foodGuideHtml(turn.result)
         : kind === 'psych' ? psychAnswerHtml(turn.result)

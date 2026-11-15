@@ -87,6 +87,9 @@ class AnalyzeRequest(BaseModel):
     answers: dict[str, str] | None = None
     provider: str | None = Field(default=None, pattern="^(mock|deepseek|custom)$")
     chat_mode: bool = False
+    symptom_choice: str | None = Field(default=None, pattern="^(still|resolved)$")
+    previous_symptoms: str | None = Field(default=None, max_length=2000)
+    current_symptoms: str | None = Field(default=None, max_length=2000)
 
 
 @app.get("/")
@@ -586,6 +589,85 @@ def _guarded_chat(*args, **kwargs) -> dict:
         _ANALYZE_SLOTS.release()
 
 
+def _merge_bases(primary: dict, secondary: dict) -> dict:
+    """Merge two local medical analyses for a confirmed two-symptom answer."""
+    merged = dict(primary)
+    for key in ("tcm", "western"):
+        seen: set[str] = set()
+        items: list[dict] = []
+        for source in (primary, secondary):
+            for item in source.get(key) or []:
+                name = str(item.get("name") or "")
+                if name and name not in seen:
+                    seen.add(name)
+                    items.append(item)
+        merged[key] = items
+    # Triage: any warning from either symptom wins.
+    triage = dict(primary.get("triage") or {})
+    other_triage = secondary.get("triage") or {}
+    if other_triage.get("urgent"):
+        triage["urgent"] = True
+    triage["reasons"] = list(dict.fromkeys(
+        (triage.get("reasons") or []) + (other_triage.get("reasons") or [])
+    ))
+    merged["triage"] = triage
+    # Lifestyle: union tags/diet/exercise/avoid/sources.
+    life = dict(primary.get("lifestyle") or {})
+    other_life = secondary.get("lifestyle") or {}
+    life["tags"] = list(dict.fromkeys((life.get("tags") or []) + (other_life.get("tags") or [])))
+    for field in ("diet", "exercise", "avoid"):
+        life[field] = list(dict.fromkeys((life.get(field) or []) + (other_life.get(field) or [])))
+    seen_sources = set()
+    sources = []
+    for source in (primary.get("sources") or []) + (secondary.get("sources") or []):
+        key = str(source.get("url") or source.get("title") or "")
+        if key and key not in seen_sources:
+            seen_sources.add(key)
+            sources.append(source)
+    merged["sources"] = sources
+    merged["lifestyle"] = life
+    merged["differentiation"] = primary.get("differentiation") or secondary.get("differentiation")
+    return merged
+
+
+def _previous_body_symptom(conversation_id: str, current: str) -> str:
+    """Find the latest earlier medical symptom that referred to another body part."""
+    current_parts = _body_parts(current)
+    if not current_parts:
+        return ""
+    for text in reversed(conversations.recent_user_texts(conversation_id, 6)):
+        item = (text or "").strip()
+        if not item:
+            continue
+        if router.rules(item).get("intent") != "medical":
+            continue
+        parts = _body_parts(item)
+        if parts and not (set(parts) & set(current_parts)):
+            return item
+    return ""
+
+
+def _symptom_confirm_result(previous: str, current: str, base: dict) -> dict:
+    reply = (
+        f"你之前说「{previous}」，现在又说「{current}」。\n\n"
+        f"之前的「{previous}」现在还在吗？还在的话我把两件事一起分析；"
+        "已经好了的话，我就只按新症状处理。"
+    )
+    result = _chat_result(base, reply, "local",
+                          intent={"intent": "medical", "confidence": 0.9,
+                                  "reason": "检测到身体部位切换"})
+    result["kind"] = "symptom_confirm"
+    result["symptom_confirm"] = {
+        "previous": previous,
+        "current": current,
+        "options": [
+            {"label": "还在，两个一起看", "value": "still"},
+            {"label": "已经好了，只看新症状", "value": "resolved"},
+        ],
+    }
+    return result
+
+
 def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
                  conversation_id: str | None = None,
                  force_intent: str | None = None,
@@ -595,7 +677,32 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
                  api_models: list[str] | None = None,
                  api_format: str = "openai",
                  specialist: str | None = None,
-                 fresh_context: bool = False) -> dict:
+                 fresh_context: bool = False,
+                 symptom_choice: str | None = None,
+                 previous_symptoms: str | None = None,
+                 current_symptoms: str | None = None) -> dict:
+    confirm_handled = False
+    if not symptom_choice and conversation_id:
+        pending = conversations.last_symptom_confirm(conversation_id)
+        if pending:
+            answer = (symptoms or "").strip()
+            if any(word in answer for word in ("还在", "还有", "仍然", "没变化", "一样", "还在的")):
+                symptom_choice = "still"
+            elif any(word in answer for word in ("好了", "没有了", "不在了", "没了", "消失", "不痛了")):
+                symptom_choice = "resolved"
+            if symptom_choice:
+                previous_symptoms = pending["previous"]
+                current_symptoms = pending["current"]
+    if symptom_choice:
+        previous = (previous_symptoms or "").strip()
+        current = (current_symptoms or symptoms or "").strip()
+        if symptom_choice == "still" and previous:
+            symptoms = f"{previous}；{current}"
+        else:
+            symptoms = current or symptoms
+        fresh_context = True
+        confirm_handled = True
+
     history = [] if fresh_context else (
         conversations.recent_dialogue(conversation_id, 8) if conversation_id else []
     )
@@ -652,6 +759,21 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
     if (base.get("triage") or {}).get("urgent"):
         return _chat_result(base, chat_mode.local_reply(base), "local",
                             intent=base.get("intent"))
+
+    if symptom_choice == "still" and previous_symptoms:
+        current_base = _route_and_answer(
+            current_symptoms or symptoms, provider="mock", answers=None, fresh_context=True,
+        )
+        previous_base = _route_and_answer(
+            previous_symptoms, provider="mock", answers=None, fresh_context=True,
+        )
+        base = _merge_bases(current_base, previous_base)
+
+    if (not confirm_handled and not fresh_context and conversation_id
+            and base.get("kind") in (None, "medical")):
+        previous = _previous_body_symptom(conversation_id, symptoms)
+        if previous:
+            return _symptom_confirm_result(previous, symptoms, base)
 
     if not provider or provider == "mock":
         return _chat_result(base, chat_mode.local_reply(base), "mock",
@@ -1047,6 +1169,9 @@ class MessageIn(BaseModel):
     specialist: str | None = Field(default=None, pattern="^(medical|psych|food)$")
     fresh_context: bool = False
     chat_mode: bool = False
+    symptom_choice: str | None = Field(default=None, pattern="^(still|resolved)$")
+    previous_symptoms: str | None = Field(default=None, max_length=2000)
+    current_symptoms: str | None = Field(default=None, max_length=2000)
 
 
 @app.get("/api/conversations")
@@ -1093,7 +1218,10 @@ def conversation_message(conversation_id: str, payload: MessageIn) -> dict:
                                api_base=payload.api_base, api_model=payload.api_model,
                                api_key=payload.api_key, api_models=payload.api_models,
                                api_format=payload.api_format, specialist=payload.specialist,
-                               fresh_context=payload.fresh_context)
+                               fresh_context=payload.fresh_context,
+                               symptom_choice=payload.symptom_choice,
+                               previous_symptoms=payload.previous_symptoms,
+                               current_symptoms=payload.current_symptoms)
     else:
         result = _guarded_route(payload.symptoms, payload.provider, payload.answers,
                                conversation_id=conversation_id,
@@ -1102,6 +1230,10 @@ def conversation_message(conversation_id: str, payload: MessageIn) -> dict:
                                api_key=payload.api_key, api_models=payload.api_models,
                                api_format=payload.api_format, specialist=payload.specialist,
                                fresh_context=payload.fresh_context)
+    if payload.symptom_choice == "resolved":
+        result["resolution_note"] = (
+            "已按新症状处理。如果之后还要看之前的症状，建议新开会话，避免旧上下文干扰。"
+        )
     conversations.add_turn(conversation_id, payload.user_text or payload.symptoms, result)
     return {"result": result}
 
@@ -1158,7 +1290,14 @@ def analyze_endpoint(request: AnalyzeRequest) -> dict:
             api_key=request.api_key, api_models=request.api_models,
             api_format=request.api_format, specialist=request.specialist,
             fresh_context=request.fresh_context,
+            symptom_choice=request.symptom_choice,
+            previous_symptoms=request.previous_symptoms,
+            current_symptoms=request.current_symptoms,
         )
+        if request.symptom_choice == "resolved":
+            result["resolution_note"] = (
+                "已按新症状处理。如果之后还要看之前的症状，建议新开会话，避免旧上下文干扰。"
+            )
         result["cached"] = False
         result["elapsed_ms"] = int((time.time() - started) * 1000)
         return result
