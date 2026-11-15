@@ -272,7 +272,7 @@ function chatAnswerHtml(data) {
     ? `<details><summary>查看完整报告 / 证据</summary><div class="inner" style="white-space:pre-wrap">${esc(data.report_markdown)}</div></details>`
     : '';
   const replyHtml = esc(data.chat_reply || '').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.8;font-size:14.5px">${replyHtml}</div>`
+  return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.9;font-size:16.5px">${replyHtml}</div>`
     + `<div class="chat-meta" style="margin-top:10px;font-size:12px;color:#64748b">`
     + `<span class="tag" title="本次是否调用大模型：DeepSeek 撰写 / 内置降级 / 本地安全规则">${esc(providerLabel)}</span>`
     + (sources ? `<div style="margin-top:6px;line-height:1.7">${sources}</div>` : '')
