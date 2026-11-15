@@ -128,11 +128,18 @@
       "恶心想吐",
       "一阵冷一阵热",
       "忽冷忽热",
-      "寒热往来"
+      "寒热往来",
+      "感冒",
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "咽干",
+      "小柴胡",
+      "小柴胡颗粒"
     ],
     "dosage": "开水冲服，一次 1 袋，一日 3 次",
     "contraindications": "对本品过敏者禁用；孕妇慎用",
-    "cautions": "仅适用于低热（一般低于 38.5℃）；高热、持续发热或伴皮疹应就医",
+    "cautions": "适用于少阳证（口苦、咽干、寒热往来、食欲差）；单纯风寒/风热感冒不宜替代辨证；高热或持续发热应就医",
     "price_range": "约 10–25 元/盒",
     "price_order": 2,
     "source": "药品说明书（国家药监局批准）",
@@ -5930,6 +5937,970 @@
     "price_order": 3,
     "source": "《中国药典》/《中药学》教材条目（演示数据）",
     "source_note": "中药材请在药师指导下按药典剂量使用，实际以现行药典与医嘱为准",
+    "kind": "herb"
+  },
+  {
+    "id": "ganmaoling-keli",
+    "name": "感冒灵颗粒",
+    "form": "颗粒剂",
+    "otc": "甲类 OTC",
+    "pattern": "风热/感冒",
+    "indications": [
+      "感冒",
+      "头痛",
+      "发热",
+      "鼻塞",
+      "流鼻涕",
+      "咽痛",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "嗓子疼",
+      "头痛",
+      "头疼",
+      "发烧",
+      "发热",
+      "鼻塞",
+      "流鼻涕",
+      "咳嗽",
+      "感冒灵",
+      "999感冒灵"
+    ],
+    "dosage": "开水冲服，一次 1 袋，一日 3 次",
+    "contraindications": "严重肝肾功能不全者禁用；对本品过敏者禁用",
+    "cautions": "含对乙酰氨基酚和氯苯那敏：不要与其他复方感冒药叠加，服药后避免驾驶；高血压、青光眼、前列腺增生者慎用",
+    "price_range": "约 10–20 元/盒",
+    "price_order": 1,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 5.0
+  },
+  {
+    "id": "weic-yinqiao-pian",
+    "name": "维C银翘片",
+    "form": "片剂",
+    "otc": "乙类 OTC",
+    "pattern": "风热感冒",
+    "indications": [
+      "风热感冒",
+      "发热头痛",
+      "咽喉疼痛",
+      "口干咳嗽"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "发热",
+      "发烧",
+      "头痛",
+      "口干",
+      "咳嗽"
+    ],
+    "dosage": "口服，一次 2 片，一日 3 次",
+    "contraindications": "严重肝肾功能不全者禁用；对本品过敏者禁用",
+    "cautions": "含对乙酰氨基酚：避免与其他含对乙酰氨基酚药物同服；服药期间不要饮酒",
+    "price_range": "约 8–18 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 3.0
+  },
+  {
+    "id": "sangju-ganmao-pian",
+    "name": "桑菊感冒片",
+    "form": "片剂",
+    "otc": "乙类 OTC",
+    "pattern": "风热感冒/咳嗽",
+    "indications": [
+      "风热感冒",
+      "咳嗽",
+      "头痛",
+      "咽痛"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "咳嗽",
+      "喉咙痛",
+      "咽痛",
+      "头痛",
+      "发热",
+      "口干"
+    ],
+    "dosage": "口服，一次 4–8 片，一日 2–3 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；脾胃虚寒者慎用",
+    "cautions": "风寒感冒（怕冷、清涕、白痰）不适用；高热或咳嗽加重应就医",
+    "price_range": "约 8–18 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 3.0
+  },
+  {
+    "id": "lanqin-koufuye",
+    "name": "蓝芩口服液",
+    "form": "口服液",
+    "otc": "甲类 OTC",
+    "pattern": "热毒/咽痛",
+    "indications": [
+      "急性咽炎",
+      "咽痛",
+      "咽干",
+      "咽部灼热"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "嗓子疼",
+      "咽干",
+      "口干",
+      "发热"
+    ],
+    "dosage": "口服，一次 10 ml，一日 3 次",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "脾虚便溏者慎用；服药 3 天无缓解或高热应就医",
+    "price_range": "约 15–30 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 3.0
+  },
+  {
+    "id": "pudilan-koufuye",
+    "name": "蒲地蓝消炎口服液",
+    "form": "口服液",
+    "otc": "甲类 OTC",
+    "pattern": "热毒/咽痛",
+    "indications": [
+      "咽炎",
+      "扁桃体炎",
+      "咽痛",
+      "疖肿"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "嗓子疼",
+      "发热",
+      "口干"
+    ],
+    "dosage": "口服，一次 10 ml，一日 3 次",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "脾胃虚寒者慎用；高热、化脓性扁桃体炎应就医",
+    "price_range": "约 15–30 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 3.0
+  },
+  {
+    "id": "qingkailing-keli",
+    "name": "清开灵颗粒",
+    "form": "颗粒剂",
+    "otc": "甲类 OTC",
+    "pattern": "热毒/发热",
+    "indications": [
+      "外感风热",
+      "发热",
+      "咽痛",
+      "烦躁"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "发热",
+      "发烧",
+      "喉咙痛",
+      "咽痛",
+      "咽干",
+      "头痛"
+    ],
+    "dosage": "开水冲服，一次 1–2 袋，一日 2–3 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇禁用",
+    "cautions": "含寒凉药，脾胃虚寒者慎用；高热不退应就医",
+    "price_range": "约 12–25 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 2.0
+  },
+  {
+    "id": "kangbingdu-koufuye",
+    "name": "抗病毒口服液",
+    "form": "口服液",
+    "otc": "乙类 OTC",
+    "pattern": "风热/流感样",
+    "indications": [
+      "风热感冒",
+      "流感样症状",
+      "发热",
+      "咽痛"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "发热",
+      "发烧",
+      "喉咙痛",
+      "咽痛",
+      "头痛",
+      "咳嗽"
+    ],
+    "dosage": "口服，一次 10 ml，一日 2–3 次",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "不能替代流感抗病毒治疗；高热、呼吸困难应就医",
+    "price_range": "约 15–30 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 2.0
+  },
+  {
+    "id": "jin-sangzi-houpian",
+    "name": "金嗓子喉片",
+    "form": "含片",
+    "otc": "乙类 OTC",
+    "pattern": "热毒/咽痛",
+    "indications": [
+      "咽痛",
+      "声音嘶哑",
+      "咽干"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "嗓子疼",
+      "声音嘶哑",
+      "咽干"
+    ],
+    "dosage": "含服，一次 1 片，一日 5–6 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "含服时不要咬碎；糖尿病患者注意含糖剂型；3 天无缓解应就医",
+    "price_range": "约 8–15 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 2.0
+  },
+  {
+    "id": "caoshanhu-hanpian",
+    "name": "复方草珊瑚含片",
+    "form": "含片",
+    "otc": "乙类 OTC",
+    "pattern": "风热/咽痛",
+    "indications": [
+      "咽痛",
+      "咽干",
+      "声音嘶哑"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "嗓子疼",
+      "咽干",
+      "声音嘶哑"
+    ],
+    "dosage": "含服，一次 2 片，每 2 小时 1 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "脾胃虚寒者慎用；高热或化脓应就医",
+    "price_range": "约 8–15 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent"
+  },
+  {
+    "id": "fufang-gancao-pian",
+    "name": "复方甘草片",
+    "form": "片剂",
+    "otc": "甲类 OTC",
+    "pattern": "咳嗽/痰多",
+    "indications": [
+      "咳嗽",
+      "痰多",
+      "咽痛"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "咳痰",
+      "痰多",
+      "喉咙痛",
+      "咽痛"
+    ],
+    "dosage": "口服或含服，一次 3–4 片，一日 3 次（以说明书为准）",
+    "contraindications": "孕妇、哺乳期、儿童禁用；对本品过敏者禁用",
+    "cautions": "含阿片粉，不宜长期服用；高血压、心脏病、胃溃疡患者慎用；服药后不要驾驶",
+    "price_range": "约 8–15 元/瓶",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent"
+  },
+  {
+    "id": "feilike-heji",
+    "name": "肺力咳合剂",
+    "form": "合剂",
+    "otc": "甲类 OTC",
+    "pattern": "痰热咳嗽",
+    "indications": [
+      "痰热犯肺",
+      "咳嗽",
+      "痰黄",
+      "咽痛"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "咳痰",
+      "黄痰",
+      "痰多",
+      "喉咙痛",
+      "咽痛"
+    ],
+    "dosage": "口服，一次 10–20 ml，一日 3 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "风寒咳嗽（清涕、白痰）不适用；高热或喘憋应就医",
+    "price_range": "约 15–30 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent"
+  },
+  {
+    "id": "jingfang-keli",
+    "name": "荆防颗粒",
+    "form": "颗粒剂",
+    "otc": "甲类 OTC",
+    "pattern": "风寒感冒",
+    "indications": [
+      "风寒感冒",
+      "头痛",
+      "鼻塞",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "怕冷",
+      "发冷",
+      "头痛",
+      "鼻塞",
+      "流鼻涕",
+      "咳嗽"
+    ],
+    "dosage": "开水冲服，一次 1 袋，一日 3 次",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "风热感冒（咽痛、黄痰、口干）不适用；服药 3 天无缓解应就医",
+    "price_range": "约 10–20 元/盒",
+    "price_order": 2,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风寒",
+    "kind": "patent"
+  },
+  {
+    "id": "fenghan-ganmao-keli",
+    "name": "风寒感冒颗粒",
+    "form": "颗粒剂",
+    "otc": "甲类 OTC",
+    "pattern": "风寒感冒",
+    "indications": [
+      "风寒感冒",
+      "发热",
+      "头痛",
+      "鼻塞",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "怕冷",
+      "发冷",
+      "发热",
+      "头痛",
+      "鼻塞",
+      "流鼻涕",
+      "咳嗽"
+    ],
+    "dosage": "开水冲服，一次 1 袋，一日 3 次",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "风热感冒不适用；高血压、心脏病患者慎用；高热应就医",
+    "price_range": "约 10–20 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风寒",
+    "kind": "patent"
+  },
+  {
+    "id": "yinhuang-hanpian",
+    "name": "银黄含片",
+    "form": "含片",
+    "otc": "乙类 OTC",
+    "pattern": "热毒/咽痛",
+    "indications": [
+      "咽痛",
+      "咽干",
+      "咽部灼热"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽喉痛",
+      "咽痛",
+      "嗓子疼",
+      "咽干"
+    ],
+    "dosage": "含服，一次 2 片，一日 4–6 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "脾胃虚寒者慎用；高热、化脓应就医",
+    "price_range": "约 8–18 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent",
+    "priority": 2.0
+  },
+  {
+    "id": "niuhuang-shangqing-pian",
+    "name": "牛黄上清片",
+    "form": "片剂",
+    "otc": "甲类 OTC",
+    "pattern": "热毒/上火",
+    "indications": [
+      "头痛",
+      "咽痛",
+      "口舌生疮",
+      "便秘"
+    ],
+    "symptom_keys": [
+      "头痛",
+      "喉咙痛",
+      "咽痛",
+      "口腔溃疡",
+      "口疮",
+      "便秘",
+      "上火"
+    ],
+    "dosage": "口服，一次 4 片，一日 2 次（以说明书为准）",
+    "contraindications": "孕妇禁用；对本品过敏者禁用",
+    "cautions": "脾胃虚寒、腹泻者慎用；不宜长期服用；高热应就医",
+    "price_range": "约 8–18 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent"
+  },
+  {
+    "id": "chuanxinlian-neizhi-pian",
+    "name": "穿心莲内酯片",
+    "form": "片剂",
+    "otc": "乙类 OTC",
+    "pattern": "热毒/咽痛",
+    "indications": [
+      "咽痛",
+      "痢疾",
+      "热毒"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽痛",
+      "嗓子疼",
+      "发热",
+      "上火"
+    ],
+    "dosage": "口服，一次 1–2 片，一日 3 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "脾胃虚寒者慎用；服药 3 天无缓解应就医",
+    "price_range": "约 8–18 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent"
+  },
+  {
+    "id": "guganmao-jiaonang",
+    "name": "感冒软胶囊",
+    "form": "软胶囊",
+    "otc": "甲类 OTC",
+    "pattern": "风寒/风热感冒",
+    "indications": [
+      "感冒",
+      "头痛",
+      "发热",
+      "鼻塞",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "头痛",
+      "发热",
+      "鼻塞",
+      "流鼻涕",
+      "咳嗽",
+      "咽痛"
+    ],
+    "dosage": "口服，一次 2–4 粒，一日 2–3 次（以说明书为准）",
+    "contraindications": "对本品过敏者禁用；孕妇慎用",
+    "cautions": "含中西药成分，避免与其他复方感冒药叠加；服药后不要驾驶",
+    "price_range": "约 10–20 元/盒",
+    "price_order": 3,
+    "source": "药品说明书（国家药监局批准）",
+    "source_note": "演示用条目，实际用药以下一版说明书为准",
+    "pattern_tag": "风热",
+    "kind": "patent"
+  },
+  {
+    "id": "mahuang",
+    "name": "麻黄",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "风寒/咳喘",
+    "indications": [
+      "风寒感冒",
+      "咳嗽气喘"
+    ],
+    "symptom_keys": [
+      "感冒",
+      "怕冷",
+      "咳嗽",
+      "气喘",
+      "鼻塞"
+    ],
+    "dosage": "煎服，2–10 g；具体遵医嘱",
+    "contraindications": "高血压、心脏病、失眠患者及孕妇慎用",
+    "cautions": "发汗力强，不宜过量；表虚自汗者不宜",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "niubangzi",
+    "name": "牛蒡子",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "风热/咽痛",
+    "indications": [
+      "风热感冒",
+      "咽痛",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽痛",
+      "发热",
+      "咳嗽"
+    ],
+    "dosage": "煎服，6–12 g；具体遵医嘱",
+    "contraindications": "脾虚便溏者慎用",
+    "cautions": "性寒，风寒感冒不适用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "shegan",
+    "name": "射干",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "热毒/咽痛",
+    "indications": [
+      "咽痛",
+      "痰多",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽痛",
+      "痰多",
+      "咳嗽"
+    ],
+    "dosage": "煎服，3–10 g；具体遵医嘱",
+    "contraindications": "孕妇慎用；脾虚便溏者慎用",
+    "cautions": "苦寒，不宜长期服用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "banxia",
+    "name": "半夏（制）",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "痰湿/恶心",
+    "indications": [
+      "痰多",
+      "恶心",
+      "呕吐"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "痰多",
+      "恶心",
+      "呕吐",
+      "胃胀"
+    ],
+    "dosage": "煎服，3–9 g；必须使用炮制品，遵医嘱",
+    "contraindications": "生半夏有毒，禁止自行使用；孕妇慎用",
+    "cautions": "需炮制后使用；不宜与川乌、草乌、附子同用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "kuandonghua",
+    "name": "款冬花",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咳嗽/痰多",
+    "indications": [
+      "咳嗽",
+      "痰多"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "咳痰",
+      "痰多"
+    ],
+    "dosage": "煎服，5–10 g；具体遵医嘱",
+    "contraindications": "对本品过敏者禁用",
+    "cautions": "咳嗽初起或阴虚干咳者需辨证使用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "ziwan",
+    "name": "紫菀",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咳嗽/痰多",
+    "indications": [
+      "咳嗽",
+      "痰多"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "咳痰",
+      "痰多"
+    ],
+    "dosage": "煎服，5–10 g；具体遵医嘱",
+    "contraindications": "对本品过敏者禁用",
+    "cautions": "阴虚干咳者慎用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "baibu",
+    "name": "百部",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咳嗽",
+    "indications": [
+      "咳嗽",
+      "百日咳样咳嗽"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "干咳",
+      "咳痰"
+    ],
+    "dosage": "煎服，3–9 g；具体遵医嘱",
+    "contraindications": "脾虚便溏者慎用",
+    "cautions": "不宜过量；需辨证使用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "sangbaipi",
+    "name": "桑白皮",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "肺热咳嗽",
+    "indications": [
+      "肺热咳嗽",
+      "痰多"
+    ],
+    "symptom_keys": [
+      "咳嗽",
+      "黄痰",
+      "痰多",
+      "气喘"
+    ],
+    "dosage": "煎服，6–12 g；具体遵医嘱",
+    "contraindications": "肺寒咳嗽者不宜",
+    "cautions": "性寒，脾胃虚寒者慎用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "luohanguo",
+    "name": "罗汉果",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咽痛/干咳",
+    "indications": [
+      "咽痛",
+      "干咳",
+      "咽干"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽痛",
+      "咽干",
+      "干咳",
+      "声音嘶哑"
+    ],
+    "dosage": "10–15 g，开水泡服；具体遵医嘱",
+    "contraindications": "对本品过敏者禁用；糖尿病患者注意甜味",
+    "cautions": "性凉，脾胃虚寒者不宜长期大量饮用",
+    "price_range": "约 2–5 元/个",
+    "price_order": 4,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "qingguo",
+    "name": "青果",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咽痛/咽干",
+    "indications": [
+      "咽痛",
+      "咽干",
+      "咳嗽"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽痛",
+      "咽干",
+      "咳嗽"
+    ],
+    "dosage": "煎服或含服，5–10 g；具体遵医嘱",
+    "contraindications": "脾胃虚寒者慎用",
+    "cautions": "不宜长期大量服用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "mabo",
+    "name": "马勃",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咽痛/热毒",
+    "indications": [
+      "咽痛",
+      "咳嗽",
+      "失音"
+    ],
+    "symptom_keys": [
+      "喉咙痛",
+      "咽痛",
+      "声音嘶哑",
+      "咳嗽"
+    ],
+    "dosage": "煎服，2–6 g，包煎；具体遵医嘱",
+    "contraindications": "风寒咳嗽者不宜",
+    "cautions": "需包煎；不宜长期服用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "cangzhu",
+    "name": "苍术",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "湿阻/暑湿",
+    "indications": [
+      "脘腹胀满",
+      "泄泻",
+      "风湿痹痛"
+    ],
+    "symptom_keys": [
+      "胃胀",
+      "腹胀",
+      "腹泻",
+      "食欲差",
+      "身体沉重"
+    ],
+    "dosage": "煎服，3–9 g；具体遵医嘱",
+    "contraindications": "阴虚内热、气虚多汗者慎用",
+    "cautions": "辛温燥烈，不宜长期大量服用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "houpo",
+    "name": "厚朴",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "气滞/湿阻",
+    "indications": [
+      "脘腹胀满",
+      "食积",
+      "痰多"
+    ],
+    "symptom_keys": [
+      "胃胀",
+      "腹胀",
+      "食欲差",
+      "痰多"
+    ],
+    "dosage": "煎服，3–10 g；具体遵医嘱",
+    "contraindications": "孕妇慎用；气虚津亏者慎用",
+    "cautions": "不宜长期大量服用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "zhiru",
+    "name": "竹茹",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "痰热/恶心",
+    "indications": [
+      "恶心",
+      "呕吐",
+      "痰多"
+    ],
+    "symptom_keys": [
+      "恶心",
+      "呕吐",
+      "痰多",
+      "胃胀"
+    ],
+    "dosage": "煎服，5–10 g；具体遵医嘱",
+    "contraindications": "寒痰、胃寒者不宜",
+    "cautions": "需辨证使用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "wumei",
+    "name": "乌梅",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "咽干/久咳",
+    "indications": [
+      "咽干",
+      "久咳",
+      "腹泻"
+    ],
+    "symptom_keys": [
+      "咽干",
+      "干咳",
+      "口干",
+      "腹泻"
+    ],
+    "dosage": "煎服，6–12 g；具体遵医嘱",
+    "contraindications": "胃酸过多、胃溃疡者慎用",
+    "cautions": "不宜长期大量服用；外感初期慎用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
+    "kind": "herb"
+  },
+  {
+    "id": "zhishi",
+    "name": "枳实",
+    "form": "饮片",
+    "otc": "—",
+    "pattern": "气滞/食积",
+    "indications": [
+      "脘腹胀满",
+      "便秘",
+      "食积"
+    ],
+    "symptom_keys": [
+      "胃胀",
+      "腹胀",
+      "便秘",
+      "食欲差"
+    ],
+    "dosage": "煎服，3–10 g；具体遵医嘱",
+    "contraindications": "孕妇慎用；脾胃虚弱者慎用",
+    "cautions": "破气力强，不宜长期服用",
+    "price_range": "约 1–3 元/剂",
+    "price_order": 5,
+    "source": "《中国药典》2020年版一部（演示整理）",
+    "source_note": "中药饮片需辨证使用，剂量与配伍遵医嘱",
+    "pattern_tag": "中药",
     "kind": "herb"
   }
 ]

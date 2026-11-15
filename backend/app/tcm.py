@@ -101,12 +101,14 @@ def search_tcm(symptoms: str, limit: int = 3,
 
     merged: list[tuple[float, dict[str, Any], list[str]]] = []
     for key, (hits, matched) in exact.items():
-        merged.append((hits * 1.0 + sims.get(key, 0.0) * 2.5, by_key[key], matched))
+        boost = float(by_key[key].get("priority", 0) or 0) * 0.6
+        merged.append((hits * 1.0 + sims.get(key, 0.0) * 2.5 + boost, by_key[key], matched))
     for item, score in semantic_results:
         key = str(item.get("id") or item.get("name"))
         if key in exact or score < 0.16 or not _allowed_entry(item):
             continue
-        merged.append((score * 2.5, item, []))
+        boost = float(item.get("priority", 0) or 0) * 0.6
+        merged.append((score * 2.5 + boost, item, []))
 
     organ_terms = {"鼻": ("鼻", "鼻炎", "鼻窦"), "咽": ("咽", "喉", "声音"),
                    "耳": ("耳", "耳鸣"), "眼": ("眼", "目", "视物")}
@@ -193,6 +195,15 @@ def recommend(symptoms: str, decision: str, tag: str | None = None,
                     break
                 if item.get("id") not in {x.get("id") for x in selected}:
                     selected.append(item)
+            # 少阳证线索：口苦、咽干、忽冷忽热、低热。小柴胡是这一类，
+            # 不适合所有喉咙痛，但应能在对应线索下被检索出来。
+            if any(term in (symptoms or "") for term in
+                   ("口苦", "忽冷忽热", "寒热往来", "一阵冷一阵热", "低烧", "低热")):
+                shaoyang = [i for i in matched if i.get("pattern_tag") == "少阳"]
+                if shaoyang:
+                    first = shaoyang[0]
+                    selected = [first] + [i for i in selected
+                                           if i.get("id") != first.get("id")][:4]
             return selected[:5]
         selected = patents[:3] + herbs[:2]
         if len(selected) < 4:

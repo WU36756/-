@@ -526,5 +526,146 @@
     "price_range": "约 5–15 元/支",
     "source": "FDA 药品标签 / 国内说明书（演示数据）",
     "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "acetylcysteine",
+    "name": "乙酰半胱氨酸",
+    "name_en": "acetylcysteine",
+    "matched_terms": [
+      "cough",
+      "phlegm"
+    ],
+    "indications": [
+      "痰液黏稠",
+      "咳痰困难"
+    ],
+    "dosage": "成人一次 200 mg，一日 2–3 次，按说明书使用",
+    "contraindications": "对本品过敏者禁用；哮喘患者慎用",
+    "cautions": "可能刺激气道；不要与强力镇咳药同时使用以免痰液滞留；胃溃疡患者慎用",
+    "price_range": "约 15–30 元/盒",
+    "source": "国内说明书 / FDA 标签（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "compound-paracetamol-amantadine",
+    "name": "复方氨酚烷胺胶囊",
+    "name_en": "compound paracetamol and amantadine",
+    "matched_terms": [
+      "cold",
+      "fever",
+      "headache",
+      "nasal congestion"
+    ],
+    "indications": [
+      "普通感冒",
+      "流感样症状",
+      "发热",
+      "头痛",
+      "鼻塞"
+    ],
+    "dosage": "成人一次 1 粒，一日 2 次，按说明书使用",
+    "contraindications": "严重肝肾功能不全者禁用；对本品过敏者禁用",
+    "cautions": "含对乙酰氨基酚：不要与其他复方感冒药叠加；服药后避免驾驶；高血压、甲亢、青光眼、前列腺增生者慎用",
+    "price_range": "约 8–18 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "处方/非处方身份以当地说明书为准"
+  },
+  {
+    "id": "phenol-mine",
+    "name": "酚麻美敏片",
+    "name_en": "phenylephrine/paracetamol/dextromethorphan/chlorpheniramine",
+    "matched_terms": [
+      "cold",
+      "fever",
+      "cough",
+      "nasal congestion"
+    ],
+    "indications": [
+      "普通感冒",
+      "发热",
+      "头痛",
+      "鼻塞",
+      "咳嗽"
+    ],
+    "dosage": "成人一次 1 片，每 6 小时一次，24 小时不超过 4 片，按说明书使用",
+    "contraindications": "严重高血压、冠心病、甲亢、青光眼、前列腺增生患者禁用或慎用；对本品过敏者禁用",
+    "cautions": "含对乙酰氨基酚和抗组胺药；避免与其他复方感冒药叠加；服药后不要驾驶",
+    "price_range": "约 10–20 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "处方/非处方身份以当地说明书为准"
+  },
+  {
+    "id": "cetylpyridinium",
+    "name": "西地碘含片",
+    "name_en": "cetylpyridinium iodide",
+    "matched_terms": [
+      "sore throat"
+    ],
+    "indications": [
+      "咽炎",
+      "咽痛",
+      "口腔溃疡"
+    ],
+    "dosage": "含服，一次 1 片，一日 3–5 次，按说明书使用",
+    "contraindications": "甲状腺疾病患者慎用；对碘过敏者禁用；孕妇及哺乳期慎用",
+    "cautions": "不宜长期连续使用；含服时不要咬碎",
+    "price_range": "约 8–15 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "dequalinium",
+    "name": "地喹氯铵含片",
+    "name_en": "dequalinium chloride",
+    "matched_terms": [
+      "sore throat"
+    ],
+    "indications": [
+      "急性咽炎",
+      "咽痛"
+    ],
+    "dosage": "含服，一次 1 片，每 2–3 小时一次，按说明书使用",
+    "contraindications": "对本品过敏者禁用",
+    "cautions": "不宜长期连续使用；症状持续 3 天应就医",
+    "price_range": "约 8–15 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "peg-4000",
+    "name": "聚乙二醇4000散",
+    "name_en": "polyethylene glycol 4000",
+    "matched_terms": [
+      "constipation"
+    ],
+    "indications": [
+      "功能性便秘"
+    ],
+    "dosage": "成人一次 1 袋，一日 1–2 次，溶于水后服用，按说明书使用",
+    "contraindications": "肠梗阻、肠穿孔、严重炎症性肠病禁用",
+    "cautions": "需足量饮水；长期使用应评估原因；腹痛呕吐应就医",
+    "price_range": "约 15–30 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
+  },
+  {
+    "id": "compound-digestive-enzyme",
+    "name": "复方消化酶胶囊",
+    "name_en": "compound digestive enzymes",
+    "matched_terms": [
+      "indigestion",
+      "bloating"
+    ],
+    "indications": [
+      "消化不良",
+      "腹胀",
+      "食欲不振"
+    ],
+    "dosage": "成人一次 1–2 粒，一日 3 次，餐后服用，按说明书使用",
+    "contraindications": "急性胰腺炎、对本品过敏者禁用",
+    "cautions": "不要与强酸药同服；持续腹痛、消瘦应就医",
+    "price_range": "约 15–30 元/盒",
+    "source": "国内说明书（演示数据）",
+    "source_note": "用法用量以实物说明书或医嘱为准"
   }
 ]
