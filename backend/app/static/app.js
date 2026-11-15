@@ -1652,21 +1652,29 @@ fetch('/api/config').then(response => response.json())
 
 function customConfig() {
   try {
-    const raw = sessionStorage.getItem(CUSTOM_STORE);
-    if (!raw) return null;
-    const data = JSON.parse(raw);
-    if (data && data.base && data.models && data.models.length) {
-      return { name: data.name || '自定义接口', base: data.base,
-               format: data.format || 'openai',
-               keys: Array.isArray(data.keys) ? data.keys : [],
-               models: data.models };
+    for (const storage of [window.localStorage, window.sessionStorage]) {
+      const raw = storage.getItem(CUSTOM_STORE);
+      if (!raw) continue;
+      const data = JSON.parse(raw);
+      if (data && data.base && data.models && data.models.length) {
+        return { name: data.name || '自定义接口', base: data.base,
+                 format: data.format || 'openai',
+                 keys: Array.isArray(data.keys) ? data.keys : [],
+                 models: data.models,
+                 remember: !!data.remember };
+      }
     }
   } catch (error) { /* ignore */ }
   return null;
 }
 
-function saveCustomConfig(config) {
-  sessionStorage.setItem(CUSTOM_STORE, JSON.stringify(config));
+function saveCustomConfig(config, remember) {
+  const payload = { ...config, remember: !!remember };
+  try {
+    window.sessionStorage.setItem(CUSTOM_STORE, JSON.stringify(payload));
+    if (remember) window.localStorage.setItem(CUSTOM_STORE, JSON.stringify(payload));
+    else window.localStorage.removeItem(CUSTOM_STORE);
+  } catch (error) { /* ignore storage quota/private mode */ }
 }
 
 function renderCusKeys() {
@@ -1701,6 +1709,7 @@ function openCustomModal() {
   document.querySelectorAll('#cusFormat button').forEach(button => {
     button.classList.toggle('active', button.dataset.fmt === cusFormatValue);
   });
+  document.getElementById('cusRemember').checked = config.remember !== false;
   document.getElementById('cusStatus').textContent = '';
   document.getElementById('cusFetch').innerHTML = '';
   renderCusKeys();
@@ -1828,8 +1837,9 @@ function activateCustom() {
   if (!base) { alert('请填写 API 地址'); return false; }
   if (!cusModelsArr.length) { alert('先拉取模型并勾选一个'); return false; }
   if (!cusKeysArr.length) { alert('至少添加一个 API 密钥'); return false; }
+  const remember = document.getElementById('cusRemember').checked;
   saveCustomConfig({ name, base, format: cusFormatValue,
-                     keys: cusKeysArr, models: cusModelsArr });
+                     keys: cusKeysArr, models: cusModelsArr }, remember);
   provider = 'custom';
   document.querySelectorAll('.modelSel').forEach(select => { select.value = 'custom'; });
   document.querySelectorAll('.modelSel option[value="custom"]').forEach(option => {
@@ -1875,6 +1885,7 @@ document.getElementById('testActivate').onclick = async () => {
 
 document.getElementById('clearCustom').onclick = () => {
   sessionStorage.removeItem(CUSTOM_STORE);
+  localStorage.removeItem(CUSTOM_STORE);
   cusKeysArr = [];
   cusModelsArr = [];
   document.getElementById('cusKey').value = '';
@@ -1884,6 +1895,16 @@ document.getElementById('clearCustom').onclick = () => {
   document.querySelectorAll('.modelSel').forEach(select => { select.value = 'mock'; });
   closeCustomModal();
 };
+
+(function restoreCustomChoice() {
+  const saved = customConfig();
+  if (!saved || !saved.keys || !saved.keys.length) return;
+  provider = 'custom';
+  document.querySelectorAll('.modelSel').forEach(select => { select.value = 'custom'; });
+  document.querySelectorAll('.modelSel option[value="custom"]').forEach(option => {
+    option.textContent = saved.name;
+  });
+})();
 
 
 document.getElementById('closeModelImport').onclick = () => {

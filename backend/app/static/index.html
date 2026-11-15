@@ -105,13 +105,19 @@
     <div id="cusModels" class="cus-list"></div>
     <div id="cusFetch" class="cus-list"></div>
 
+    <label class="cus-toggle" style="margin-top:10px">
+      <input type="checkbox" id="cusRemember" checked />
+      <span>记住密钥（仅保存在本浏览器）</span>
+    </label>
+    <p class="cus-hint" style="margin:2px 0 10px">勾选后会存入本浏览器的 localStorage，下次打开自动恢复；共用电脑请取消勾选。</p>
+
     <button class="primary" id="testActivate" type="button" style="width:100%;margin-top:12px">测试连接并激活</button>
     <div id="cusStatus" class="cus-hint" style="min-height:20px"></div>
 
     <div class="cus-row" style="margin-top:6px">
       <button id="clearCustom" type="button" class="cus-add" style="width:100%">清除配置</button>
     </div>
-    <p class="cus-hint" style="margin-top:10px">密钥只存在本机浏览器会话，不上传、不入库；平台会把症状文本发到该接口生成建议。</p>
+    <p class="cus-hint" style="margin-top:10px">密钥只保存在本机浏览器，不上传、不入库；勾选“记住密钥”时存 localStorage，不勾选只存当前标签页的 sessionStorage。</p>
   </div>
 </div>
 
@@ -331,6 +337,6 @@
   </div>
 </div>
 
-<script src="/static/app.js?v=20261114f" defer></script>
+<script src="/static/app.js?v=20261114g" defer></script>
 </body>
 </html>
