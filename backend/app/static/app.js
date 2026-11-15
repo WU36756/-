@@ -321,6 +321,29 @@ function bindSymptomConfirm(el, data) {
   });
 }
 
+function collapseFoodBlock(el) {
+  if (!el || el.dataset.foodCollapsed === '1') return;
+  const body = el.querySelector('.body');
+  if (!body) return;
+  const details = document.createElement('details');
+  details.style.cssText = 'border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:0 11px';
+  const summary = document.createElement('summary');
+  summary.style.cssText = 'cursor:pointer;padding:9px 0;font-size:13px;color:#475569';
+  summary.textContent = `上一次食物分析：${el.dataset.foodName || '食物'}（点击展开）`;
+  details.appendChild(summary);
+  while (body.firstChild) details.appendChild(body.firstChild);
+  body.appendChild(details);
+  el.dataset.foodCollapsed = '1';
+}
+
+function markFoodAnswer(el, name) {
+  el.dataset.kind = 'food';
+  el.dataset.foodName = name || '食物';
+  document.querySelectorAll('#thread .msg.assistant[data-kind="food"]').forEach(other => {
+    if (other !== el) collapseFoodBlock(other);
+  });
+}
+
 function chatAnswerHtml(data) {
   const customName = (() => {
     try { return (customConfig() || {}).name || '自定义模型'; }
@@ -468,14 +491,16 @@ async function send(text, isAnswer, silentUser, extra) {
       return;
     }
     if (data.kind === 'food') {
-      addAssistant(foodAnswerHtml(data));
+      const el = addAssistant(foodAnswerHtml(data));
+      markFoodAnswer(el, (data.analysis || {}).name || ((data.items || [])[0] || {}).name);
       state.lastTrace = data.trace || [];
       updateTraceFab();
       loadConversations();
       return;
     }
     if (data.kind === 'food_guide') {
-      addAssistant(foodGuideHtml(data));
+      const el = addAssistant(foodGuideHtml(data));
+      markFoodAnswer(el, '食物搭配');
       state.lastTrace = data.trace || [];
       updateTraceFab();
       loadConversations();
@@ -1109,15 +1134,25 @@ async function openConversation(conversationId) {
     (data.turns || []).forEach(turn => {
       addUser(turn.user_text || '');
       const kind = turn.result && turn.result.kind;
-      addAssistant(kind === 'symptom_confirm' ? symptomConfirmHtml(turn.result)
-        : kind === 'chat' ? chatAnswerHtml(turn.result)
-        : kind === 'food' ? foodAnswerHtml(turn.result)
-        : kind === 'food_guide' ? foodGuideHtml(turn.result)
-        : kind === 'psych' ? psychAnswerHtml(turn.result)
-        : kind === 'chitchat' ? chitchatAnswerHtml(turn.result)
-        : kind === 'clarify' ? clarifyAnswerHtml(turn.result)
-        : historyResultHtml(turn.result));
+      if (kind === 'food') {
+        const el = addAssistant(foodAnswerHtml(turn.result));
+        el.dataset.kind = 'food';
+        el.dataset.foodName = (turn.result.analysis || {}).name || '食物';
+      } else if (kind === 'food_guide') {
+        const el = addAssistant(foodGuideHtml(turn.result));
+        el.dataset.kind = 'food';
+        el.dataset.foodName = '食物搭配';
+      } else {
+        addAssistant(kind === 'symptom_confirm' ? symptomConfirmHtml(turn.result)
+          : kind === 'chat' ? chatAnswerHtml(turn.result)
+          : kind === 'psych' ? psychAnswerHtml(turn.result)
+          : kind === 'chitchat' ? chitchatAnswerHtml(turn.result)
+          : kind === 'clarify' ? clarifyAnswerHtml(turn.result)
+          : historyResultHtml(turn.result));
+      }
     });
+    const foodBlocks = [...document.querySelectorAll('#thread .msg.assistant[data-kind="food"]')];
+    foodBlocks.slice(0, -1).forEach(collapseFoodBlock);
     const last = (data.turns || [])[data.turns.length - 1];
     state.lastTrace = last ? (last.result.trace || []) : [];
     updateTraceFab();
