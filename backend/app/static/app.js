@@ -261,6 +261,35 @@ function detailsBlock(data) {
   return html;
 }
 
+function chatDrugList(data) {
+  const tcm = data.tcm || [];
+  const western = data.western || [];
+  if (!tcm.length && !western.length) return '';
+  const clean = value => esc(String(value || '').replace(/\s+/g, ' ').slice(0, 96));
+  const tcmCards = tcm.map(item => {
+    const tags = (item.tags || []).slice(0, 3).join(' · ');
+    const usage = item.dosage || item.usage || '';
+    return `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:9px;padding:8px 10px;min-width:0">
+      <div style="font-size:13.5px;font-weight:700;color:#0b1f4b">${esc(item.name || '')}${tags ? `<span style="font-weight:400;font-size:10.5px;color:#64748b;margin-left:6px">${esc(tags)}</span>` : ''}</div>
+      ${usage ? `<div style="font-size:11.5px;color:#475569;margin-top:4px;line-height:1.55">用法：${clean(usage)}</div>` : ''}
+      ${item.price_range ? `<div style="font-size:11px;color:#64748b;margin-top:3px">参考价：${esc(item.price_range)}</div>` : ''}
+    </div>`;
+  }).join('');
+  const westernCards = western.map(item => {
+    const tags = (item.tags || []).slice(0, 2).join(' · ');
+    return `<div style="background:#fff;border:1px solid #e2e8f0;border-radius:9px;padding:8px 10px;min-width:0">
+      <div style="font-size:13.5px;font-weight:700;color:#0b1f4b">${esc(item.name || '')}${tags ? `<span style="font-weight:400;font-size:10.5px;color:#64748b;margin-left:6px">${esc(tags)}</span>` : ''}</div>
+      ${item.dosage ? `<div style="font-size:11.5px;color:#475569;margin-top:4px;line-height:1.55">用法：${clean(item.dosage)}</div>` : ''}
+      ${item.price_range ? `<div style="font-size:11px;color:#64748b;margin-top:3px">参考价：${esc(item.price_range)}</div>` : ''}
+    </div>`;
+  }).join('');
+  return `<div style="margin-top:14px;border:1px solid #dbe6f5;border-radius:12px;padding:11px 13px;background:#f7faff">
+    <div style="font-size:13px;font-weight:700;color:#001eb8;margin-bottom:8px">本次涉及的药品 · ${tcm.length} 种中药 / ${western.length} 种西药</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px">${tcmCards}${westernCards}</div>
+    <div style="font-size:10.5px;color:#94a3b8;margin-top:8px">仅列本次匹配到的药品；具体用法、禁忌和相互作用请展开“完整报告 / 证据”核对。</div>
+  </div>`;
+}
+
 function chatAnswerHtml(data) {
   const providerLabel = data.provider === 'deepseek' ? 'DeepSeek 撰写'
     : data.provider === 'mock-fallback' ? '模型降级 · 内置知识'
@@ -273,6 +302,7 @@ function chatAnswerHtml(data) {
     : '';
   const replyHtml = esc(data.chat_reply || '').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.9;font-size:16.5px">${replyHtml}</div>`
+    + chatDrugList(data)
     + `<div class="chat-meta" style="margin-top:10px;font-size:12px;color:#64748b">`
     + `<span class="tag" title="本次是否调用大模型：DeepSeek 撰写 / 内置降级 / 本地安全规则">${esc(providerLabel)}</span>`
     + (sources ? `<div style="margin-top:6px;line-height:1.7">${sources}</div>` : '')
