@@ -363,8 +363,14 @@ function chatAnswerHtml(data) {
   const resolutionNote = data.resolution_note
     ? `<div style="margin-top:9px;padding:8px 10px;border-radius:8px;background:#f1f5f9;color:#475569;font-size:12.5px">${esc(data.resolution_note)}</div>`
     : '';
+  const foodHtml = data.analysis
+    ? `<div style="margin-top:12px">${foodCard(data.analysis)}</div>`
+    : (Array.isArray(data.items) && data.items.length
+      ? `<div style="margin-top:12px">${data.items.map(foodCard).join('')}</div>`
+      : (data.sections ? `<div style="margin-top:12px">${foodGuideHtml(data)}</div>` : ''));
   return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.9;font-size:16.5px">${replyHtml}</div>`
     + resolutionNote
+    + foodHtml
     + chatDrugList(data)
     + `<div class="chat-meta" style="margin-top:10px;font-size:12px;color:#64748b">`
     + `<span class="tag" title="本次是否调用大模型：DeepSeek 撰写 / 内置降级 / 本地安全规则">${esc(providerLabel)}</span>`
