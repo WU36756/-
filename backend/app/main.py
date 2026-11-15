@@ -596,7 +596,25 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
                  api_format: str = "openai",
                  specialist: str | None = None,
                  fresh_context: bool = False) -> dict:
-    scope = chat_mode.scope(symptoms, force_intent)
+    history = [] if fresh_context else (
+        conversations.recent_dialogue(conversation_id, 8) if conversation_id else []
+    )
+    last_assistant = ""
+    for turn in reversed(history):
+        if turn.get("role") == "assistant":
+            last_assistant = str(turn.get("content") or "")
+            break
+    follow_up = bool(last_assistant and ("？" in last_assistant or "?" in last_assistant))
+    context_intent = None
+    if follow_up:
+        context_text = "；".join(
+            str(turn.get("content") or "") for turn in history if turn.get("role") == "user"
+        )
+        candidate = router.rules(context_text).get("intent")
+        if candidate in ("medical", "psych", "food"):
+            context_intent = candidate
+    scope = chat_mode.scope(symptoms, force_intent, follow_up=follow_up,
+                            context_intent=context_intent)
     if scope["action"] == "refuse":
         return _chat_result(None, chat_mode.refusal_text(), "local",
                             intent={"intent": "off_topic", "confidence": 0.95,
@@ -650,14 +668,12 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
         return _chat_result(base, chat_mode.local_reply(base), "mock",
                             "model client unavailable", intent=base.get("intent"))
 
-    history = [] if fresh_context else (
-        conversations.recent_dialogue(conversation_id, 8) if conversation_id else []
+    messages = chat_mode.prompt_messages(
+        symptoms, base, history, profile_store.get(),
+        meds.list_active(), [],
     )
     try:
-        reply = client.chat(chat_mode.prompt_messages(
-            symptoms, base, history, profile_store.get(),
-            meds.list_active(), memory.recent_notes(5),
-        ))
+        reply = client.chat(messages)
     except Exception as error:
         return _chat_result(base, chat_mode.local_reply(base), "mock-fallback",
                             f"model unavailable: {str(error)[:200]}",
@@ -665,6 +681,30 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
     if not (reply or "").strip():
         return _chat_result(base, chat_mode.local_reply(base), "mock-fallback",
                             "model returned empty content", intent=base.get("intent"))
+    evidence_text = "；".join(
+        [symptoms]
+        + [str(turn.get("content") or "") for turn in history if turn.get("role") == "user"]
+        + [str(value) for value in (answers or {}).values()]
+        + [json.dumps(profile_store.get(), ensure_ascii=False)]
+        + [json.dumps([item.get("name") for item in meds.list_active()], ensure_ascii=False)]
+    )
+    if chat_mode.unsupported_assertion(reply, evidence_text):
+        retry_messages = messages + [
+            {"role": "assistant", "content": reply[:3000]},
+            {"role": "user", "content": (
+                "你上一版写入了用户没有报告的症状。请重写：只依据当前对话和平台事实，"
+                "不要写用户有腹泻/呕吐/发热等未提及症状；信息不足就追问。"
+            )},
+        ]
+        try:
+            retry = client.chat(retry_messages)
+        except Exception:
+            retry = ""
+        if retry and not chat_mode.unsupported_assertion(retry, evidence_text):
+            return _chat_result(base, retry, provider, intent=base.get("intent"))
+        return _chat_result(base, chat_mode.local_reply(base), "mock-fallback",
+                            "model introduced a symptom that the user did not report",
+                            intent=base.get("intent"))
     return _chat_result(base, reply, provider, intent=base.get("intent"))
 
 

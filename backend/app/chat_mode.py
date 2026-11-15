@@ -9,6 +9,7 @@ model is unavailable.
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 from . import router
@@ -25,7 +26,7 @@ HEALTH_CUES = (
 OFF_TOPIC = (
     "代码", "编程", "python", "java", "作业", "论文", "翻译", "股票", "基金",
     "比特币", "政治", "新闻", "合同", "法律", "旅游", "电影", "游戏", "星座",
-    "彩票", "英语", "数学", "物理", "化学", "写个程序", "帮我写", "做ppt",
+    "彩票", "英语", "数学", "物理", "化学", "写个程序", "帮我写", "做ppt", "天气",
     "做表格", "简历", "情书", "娱乐", "明星",
 )
 
@@ -44,12 +45,15 @@ CHAT_SYSTEM = """你是「健康助手」的健康对话机器人，只服务三
 - 只使用「平台事实」中的药物、剂量、来源；引用来源时用 [1][2] 对应来源列表。
 - 先自然回应用户，再给 2-4 条可执行建议；信息不足时最多追问 1 个关键问题（位置、持续时间、能否承重、伴随症状等）。
 - 用户换部位/换话题时，不要沿用旧部位；以当前消息为准。
+- 用户没有提到的症状、疾病、药名，绝对不要写成用户有；只能写成‘如果出现……’的假设句。
 - 语气像真人健康助手，简洁、具体、有同理心；不要输出 JSON、大标题堆砌或无关免责声明。
 - 不要使用 Markdown 加粗（**）、标题（#）或表格；用自然段落和短横线即可。
 - 结尾用一句话说明“信息参考，不替代面诊”。"""
 
 
-def scope(text: str, force_intent: str | None = None) -> dict[str, Any]:
+def scope(text: str, force_intent: str | None = None,
+          follow_up: bool = False,
+          context_intent: str | None = None) -> dict[str, Any]:
     """Return allowed / clarify / refuse / smalltalk with a deterministic gate."""
     raw = (text or "").strip()
     low = raw.lower()
@@ -72,7 +76,64 @@ def scope(text: str, force_intent: str | None = None) -> dict[str, Any]:
     # clarify / unknown
     if health_hit and not off_hit:
         return {"action": "clarify", "intent": "clarify", "decision": decision}
+    # A short answer to the assistant's previous question is part of the same
+    # health conversation, even when the answer alone has no symptom keyword.
+    # The last assistant turn must have asked a question (checked in main.py).
+    if follow_up and not off_hit and len(low) <= 60:
+        return {"action": "allowed", "intent": context_intent or "medical",
+                "decision": {"intent": context_intent or "medical", "confidence": 0.65,
+                             "reason": "用户在回答上一轮追问"}}
     return {"action": "refuse", "intent": "off_topic", "decision": decision}
+
+
+SYMPTOM_TERMS = (
+    "腹泻", "拉肚子", "窜稀", "呕吐", "恶心", "发烧", "发热", "高热", "咳嗽",
+    "咳痰", "头痛", "头疼", "头晕", "胸痛", "胸闷", "气短", "呼吸困难",
+    "出血", "便血", "皮疹", "瘙痒", "便秘", "失眠", "心慌", "心悸",
+    "腹痛", "肚子痛", "胃痛", "关节痛", "腰痛", "乏力", "水肿", "麻木",
+)
+
+_ASSERTED = re.compile(
+    r"(?:你|您)(?:还|也|之前|刚才|最近)?(?:提到|说|有|伴有|出现|存在|同时有)"
+    r"(?:过)?[^。；\n]{0,16}(?P<term>" + "|".join(map(re.escape, SYMPTOM_TERMS)) + r")"
+)
+
+# "既然同时有腹泻" / "同时有腹泻" do not include a second-person pronoun.
+_ASSERTED_ANY = re.compile(
+    r"(?:既然|结合|同时|还|也|并且|而且)?(?:同时|还|也)?有"
+    r"(?P<term>" + "|".join(map(re.escape, SYMPTOM_TERMS)) + r")"
+)
+
+_HYPOTHETICAL = ("如果", "若", "要是", "万一", "可能", "是否", "有没有",
+                 "没有", "没", "无", "假如", "假设", "担心")
+
+
+def unsupported_assertion(reply: str, evidence_text: str) -> bool:
+    """Reject a model claim that the user has a symptom absent from the record."""
+    evidence = evidence_text or ""
+    text = reply or ""
+    for match in _ASSERTED.finditer(text):
+        term = match.group("term")
+        between = text[match.start():match.start("term")]
+        if "没有" in between or "无" in between:
+            continue
+        suffix = text[match.end():match.end() + 3]
+        if "吗" in suffix or "？" in suffix or "?" in suffix:
+            continue
+        if term not in evidence:
+            return True
+    for match in _ASSERTED_ANY.finditer(text):
+        term = match.group("term")
+        prefix = text[max(0, match.start() - 10):match.start()]
+        between = text[match.start():match.start("term")]
+        suffix = text[match.end():match.end() + 3]
+        if any(word in prefix or word in between for word in _HYPOTHETICAL):
+            continue
+        if "吗" in suffix or "？" in suffix or "?" in suffix:
+            continue
+        if term not in evidence:
+            return True
+    return False
 
 
 def refusal_text() -> str:
