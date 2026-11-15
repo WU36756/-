@@ -264,7 +264,7 @@ function detailsBlock(data) {
 function chatAnswerHtml(data) {
   const providerLabel = data.provider === 'deepseek' ? 'DeepSeek 撰写'
     : data.provider === 'mock-fallback' ? '模型降级 · 内置知识'
-    : data.provider === 'mock' ? '内置演示' : '本地规则';
+    : data.provider === 'mock' ? '内置演示' : '本地规则（未调用模型）';
   const sources = (data.sources || []).slice(0, 6).map((src, index) =>
     `<a href="${esc(src.url)}" target="_blank" rel="noopener">[${index + 1}] ${esc(src.title)}</a>`
   ).join(' · ');
@@ -274,7 +274,7 @@ function chatAnswerHtml(data) {
   const replyHtml = esc(data.chat_reply || '').replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
   return `<div class="chat-reply" style="white-space:pre-wrap;line-height:1.8;font-size:14.5px">${replyHtml}</div>`
     + `<div class="chat-meta" style="margin-top:10px;font-size:12px;color:#64748b">`
-    + `<span class="tag">${esc(providerLabel)}</span>`
+    + `<span class="tag" title="本次是否调用大模型：DeepSeek 撰写 / 内置降级 / 本地安全规则">${esc(providerLabel)}</span>`
     + (sources ? `<div style="margin-top:6px;line-height:1.7">${sources}</div>` : '')
     + `</div>`
     + '<div class="ai-note">本回答由 AI 生成，内容仅供参考，请仔细甄别</div>'
