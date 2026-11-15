@@ -1704,6 +1704,38 @@ function customConfig() {
   return null;
 }
 
+function updateCustomOption() {
+  const saved = customConfig();
+  const has = !!(saved && Array.isArray(saved.keys) && saved.keys.length);
+  document.querySelectorAll('.modelSel option[value="custom"]').forEach(option => {
+    option.textContent = has ? (saved.name || '自定义接口') : '自定义接口';
+    option.hidden = !has;
+  });
+  document.querySelectorAll('.model-remove').forEach(button => {
+    button.style.display = has ? 'inline-flex' : 'none';
+  });
+}
+
+function removeCustomProvider() {
+  const saved = customConfig();
+  if (!saved) return;
+  if (!confirm(`删除自定义接口「${saved.name || '自定义接口'}」？\n密钥和配置会一起清空。`)) return;
+  try {
+    localStorage.removeItem(CUSTOM_STORE);
+    sessionStorage.removeItem(CUSTOM_STORE);
+  } catch (error) { /* ignore */ }
+  cusKeysArr = [];
+  cusModelsArr = [];
+  const keyInput = document.getElementById('cusKey');
+  if (keyInput) keyInput.value = '';
+  provider = 'mock';
+  document.querySelectorAll('.modelSel').forEach(select => { select.value = 'mock'; });
+  updateCustomOption();
+  renderCusKeys();
+  renderCusModels();
+  closeCustomModal();
+}
+
 function saveCustomConfig(config, remember) {
   const payload = { ...config, remember: !!remember };
   try {
@@ -1881,6 +1913,7 @@ function activateCustom() {
   document.querySelectorAll('.modelSel option[value="custom"]').forEach(option => {
     option.textContent = name;
   });
+  updateCustomOption();
   closeCustomModal();
   return true;
 }
@@ -1934,14 +1967,14 @@ document.getElementById('clearCustom').onclick = () => {
 
 (function restoreCustomChoice() {
   const saved = customConfig();
+  updateCustomOption();
   if (!saved || !saved.keys || !saved.keys.length) return;
   provider = 'custom';
   document.querySelectorAll('.modelSel').forEach(select => { select.value = 'custom'; });
-  document.querySelectorAll('.modelSel option[value="custom"]').forEach(option => {
-    option.textContent = saved.name;
-  });
 })();
 
+
+document.querySelectorAll('.model-remove').forEach(button => { button.onclick = removeCustomProvider; });
 
 document.getElementById('closeModelImport').onclick = () => {
   document.getElementById('modelImportModal').classList.remove('open');
