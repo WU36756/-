@@ -604,15 +604,20 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
         if turn.get("role") == "assistant":
             last_assistant = str(turn.get("content") or "")
             break
-    follow_up = bool(last_assistant and ("？" in last_assistant or "?" in last_assistant))
-    context_intent = None
-    if follow_up:
-        context_text = "；".join(
-            str(turn.get("content") or "") for turn in history if turn.get("role") == "user"
-        )
-        candidate = router.rules(context_text).get("intent")
-        if candidate in ("medical", "psych", "food"):
-            context_intent = candidate
+    context_text = "；".join(
+        str(turn.get("content") or "") for turn in history if turn.get("role") == "user"
+    )
+    candidate = router.rules(context_text).get("intent")
+    context_intent = candidate if candidate in ("medical", "psych", "food") else None
+    follow_cues = ("这个", "那", "它", "还", "继续", "补充", "另外", "怎么",
+                   "多久", "几天", "严重", "要紧", "需要", "可以", "会不会",
+                   "有没有", "怎么办", "然后呢", "是吗")
+    asked_question = bool(last_assistant and ("？" in last_assistant or "?" in last_assistant))
+    short_follow_up = bool(
+        context_intent and len((symptoms or "").strip()) <= 30
+        and any(cue in (symptoms or "") for cue in follow_cues)
+    )
+    follow_up = asked_question or short_follow_up
     scope = chat_mode.scope(symptoms, force_intent, follow_up=follow_up,
                             context_intent=context_intent)
     if scope["action"] == "refuse":
