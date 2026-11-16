@@ -635,6 +635,17 @@ def _merge_bases(primary: dict, secondary: dict) -> dict:
     return merged
 
 
+def _previous_health_text(conversation_id: str, current: str) -> str:
+    """Latest earlier health message, used to ground a one-line follow-up answer."""
+    for text in reversed(conversations.recent_user_texts(conversation_id, 6)):
+        item = (text or "").strip()
+        if not item or item == (current or "").strip():
+            continue
+        if router.rules(item).get("intent") in ("medical", "psych", "food"):
+            return item
+    return ""
+
+
 def _previous_body_symptom(conversation_id: str, current: str) -> str:
     """Find the latest earlier medical symptom that referred to another body part."""
     current_parts = _body_parts(current)
@@ -723,7 +734,12 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
     context_intent = candidate if candidate in ("medical", "psych", "food") else None
     follow_cues = ("这个", "那", "它", "还", "继续", "补充", "另外", "怎么",
                    "多久", "几天", "严重", "要紧", "需要", "可以", "会不会",
-                   "有没有", "怎么办", "然后呢", "是吗")
+                   "有没有", "怎么办", "然后呢", "是吗",
+                   # Common one-line answers to the assistant's previous question.
+                   "清水", "黄色", "黄稠", "白色", "清稀", "稠", "稀", "干", "有痰",
+                   "没痰", "没有痰", "一天", "两天", "三天", "一周", "左边", "右边",
+                   "上腹", "下腹", "肚子", "有点", "轻微", "偶尔", "经常", "是的",
+                   "不是", "没有", "不发烧", "没发烧", "有发热")
     asked_question = bool(last_assistant and ("？" in last_assistant or "?" in last_assistant))
     short_follow_up = bool(
         context_intent and len((symptoms or "").strip()) <= 30
@@ -746,10 +762,23 @@ def _chat_answer(symptoms: str, provider: str | None, answers: dict | None,
                             intent={"intent": "chitchat", "confidence": 0.9,
                                     "reason": "问候/能力询问"})
 
+    # Short answers such as "清水样的" or "两天了" should ground the analysis in
+    # the previous health message, not be parsed as a brand-new symptom.
+    base_symptoms = symptoms
+    symptom_terms = ("痛", "疼", "发烧", "发热", "咳", "痰", "吐", "泻", "晕",
+                     "肿", "血", "呼吸困难", "胸痛", "心慌", "失眠", "焦虑",
+                     "抑郁", "压力")
+    if (follow_up and not confirm_handled and not _body_parts(symptoms)
+            and len((symptoms or "").strip()) <= 30
+            and not any(term in (symptoms or "") for term in symptom_terms)):
+        previous_health = _previous_health_text(conversation_id or "", symptoms)
+        if previous_health:
+            base_symptoms = previous_health
+
     # Get the deterministic evidence first.  provider=mock means this is local
     # and does not spend another model call.
     base = _route_and_answer(
-        symptoms, provider="mock", answers=answers,
+        base_symptoms, provider="mock", answers=answers,
         conversation_id=conversation_id, force_intent=force_intent,
         api_base=api_base, api_model=api_model, api_key=api_key,
         api_models=api_models, api_format=api_format, specialist=specialist,
