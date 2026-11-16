@@ -1333,7 +1333,9 @@ async function openProfile(refreshOnly) {
   const profile = (await (await fetch('/api/profile')).json()).profile || {};
   document.getElementById('pfAge').value = profile.age || '';
   document.getElementById('pfSex').value = profile.sex || '';
-  document.getElementById('pfPregnant').checked = !!profile.pregnant;
+  const pregnantBox = document.getElementById('pfPregnant');
+  pregnantBox.disabled = (profile.sex || '') !== 'female';
+  pregnantBox.checked = (profile.sex || '') === 'female' && !!profile.pregnant;
   document.getElementById('pfAllergies').value = (profile.allergies || []).join(',');
   document.getElementById('pfDietPref').value = profile.diet_pref || '';
   document.getElementById('pfMealStyle').value = profile.meal_style || '';
@@ -1374,10 +1376,46 @@ async function saveProfile() {
 }
 
 document.getElementById('clearNotes').onclick = async () => {
-  if (!confirm('清空所有“上次记录”？已记住的过敏/慢病不受影响。')) return;
+  if (!confirm('只清除“上次对话摘要”，不会删除个人资料、药品和计划。继续吗？')) return;
   await fetch('/api/memory/notes', { method: 'DELETE' });
-  document.getElementById('pfStatus').textContent = '已清空上次记录';
+  await loadMemoryList();
+  document.getElementById('pfStatus').textContent = '已清除记忆摘要';
 };
+document.getElementById('demoReset').onclick = async () => {
+  if (!confirm('重置会清空当前浏览器空间里的对话、个人资料、药品、计划和记忆，并恢复演示账号。确定继续吗？')) return;
+  const status = document.getElementById('pfStatus');
+  try {
+    const response = await fetch('/api/demo/reset', { method: 'POST' });
+    if (!response.ok) {
+      const detail = await response.json().catch(() => ({}));
+      status.style.color = '#b91c1c';
+      status.textContent = detail.detail || ('重置失败：HTTP ' + response.status);
+      return;
+    }
+    state.conversationId = null;
+    state.symptoms = '';
+    state.answers = {};
+    state.answerLabels = {};
+    document.getElementById('thread').innerHTML = '';
+    document.body.classList.remove('chat');
+    document.getElementById('profileModal').classList.remove('open');
+    await loadConversations();
+    await openProfile();
+    status.style.color = '#0f766e';
+    status.textContent = '已重置为演示账号：30 岁女性，两条演示药品';
+  } catch (error) {
+    status.style.color = '#b91c1c';
+    status.textContent = '重置失败：' + error.message;
+  }
+};
+
+document.getElementById('pfSex').onchange = () => {
+  const box = document.getElementById('pfPregnant');
+  const female = document.getElementById('pfSex').value === 'female';
+  box.disabled = !female;
+  if (!female) box.checked = false;
+};
+
 document.getElementById('saveProfile').onclick = saveProfile;
 document.getElementById('closeProfile').onclick = () => document.getElementById('profileModal').classList.remove('open');
 document.getElementById('profileModal').onclick = event => {
@@ -1758,8 +1796,10 @@ async function testPush() {
   status.textContent = `已发送：成功 ${result.sent}，失败 ${result.failed}，订阅 ${result.subscriptions}`;
 }
 
-document.getElementById('enablePush').onclick = enablePush;
-document.getElementById('testPush').onclick = testPush;
+const enablePushButton = document.getElementById('enablePush');
+const testPushButton = document.getElementById('testPush');
+if (enablePushButton) enablePushButton.onclick = enablePush;
+if (testPushButton) testPushButton.onclick = testPush;
 
 /* --- 自定义模型接口（OpenAI / Anthropic） --- */
 const CUSTOM_STORE = 'health-custom-api';
