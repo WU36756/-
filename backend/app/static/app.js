@@ -1837,8 +1837,11 @@ function updateCustomOption() {
     option.textContent = has ? (saved.name || '自定义接口') : '自定义接口';
     option.hidden = !has;
   });
-  document.querySelectorAll('.model-remove').forEach(button => {
-    button.style.display = has ? 'inline-flex' : 'none';
+  document.querySelectorAll('.modelSel').forEach(select => {
+    const button = select.parentElement.querySelector('.model-remove');
+    if (!button) return;
+    const show = has && select.value === 'custom';
+    button.style.display = show ? 'inline' : 'none';
   });
 }
 
@@ -2093,13 +2096,15 @@ document.getElementById('clearCustom').onclick = () => {
 
 (function restoreCustomChoice() {
   const saved = customConfig();
+  if (saved && saved.keys && saved.keys.length) {
+    provider = 'custom';
+    document.querySelectorAll('.modelSel').forEach(select => { select.value = 'custom'; });
+  }
   updateCustomOption();
-  if (!saved || !saved.keys || !saved.keys.length) return;
-  provider = 'custom';
-  document.querySelectorAll('.modelSel').forEach(select => { select.value = 'custom'; });
 })();
 
 
+document.querySelectorAll('.modelSel').forEach(select => { select.addEventListener('change', updateCustomOption); });
 document.querySelectorAll('.model-remove').forEach(button => { button.onclick = removeCustomProvider; });
 
 document.getElementById('closeModelImport').onclick = () => {
