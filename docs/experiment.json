@@ -1,25 +1,26 @@
 {
   "provider": "deepseek",
   "summary": {
-    "cases": 4,
+    "cases": 3,
     "baseline": {
-      "avg_latency_s": 5.33,
-      "avg_tokens": 676.25,
+      "avg_latency_s": 4.74,
+      "avg_tokens": 632.33,
       "avg_verifiability": 0.0,
-      "avg_review_findings": 4.25,
-      "red_flag_ok": 4,
+      "avg_review_findings": 4.33,
+      "red_flag_ok": 3,
       "disclaimers": 0
     },
     "multi": {
-      "avg_latency_s": 49.48,
-      "avg_tokens": 10744.75,
+      "avg_latency_s": 65.97,
+      "avg_tokens": 14326.33,
       "avg_verifiability": 1.0,
       "verifiability_cases": 3,
       "avg_review_findings": 0.0,
-      "red_flag_ok": 4,
-      "disclaimers": 4,
-      "avg_evidence": 5.75
-    }
+      "red_flag_ok": 3,
+      "disclaimers": 3,
+      "avg_evidence": 7.67
+    },
+    "note": "常规病例 n=3；胸痛/呼吸困难 1 例走红旗短路，单独列出，不混入常规平均。"
   },
   "rows": [
     {
@@ -194,5 +195,22 @@
         "trace_steps": 11
       }
     }
-  ]
+  ],
+  "emergency": {
+    "cases": 1,
+    "rows": [
+      {
+        "case": "chest-pain",
+        "symptoms": "胸痛，呼吸困难",
+        "baseline_latency_s": 7.11,
+        "multi_latency_s": 0.0,
+        "baseline_sources": 0,
+        "multi_sources": 0
+      }
+    ]
+  },
+  "all_cases": {
+    "cases": 4,
+    "note": "旧版汇总把急救短路的 0 秒也算进平均，容易误导，仅保留原始逐例供复核。"
+  }
 }

@@ -670,18 +670,24 @@ async function loadExperiment() {
     }
     const data = await response.json();
     const s = data.summary, b = s.baseline, m = s.multi;
-    sub.textContent = `模型 ${data.provider} · ${s.cases} 个用例 · 单 Agent 为一次模型调用（无工具/无审查）`;
+    const emergency = data.emergency || {};
+    sub.textContent = `模型 ${data.provider} · ${s.cases} 个常规用例 + ${emergency.cases || 0} 个急救病例（单列）· 单 Agent 是裸模型基线`;
     const rows = [
       ['平均耗时', b.avg_latency_s + ' s', m.avg_latency_s + ' s'],
       ['平均 token', b.avg_tokens, m.avg_tokens],
-      ['引用可核验率', Math.round(b.avg_verifiability * 100) + '%', Math.round(m.avg_verifiability * 100) + '%'],
+      ['编号可回溯率', Math.round(b.avg_verifiability * 100) + '%', Math.round(m.avg_verifiability * 100) + '%'],
       ['平均安全审查问题', b.avg_review_findings, m.avg_review_findings],
       ['含免责声明', b.disclaimers + '/' + s.cases, m.disclaimers + '/' + s.cases],
       ['红旗场景正确率', b.red_flag_ok + '/' + s.cases, m.red_flag_ok + '/' + s.cases],
     ];
+    const emergencyHtml = emergency.rows && emergency.rows.length
+      ? `<p class="sub" style="margin-top:10px">急救病例 ${emergency.cases} 个单列：${emergency.rows.map(r =>
+          `${esc(r.case)} 单 Agent ${r.baseline_latency_s}s / 多 Agent ${r.multi_latency_s}s（红旗短路，不混入常规平均）`).join('；')}</p>`
+      : '';
     box.innerHTML = '<table class="xtable"><tr><th>指标</th><th>单 Agent</th><th>多 Agent</th></tr>' +
       rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('') + '</table>' +
-      '';
+      emergencyHtml +
+      '<p class="sub" style="margin-top:10px">小样本案例研究：n=3，未做重复实验/置信区间；单 Agent 没有工具，编号可回溯率有指标构造偏差；审查为平台同规则自评。</p>';
   } catch (error) {
     box.innerHTML = '<p class="muted">加载失败：' + esc(error.message) + '</p>';
   }
@@ -1314,8 +1320,8 @@ async function openAblation() {
         : '')}<br>${esc(data.router
         ? `路由 Agent：${data.router.router_correct}/${data.router.cases}（${Math.round(data.router.router_accuracy * 100)}%），全当问诊基线 ${Math.round(data.router.always_medical_accuracy * 100)}%。`
         : '')}</p>
-      <p class="sub">去掉知识库后药物候选为 0；去掉并行后耗时约翻倍；去掉审查在模型路径才会暴露问题（见 docs/experiment.md）。</p>`;
-    sub.textContent = '6 个用例，provider=mock；审查价值用"注入错误"验证。';
+      <p class="sub">去掉知识库后药物候选为 0；去掉并行后耗时约翻倍；去掉审查在模型路径才会暴露问题。路由 12 条为团队自建标注集，无盲测；注入测试只覆盖 1 个用例、2 条错误。以上均为 Mock 小样本，不能外推为真实模型质量。</p>`;
+    sub.textContent = '6 个用例，provider=mock，单次运行；小样本、非显著性结论；审查价值用注入错误验证。';
   } catch (error) {
     body.innerHTML = '<p class="sub">还没有生成消融数据，请先运行 scripts/ablation.py。</p>';
     sub.textContent = '';
