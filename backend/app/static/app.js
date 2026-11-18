@@ -4,6 +4,12 @@ const thread = $('#thread');
 const state = { symptoms: '', answers: {}, busy: false, autoScroll: true, lastTrace: [], conversationId: null, answerLabels: {}, freshContext: false, chatMode: true };
 let provider = 'mock';
 
+function selectedProvider() {
+  const select = document.querySelector('.modelSel');
+  return select && ['mock', 'deepseek', 'custom'].includes(select.value)
+    ? select.value : provider;
+}
+
 function esc(t) {
   return String(t ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
@@ -392,6 +398,9 @@ async function analyze(symptoms, answers) {
 
 async function send(text, isAnswer, silentUser, extra) {
   if (state.busy || !text) return;
+  // Browser form restore can show "DeepSeek" without firing a change event;
+  // always trust the visible selector at send time.
+  provider = selectedProvider();
   let custom = null;
   if (provider === 'custom') {
     custom = customConfig();
