@@ -66,12 +66,12 @@ def scope(text: str, force_intent: str | None = None,
     if intent in ("medical", "psych", "food"):
         return {"action": "allowed", "intent": intent, "decision": decision}
     if intent == "chitchat":
+        if health_hit and not off_hit:
+            return {"action": "allowed", "intent": "medical", "decision": decision}
         if any(word in low for word in GREETING):
             return {"action": "smalltalk", "intent": "chitchat", "decision": decision}
         if off_hit and not health_hit:
             return {"action": "refuse", "intent": "off_topic", "decision": decision}
-        if health_hit:
-            return {"action": "allowed", "intent": "medical", "decision": decision}
         return {"action": "refuse", "intent": "off_topic", "decision": decision}
     # clarify / unknown
     if health_hit and not off_hit:

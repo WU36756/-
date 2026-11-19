@@ -50,19 +50,35 @@ def _hits(text: str, words: tuple[str, ...]) -> int:
     return sum(1 for word in words if word in text)
 
 
+HEALTH_HINTS = tuple(dict.fromkeys(
+    MEDICAL_WORDS + PSYCH_WORDS + FOOD_WORDS + (
+        "不舒服", "难受", "痛", "疼", "晕", "咳", "烧", "痒", "胀", "麻",
+        "失眠", "睡不着", "累", "乏力", "没劲", "没精神", "焦虑", "压力",
+        "心情", "减肥", "减脂", "营养", "热量",
+    )
+))
+
+
+def _has_health_signal(text: str) -> bool:
+    return any(word in text for word in HEALTH_HINTS)
+
+
 def rules(text: str) -> dict[str, Any]:
     text = (text or "").strip().lower()
     if any(word in text for word in ("自杀", "不想活", "活不下去", "自残", "割腕", "轻生",
                                      "想死", "结束生命", "伤害自己")):
         return {"intent": "psych", "confidence": 0.98, "reason": "出现危机相关表达"}
-    if any(word in text for word in GREETING) and len(text) <= 12:
-        return {"intent": "chitchat", "confidence": 0.9, "reason": "问候"}
-    if any(word in text for word in THANKS) and len(text) <= 12:
-        return {"intent": "chitchat", "confidence": 0.9, "reason": "道谢"}
-    if any(word in text for word in BYE) and len(text) <= 12:
-        return {"intent": "chitchat", "confidence": 0.9, "reason": "告别"}
-    if any(word in text for word in ABILITY):
-        return {"intent": "chitchat", "confidence": 0.9, "reason": "询问能力"}
+    # A greeting / thanks / goodbye should not swallow a symptom in the same
+    # sentence: "你好，我现在喉咙有点痛" is a medical question, not smalltalk.
+    if not _has_health_signal(text):
+        if any(word in text for word in GREETING) and len(text) <= 12:
+            return {"intent": "chitchat", "confidence": 0.9, "reason": "问候"}
+        if any(word in text for word in THANKS) and len(text) <= 12:
+            return {"intent": "chitchat", "confidence": 0.9, "reason": "道谢"}
+        if any(word in text for word in BYE) and len(text) <= 12:
+            return {"intent": "chitchat", "confidence": 0.9, "reason": "告别"}
+        if any(word in text for word in ABILITY):
+            return {"intent": "chitchat", "confidence": 0.9, "reason": "询问能力"}
     if "心里" in text and any(word in text for word in
                               ("累", "烦", "堵", "难受", "空", "委屈", "苦", "闷")):
         return {"intent": "psych", "confidence": 0.85,

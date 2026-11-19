@@ -390,6 +390,16 @@ def test_router_four_intents():
     assert router.rules("发烧，头痛")["intent"] == "medical"
 
 
+def test_greeting_does_not_swallow_symptom():
+    from app import chat_mode, router
+
+    assert router.rules("你好")["intent"] == "chitchat"
+    assert router.rules("你好，我现在喉咙有点痛")["intent"] == "medical"
+    assert router.rules("你好，喉咙痛")["intent"] == "medical"
+    assert router.rules("谢谢，我有点焦虑")["intent"] == "psych"
+    assert chat_mode.scope("你好，我现在喉咙有点痛")["action"] == "allowed"
+
+
 def test_crisis_risk_levels():
     from app import psych
 
