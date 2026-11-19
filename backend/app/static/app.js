@@ -305,9 +305,15 @@ function chatDrugList(data) {
       ${item.price_range ? `<div style="font-size:11px;color:#64748b;margin-top:3px">参考价：${esc(item.price_range)}</div>` : ''}
     </div>`;
   }).join('');
+  const warnings = [...(data.safety_warnings || []), ...(data.med_warnings || [])]
+    .filter((value, index, all) => value && all.indexOf(value) === index);
+  const warningHtml = warnings.length
+    ? `<div style="margin-top:9px;padding:8px 9px;border-radius:8px;background:#fff7ed;border:1px solid #fed7aa;font-size:11px;line-height:1.6;color:#9a3412">${warnings.map(esc).join('<br>')}</div>`
+    : '';
   return `<div style="margin-top:14px;border:1px solid #dbe6f5;border-radius:12px;padding:11px 13px;background:#f7faff">
     <div style="font-size:13px;font-weight:700;color:#001eb8;margin-bottom:8px">本次涉及的药品 · ${tcm.length} 种中药 / ${western.length} 种西药</div>
     <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px">${tcmCards}${westernCards}</div>
+    ${warningHtml}
     <div style="font-size:10.5px;color:#94a3b8;margin-top:8px">仅列本次匹配到的药品；具体用法、禁忌和相互作用请展开“完整报告 / 证据”核对。</div>
   </div>`;
 }

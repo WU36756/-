@@ -70,6 +70,36 @@ def apply(profile: dict[str, Any] | None,
     safe_tcm = [item for item in tcm if keep(item, "tcm")]
     safe_western = [item for item in western if keep(item, "western")]
 
+    # 感冒灵、维C银翘等复方中成药本身含对乙酰氨基酚。若同时推荐另一款
+    # 含同成分的复方/西药，用户按说明书叠加就可能过量；这里做一次去重。
+    apap_terms = ("感冒灵", "维C银翘", "复方氨酚烷胺", "酚麻美敏", "氨咖黄敏")
+    kept_tcm: list[dict[str, Any]] = []
+    apap_source = ""
+    for item in safe_tcm:
+        name = str(item.get("name") or "")
+        if any(term in name for term in apap_terms):
+            if apap_source:
+                excluded.append(f"{name}（与 {apap_source} 重复含对乙酰氨基酚）")
+                warnings.append(
+                    f"已避免重复：{apap_source} 与 {name} 都含对乙酰氨基酚，"
+                    "不要同时按两盒药服用。")
+                continue
+            apap_source = name
+        kept_tcm.append(item)
+    safe_tcm = kept_tcm
+    if apap_source:
+        deduped = []
+        for item in safe_western:
+            name = str(item.get("name") or "")
+            if "对乙酰氨基酚" in name:
+                excluded.append(f"{name}（与 {apap_source} 重复含对乙酰氨基酚）")
+                warnings.append(
+                    f"已避免重复：{apap_source} 已含对乙酰氨基酚，"
+                    "未再单独推荐对乙酰氨基酚；请勿自行叠加。")
+                continue
+            deduped.append(item)
+        safe_western = deduped
+
     if age is not None:
         if age < 18:
             warnings.append("未成年人用药剂量需按年龄/体重调整，请先咨询医生或药师。")

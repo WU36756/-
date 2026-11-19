@@ -444,6 +444,19 @@ def test_safety_allergy_excludes_drug():
     assert any("过敏" in line for line in result["warnings"])
 
 
+def test_safety_dedupes_acetaminophen_combo():
+    from app import safety
+
+    result = safety.apply(
+        {},
+        [{"name": "感冒灵颗粒"}, {"name": "维C银翘片"}],
+        [{"name": "对乙酰氨基酚"}, {"name": "布洛芬"}],
+    )
+    assert [item["name"] for item in result["tcm"]] == ["感冒灵颗粒"]
+    assert [item["name"] for item in result["western"]] == ["布洛芬"]
+    assert any("对乙酰氨基酚" in line for line in result["warnings"])
+
+
 def test_safety_condition_and_interaction():
     from app import safety
 
