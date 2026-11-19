@@ -5,9 +5,24 @@ const state = { symptoms: '', answers: {}, busy: false, autoScroll: true, lastTr
 let provider = 'mock';
 
 function selectedProvider() {
-  const select = document.querySelector('.modelSel');
-  return select && ['mock', 'deepseek', 'custom'].includes(select.value)
-    ? select.value : provider;
+  const selects = [...document.querySelectorAll('.modelSel')];
+  // Prefer the selector that is actually visible (hero before chat, dock after).
+  const select = selects.find(item => item.offsetParent !== null) || selects[0];
+  if (select && ['mock', 'deepseek', 'custom'].includes(select.value)) {
+    provider = select.value;
+    selects.forEach(item => { item.value = provider; });
+  }
+  return provider;
+}
+
+function selectedChatMode() {
+  const boxes = [...document.querySelectorAll('.chat-mode')];
+  const box = boxes.find(item => item.offsetParent !== null) || boxes[0];
+  if (box) {
+    state.chatMode = box.checked;
+    boxes.forEach(item => { item.checked = state.chatMode; });
+  }
+  return state.chatMode;
 }
 
 function esc(t) {
@@ -398,8 +413,9 @@ async function analyze(symptoms, answers) {
 
 async function send(text, isAnswer, silentUser, extra) {
   if (state.busy || !text) return;
-  // Browser form restore can show "DeepSeek" without firing a change event;
-  // always trust the visible selector at send time.
+  // Browser form restore can show "DeepSeek" / "health chat off" without
+  // firing a change event; always trust the visible controls at send time.
+  selectedChatMode();
   provider = selectedProvider();
   let custom = null;
   if (provider === 'custom') {
